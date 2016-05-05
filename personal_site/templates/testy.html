@@ -57,6 +57,11 @@
         padding-right: 40px;
         margin-top: 20px;
     }
+
+    .info-element{
+        padding:10px;
+    }
+
 </style>
 
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="256">
@@ -64,6 +69,10 @@
 <script type="application/javascript">
     testy_modal = function () {
         $("#test_popup").modal('show');
+    };
+
+    onClickInfoElement = function(){
+
     };
 </script>
 
@@ -103,7 +112,7 @@
             <div class="row">
                 <hr>
             </div>
-            <div id="section2" class="row">
+            <div id="section2" class="row central-content">
                 <h1>Section 2</h1>
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
                 <div class="row col-sm-12">
