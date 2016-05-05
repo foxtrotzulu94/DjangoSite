@@ -124,3 +124,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+
+if DEBUG:
+    MEDIA_ROOT = 'personal_site/static/personal_site/'  # TODO: Remove in production server
+if not DEBUG:
+    MEDIA_ROOT = '/var/www/javierfajardo.com/media'  # Use when in production
