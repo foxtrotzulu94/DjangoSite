@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- DISCLAIMER: There's a good reason why I'm not a Web Developer. You can see for yourself below -->
+
 {# This test html built off of http://www.w3schools.com/bootstrap/bootstrap_scrollspy.asp #}
 {% load staticfiles %}
 <head>
@@ -67,13 +69,15 @@
 
     .central-content{
         padding-top: 10px;
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 5%;
+        padding-right: 5%;
         margin-top: 20px;
     }
 
     .info-element{
-        padding:10px;
+        padding-left:10px;
+        padding-right:10px;
+        padding-bottom:10px;
     }
 
 </style>
@@ -92,15 +96,6 @@
         var displayItem = $('#display_item'); //The item to be constantly cloned
         var divToAppendTo = $('#project_div');
 
-{#        for(var i=0; i<13; ++i){#}
-{#            var newDisplayItem = displayItem.clone();#}
-{#            newDisplayItem.selector = displayItem.selector+i;#}
-{#            newDisplayItem.show();#}
-{#            newDisplayItem.click({param1: "Hello", param2: "World"},testy_modal);#}
-{#            divToAppendTo.append(newDisplayItem);#}
-{##}
-{#        }#}
-
         $.ajax({ //Ask if we can save this schedule
             type: 'get',
             url: "/data/projects",
@@ -117,7 +112,7 @@
                     newDisplayItem.selector = displayItem.selector+i;
                     var testy = $('#item_thumbnail',newDisplayItem);
                     testy.attr("src",'{{ MEDIA_URL }}'+modelFields["img"]);
-                    var title = $('h3',newDisplayItem);
+                    var title = $('#display_title',newDisplayItem);
                     title.html(modelFields["title"]);
                     newDisplayItem.show();
                     newDisplayItem.click({param1: modelFields["title"], param2: modelFields["summary"]},testy_modal);
@@ -135,97 +130,107 @@
 
         console.log( "done!!!" );
     });
-
-
-
-    onClickInfoElement = function(){
-
-    };
 </script>
 
 
 
 <div class="container">
     <div class="row">
-
-        <nav class="col-lg-1 col-md-2 col-sm-1" id="myScrollspy" style="margin-right:3%;">
-            <ul class="nav nav-pills nav-stacked">
+        <nav class="col-lg-2 col-md-2 col-sm-2" id="myScrollspy" style="margin-right:3%;">
+            <ul class="nav nav-pills nav-stacked" style="width: inherit; padding-right: 5%">
                 <li><img src="{% static 'personal_site/images/emotion.jpg' %}" width="140" height="140" class="img-rounded"></li>
+
                 <li style="margin-left:5px">
                     <h3>Javier E.<br>Fajardo</h3>
                 </li>
                 <li>
                     <h4>Software Developer</h4>
                 </li>
+
                 <li><br><br></li>
                 <li class="sidebuttons"><a href="#section1">Overview</a></li>
                 <li class="sidebuttons"><a href="#section2">Experience</a></li>
                 <li class="sidebuttons"><a href="#section3">Projects</a></li>
                 <li class="sidebuttons"><a href="#section4">Games</a></li>
-                <li class="sidebuttons"><a href="#section5">Interests</a></li>
+                <li class="sidebuttons"><a href="#section5">Hobbies</a></li>
                 <li class="sidebuttons"><a href="#section6">Contact</a></li>
             </ul>
         </nav>
-        <div class="col-lg-1 col-md-2"></div> {# Dummy Column to get the divs to play nice #}
-        <div class="col-lg-8 col-md-8 col-sm-10" style="margin-left:3%;">
+
+        <div class="col-lg-8 col-md-8 col-sm-8" style="margin-left:3%;">
             <div id="section0" class="row central-content top-most img-rounded" style="margin-top:-20px;background-color: rgba(0,0,0,0.5);color:#ffffff">
-                <div class="row">
+                <div>
                     <h1>Hey there, I'm Javier!</h1>
                 </div>
                 <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
                 <br><br>
             </div>
 
             <div id="section1" class="row central-content top-most img-rounded">
-                <div class="row">
-                    <h1>Section 1</h1>
-                </div>
                 <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h1>Overview</h1>
+                    <div class="info-element">
+                        {# Talk about languages, education and abilities #}
+                        <h3>I'm a 4th Computer Engineering student at <a>Concordia University</a> in Montreal, Canada about to graduate on May 2017.</h3>
+                            <p>CGPA 3.9/4.0 - Dean's List Student from 2012 to 2015 - Member of the Institute for Co-operative Education.</p>
+                        <h3>Student member of the <a>IGDA</a>, <a>IEEE</a> and <a>ACM</a>.</h3>
+                            <p>Interested in working with Computer Graphics, Computer Architecture and Operating Systems.</p>
+                        <h3>Fluent in Spanish and English. Can understand French.</h3>
+                            <p>Looking to learn Japanese in the near future...</p>
+                        <hr>
+                        <h3>Take a look at my <a href="{% static 'personal_site/files/resume.pdf' %}">Resume</a> for a highlight of my work and projects as a software developer.</h3>
+                    </div>
                 </div>
-                <br><br>
+                <br>
             </div>
 
             <div id="section2" class="row central-content img-rounded">
-                <h1>Section 2</h1>
-                <p>Try to scroll this page and look at the navigation list while scrolling!</p>
-                <div class="row col-sm-12 center-block" id="experience_div">
-
+                <div>
+                    <h1>Experience</h1>
+                    <div class="info-element">
+                        <h3>[Programming languages I've extensively used]</h3>
+                            <p>[APIs]</p>
+                            <p>[Applications]</p>
+                        <p>Try to scroll this page and look at the navigation list while scrolling!</p>
+                        <hr>
+                        <h2>Professional</h2>
+                            <div id="experience_div">
+                                {% include 'rowitem.html' %}
+                            </div>
+                        <hr>
+                        <h2>Extracurricular</h2>
+                    </div>
                 </div>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
             <div id="section3" class="row central-content img-rounded">
-                <h1>Section 3</h1>
+                <h1>Technical Projects</h1>
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
                 <div class="row col-sm-12" id="project_div" style="float: none;">
-                    <div id="loading"> <p>LOADING</p></div>
-{#                    {% for i in "xxxxxxxxxxxxxxxxxxxx" %}#}
-{#                        {% include "exp_item.html" %}#}
-{#                    {% endfor %}#}
+                    <div id="loading"><p>LOADING</p></div> {# TODO: loading .gif here #}
                 </div>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
             <div id="section4" class="row central-content img-rounded">
-                <h1>Section 4</h1>
+                <h1>Games</h1>
+                <p>[box cover of games]</p>
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
             <div id="section5" class="row central-content img-rounded">
-                <h1>Section 5</h1>
+                <h1>Hobbies & Interests</h1>
+                {# might need to tailor this one. No easy way of putting all of the pictures here #}
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
             <div id="section6" class="row central-content img-rounded">
-                <h1>Section 6</h1>
+                <h1>Contact Info</h1>
+                {# No electronic addresses #}
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
     </div>
 </div>
@@ -233,7 +238,7 @@
 </body>
 
 
-{# Things hidden from users #}
+{# Things that should be hidden from users #}
 
 {# Modal #}
 <div class="modal fade" id="test_popup" data-backdrop="static">
@@ -256,7 +261,7 @@
 </div><!-- /.modal -->
 
 {# DisplayItem #}
-{% include "exp_item.html" %}
+{% include "displayitem.html" %}
 
 
 </html>

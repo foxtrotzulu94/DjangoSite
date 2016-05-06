@@ -1,0 +1,16 @@
+{# Small block element used to display elements that would normally take a whole row #}
+{% load staticfiles %}
+<div class="row img-rounded" id="row_item" style="background-color: rgba(0,0,0,0.3); padding-top: 2%;padding-bottom: 2%">
+    <div class="col-lg-4 col-md-4 col-sm-6" id="inner_div">
+        <img src="{% static 'personal_site/images/testpic.jpg' %}" class="img-rounded img-responsive" id="item_thumbnail">
+{#        <h4 id="display_title">Testy</h4>#}
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-6">
+        <div class="row">
+            <h2 style="margin-top: -5px">Title</h2>
+        </div>
+
+    <h3 style="margin-top: -5px">Location</h3>
+    </div>
+
+</div>

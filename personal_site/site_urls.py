@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^ajaj', ajaj),
     # url(r'^/', HttpResponseForbidden)
     url(r'^data/projects', list_projects),
-    # url(r'^data/projects/?P<deptnum>[A-z]{4}[0-9]{3}',), # TODO: fill this in
+    # url(r'^data/projects/?P<project>[A-z]{4}[0-9]{3}',), # TODO: fill this in
     # url(r'^data/games'),
     # url(r'^data/interests')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
