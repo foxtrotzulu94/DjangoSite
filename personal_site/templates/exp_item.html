@@ -1,8 +1,8 @@
 {# Small block element used to display Exp Items #}
 {% load staticfiles %}
 <div class="col-lg-3 col-md-4 col-sm-10 col-xs-12" style="opacity:1.0; display:none;" id="display_item">
-    <div class="row text-center info-element">
-        <img src="{% static 'personal_site/images/testpic.jpg' %}" class="img-thumbnail img-responsive">
-        <p>Testy</p>
+    <div class="row text-center info-element" id="inner_div">
+        <img src="{% static 'personal_site/images/testpic.jpg' %}" class="img-thumbnail img-responsive" id="item_thumbnail">
+        <h3>Testy</h3>
     </div>
 </div>

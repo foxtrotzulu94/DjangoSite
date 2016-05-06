@@ -22,6 +22,7 @@ def testy(request):
         'testy.html'
     )
 
+
 def ajaj(request):
     retVal = ExampleItem.objects.get(pk=1)
     if retVal is not None:
@@ -30,3 +31,11 @@ def ajaj(request):
         return HttpResponse(data)
     return HttpResponse('<body><p>ObjectNotFound</p></body>')
 
+
+def list_projects(request):
+    retVal = ExampleItem.objects.all()
+    if retVal is not None:
+        data = serializers.serialize("json", retVal)
+        print(data)
+        return HttpResponse(data)
+    return HttpResponse('<body><p>ObjectNotFound</p></body>')
