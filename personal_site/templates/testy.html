@@ -37,16 +37,27 @@
         height: 250px;
         font-size: 28px;
     }
-    #section1 {color: #fff; background-color: rgba(0,0,0,0.5); opacity: 1;}
-    #section2 {color: #fff; background-color: #673ab7; opacity: 0.6;}
-    #section3 {color: #fff; background-color: #ff9800; opacity: 0.6;}
-    #section4 {color: #fff; background-color: #00bcd4; opacity: 0.6;}
-    #section5 {color: #fff; background-color: #009688; opacity: 0.6;}
+    #section1 {color: #fff; background-color: rgba(77,101,141,0.45); opacity: 1;}
+{#    #section2 {color: #fff; background-color:rgba(21,44,85,0.75); opacity:0.6;}#}
+    #section2 {color: #fff; background-color:rgba(77,101,141,0.45);} {# This color seems better... #}
+    #section3 {color: #fff; background-color:rgba(21,44,85,0.45);}
+    #section4 {color: #fff; background-color:rgba(21,44,85,0.45);}
+    #section5 {color: #fff; background-color:rgba(21,44,85,0.45);}
+    #section6 {color: #fff; background-color:rgba(21,44,85,0.45);}
 
+{#    #section3 {color: #fff; background-color: rgba(77,101,141,0.75); opacity: 0.6;}#}
+{#    #section4 {color: #fff; background-color: rgba(5,24,56,0.75); opacity: 0.6;}#}
+{#    #section5 {color: #fff; background-color: #009688; opacity: 0.6;}#}
+
+    .sidebuttons{
+        border-radius: 6px;
+        margin: 10px;
+        background-color: rgba(77,101,141,0.15);
+    }
 
 
     @media screen and (max-width: 810px) {
-        #section1, #section2, #section3, #section4, #section5, #section6  { {# List of Sections #}
+        #section0, #section1, #section2, #section3, #section4, #section5, #section6  { {# List of Sections #}
             margin-left: 150px;
         }
     }
@@ -67,9 +78,60 @@
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="256">
 
 <script type="application/javascript">
-    testy_modal = function () {
+    testy_modal = function (event) {
         $("#test_popup").modal('show');
+        console.log( event.data.param1,event.data.param2 );
     };
+
+    $( document ).ready(function() {
+        console.log( "ready!" );
+        //Load all projects from Database
+        var displayItem = $('#display_item'); //The item to be constantly cloned
+        var divToAppendTo = $('#project_div');
+
+        for(var i=0; i<13; ++i){
+            var newDisplayItem = displayItem.clone();
+            newDisplayItem.selector = displayItem.selector+i;
+            newDisplayItem.show();
+            newDisplayItem.click({param1: "Hello", param2: "World"},testy_modal);
+            divToAppendTo.append(newDisplayItem);
+
+        }
+
+{#        $.ajax({ //Ask if we can save this schedule#}
+{#            type: 'post',#}
+{#            url: "/schedule_check/",#}
+{#            dataType: 'html',#}
+{#            data: {#}
+{#                'action_type': 'remove',#}
+{#                'deptnum': pk,#}
+{#                'csrfmiddlewaretoken': '{{ csrf_token }}'#}
+{#            },#}
+{#            success: function (data) {#}
+{#                $("#save_progress").modal('hide');#}
+{#                console.log(data.valueOf());#}
+{#                if(data.valueOf()=="True") {#}
+{#                    $("#schedule_saved").modal('show');#}
+{#                }#}
+{#                else {#}
+{#                   alert("An Error Occurred")#}
+{#                }#}
+{#            },#}
+{#            error: function(xhr, ajaxOptions, thrownError) {#}
+{#                if (xhr.status == 404 || xhr.status == 400) {#}
+{#                    $("#save_progress").modal('hide');#}
+{#                    alert(thrownError);#}
+{#                    console.log("ERROR!");#}
+{#                }#}
+{#            }#}
+{#        });#}
+
+        $('#loading').hide();
+
+        console.log( "done!!!" );
+    });
+
+
 
     onClickInfoElement = function(){
 
@@ -90,55 +152,68 @@
                 <li>
                     <h4>Software Developer</h4>
                 </li>
-                <li><a href="#section1">Overview</a></li>
-                <li><a href="#section2">Experience</a></li>
-                <li><a href="#section3">Projects</a></li>
-                <li><a href="#section4">Games</a></li>
-                <li><a href="#section5">Interests</a></li>
-                <li><a href="#section6">Contact</a></li>
+                <li class="sidebuttons img-rounded"><a href="#section1">Overview</a></li>
+                <li class="sidebuttons"><a href="#section2">Experience</a></li>
+                <li class="sidebuttons"><a href="#section3">Projects</a></li>
+                <li class="sidebuttons"><a href="#section4">Games</a></li>
+                <li class="sidebuttons"><a href="#section5">Interests</a></li>
+                <li class="sidebuttons"><a href="#section6">Contact</a></li>
             </ul>
         </nav>
         <div class="col-lg-8 col-md-8 col-sm-10" style="margin-left:3%;margin-right:-10px">
+            <div id="section0" class="row central-content top-most img-rounded" style="margin-top:-20px;background-color: rgba(0,0,0,0.5);color:#ffffff">
+                <div class="row">
+                    <h1>Hey there, I'm Javier!</h1>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <br><br>
+            </div>
+
             <div id="section1" class="row central-content top-most img-rounded">
                 <div class="row">
                     <h1>Section 1</h1>
                 </div>
                 <div>
-                    <p>Try to scroll this page and look at the navigation list while scrolling!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br>
             </div>
-            <div class="row">
-                <hr>
-            </div>
-            <div id="section2" class="row central-content">
+
+            <div id="section2" class="row central-content img-rounded">
                 <h1>Section 2</h1>
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
-                <div class="row col-sm-12">
-                    {% for i in "xxxxxxxxxxxxxxxxxxxx" %}
-                        {% include "exp_item.html" %}
-                    {% endfor %}
+                <div class="row col-sm-12 center-block" id="experience_div">
+
                 </div>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
-            <div id="section3" class="row">
+            <div id="section3" class="row central-content img-rounded">
                 <h1>Section 3</h1>
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
+                <div class="row col-sm-12 center-block" id="project_div" style="float: none;">
+                    <div id="loading"> <p>LOADING</p></div>
+{#                    {% for i in "xxxxxxxxxxxxxxxxxxxx" %}#}
+{#                        {% include "exp_item.html" %}#}
+{#                    {% endfor %}#}
+                </div>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
-            <div id="section4" class="row">
+            <div id="section4" class="row central-content img-rounded">
                 <h1>Section 4</h1>
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
-            <div id="section5" class="row">
+            <div id="section5" class="row central-content img-rounded">
                 <h1>Section 5</h1>
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
-            <div id="section6" class="row">
+            <div id="section6" class="row central-content img-rounded">
                 <h1>Section 6</h1>
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -148,7 +223,12 @@
     </div>
 </div>
 
+</body>
+
+
 {# Things hidden from users #}
+
+{# Modal #}
 <div class="modal fade" id="test_popup" data-backdrop="static">
     <div class="modal-dialog vertical-align-center">
         <div class="modal-content">
@@ -168,7 +248,8 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-</body>
+{# DisplayItem #}
+{% include "exp_item.html" %}
 
-</body>
+
 </html>
