@@ -5,7 +5,7 @@
 {% load staticfiles %}
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -23,6 +23,9 @@
         background-size: cover;
         background-attachment: fixed;
         background-color: rgba(10,10,10,10.5);
+
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .background{
@@ -142,10 +145,10 @@
 
 
 
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-lg-1"></div>
-        <nav class="col-lg-1 col-md-2 col-sm-1" id="myScrollspy">
+
+        <nav class="col-lg-1 col-md-2 col-sm-1" id="myScrollspy" style="margin-right:3%;">
             <ul class="nav nav-pills nav-stacked">
                 <li><img src="{% static 'personal_site/images/emotion.jpg' %}" width="140" height="140" class="img-rounded"></li>
                 <li style="margin-left:5px">
@@ -154,7 +157,8 @@
                 <li>
                     <h4>Software Developer</h4>
                 </li>
-                <li class="sidebuttons img-rounded"><a href="#section1">Overview</a></li>
+                <li><br><br></li>
+                <li class="sidebuttons"><a href="#section1">Overview</a></li>
                 <li class="sidebuttons"><a href="#section2">Experience</a></li>
                 <li class="sidebuttons"><a href="#section3">Projects</a></li>
                 <li class="sidebuttons"><a href="#section4">Games</a></li>
@@ -162,7 +166,8 @@
                 <li class="sidebuttons"><a href="#section6">Contact</a></li>
             </ul>
         </nav>
-        <div class="col-lg-8 col-md-8 col-sm-10" style="margin-left:3%;margin-right:-10px">
+        <div class="col-lg-1 col-md-2"></div> {# Dummy Column to get the divs to play nice #}
+        <div class="col-lg-8 col-md-8 col-sm-10" style="margin-left:3%;">
             <div id="section0" class="row central-content top-most img-rounded" style="margin-top:-20px;background-color: rgba(0,0,0,0.5);color:#ffffff">
                 <div class="row">
                     <h1>Hey there, I'm Javier!</h1>
@@ -196,7 +201,7 @@
             <div id="section3" class="row central-content img-rounded">
                 <h1>Section 3</h1>
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
-                <div class="row col-sm-12 center-block" id="project_div" style="float: none;">
+                <div class="row col-sm-12" id="project_div" style="float: none;">
                     <div id="loading"> <p>LOADING</p></div>
 {#                    {% for i in "xxxxxxxxxxxxxxxxxxxx" %}#}
 {#                        {% include "exp_item.html" %}#}
