@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                "django.core.context_processors.media",
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -129,5 +130,6 @@ MEDIA_URL = '/media/'
 
 if DEBUG:
     MEDIA_ROOT = 'personal_site/static/personal_site/'  # TODO: Remove in production server
+    MEDIA_URL = '/static/personal_site/'
 if not DEBUG:
     MEDIA_ROOT = '/var/www/javierfajardo.com/media'  # Use when in production

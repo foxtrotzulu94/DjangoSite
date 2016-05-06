@@ -89,44 +89,46 @@
         var displayItem = $('#display_item'); //The item to be constantly cloned
         var divToAppendTo = $('#project_div');
 
-        for(var i=0; i<13; ++i){
-            var newDisplayItem = displayItem.clone();
-            newDisplayItem.selector = displayItem.selector+i;
-            newDisplayItem.show();
-            newDisplayItem.click({param1: "Hello", param2: "World"},testy_modal);
-            divToAppendTo.append(newDisplayItem);
+{#        for(var i=0; i<13; ++i){#}
+{#            var newDisplayItem = displayItem.clone();#}
+{#            newDisplayItem.selector = displayItem.selector+i;#}
+{#            newDisplayItem.show();#}
+{#            newDisplayItem.click({param1: "Hello", param2: "World"},testy_modal);#}
+{#            divToAppendTo.append(newDisplayItem);#}
+{##}
+{#        }#}
 
-        }
+        $.ajax({ //Ask if we can save this schedule
+            type: 'get',
+            url: "/data/projects",
+            success: function (data) {
+                $('#loading').hide();
+                var result = JSON.parse(data);
 
-{#        $.ajax({ //Ask if we can save this schedule#}
-{#            type: 'post',#}
-{#            url: "/schedule_check/",#}
-{#            dataType: 'html',#}
-{#            data: {#}
-{#                'action_type': 'remove',#}
-{#                'deptnum': pk,#}
-{#                'csrfmiddlewaretoken': '{{ csrf_token }}'#}
-{#            },#}
-{#            success: function (data) {#}
-{#                $("#save_progress").modal('hide');#}
-{#                console.log(data.valueOf());#}
-{#                if(data.valueOf()=="True") {#}
-{#                    $("#schedule_saved").modal('show');#}
-{#                }#}
-{#                else {#}
-{#                   alert("An Error Occurred")#}
-{#                }#}
-{#            },#}
-{#            error: function(xhr, ajaxOptions, thrownError) {#}
-{#                if (xhr.status == 404 || xhr.status == 400) {#}
-{#                    $("#save_progress").modal('hide');#}
-{#                    alert(thrownError);#}
-{#                    console.log("ERROR!");#}
-{#                }#}
-{#            }#}
-{#        });#}
+                console.log(result.length);
+                console.log(result);
+                for(var i=0; i< result.length; ++i){
+                    var modelFields = result[i]["fields"];
 
-        $('#loading').hide();
+                    var newDisplayItem = displayItem.clone(true);
+                    newDisplayItem.selector = displayItem.selector+i;
+                    var testy = $('#item_thumbnail',newDisplayItem);
+                    testy.attr("src",'{{ MEDIA_URL }}'+modelFields["img"]);
+                    var title = $('h3',newDisplayItem);
+                    title.html(modelFields["title"]);
+                    newDisplayItem.show();
+                    newDisplayItem.click({param1: modelFields["title"], param2: modelFields["summary"]},testy_modal);
+
+                    divToAppendTo.append(newDisplayItem);
+
+                }
+
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(thrownError);
+                console.log("ERROR!");
+            }
+        });
 
         console.log( "done!!!" );
     });
