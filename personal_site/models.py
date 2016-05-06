@@ -19,8 +19,6 @@ class ExampleItem(models.Model):
     summary = models.TextField()
     img = models.ImageField(upload_to='media/')  # TODO: Remove in production server
 
-    limg = models.ManyToManyField(ImageModel)
-
     def __str__(self):
         return self.title
 # end class
@@ -42,5 +40,19 @@ class ExperienceItem(DisplayItem):
     description = models.TextField()
     display_pictures = models.ManyToManyField(ImageModel)
 # end class
+
+
+class Projects(ExperienceItem):
+    """Proxy Class for Website Section on Projects"""
+
+    class Meta:
+        proxy = True
+
+# end class Projects
+
+
+class WorkExperience(models.Model):
+    pass
+
 
 

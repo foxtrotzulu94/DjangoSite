@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'domain.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # TODO: Change the location of the database to an env_var
     }
 }
 
@@ -129,7 +129,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 if DEBUG:
-    MEDIA_ROOT = 'personal_site/static/personal_site/'  # TODO: Remove in production server
+    MEDIA_ROOT = 'personal_site/static/personal_site/'
     MEDIA_URL = '/static/personal_site/'
-if not DEBUG:
-    MEDIA_ROOT = '/var/www/javierfajardo.com/media'  # Use when in production
+# if not DEBUG:
+#     MEDIA_ROOT = '/var/www/javierfajardo.com/media'  # Use when in production
