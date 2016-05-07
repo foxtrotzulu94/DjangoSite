@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core import serializers
+from django.views.decorators.cache import never_cache
 # Create your views here.
 
 from django.views.decorators.http import require_safe
@@ -15,7 +16,7 @@ def index(request):
         'index.html'
     )
 
-
+@never_cache
 def testy(request):
     return render(
         request,

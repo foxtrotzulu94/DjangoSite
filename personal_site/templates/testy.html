@@ -114,6 +114,8 @@
                     testy.attr("src",'{{ MEDIA_URL }}'+modelFields["img"]);
                     var title = $('#display_title',newDisplayItem);
                     title.html(modelFields["title"]);
+					var s = $('#display_subtitle',newDisplayItem);
+					s.html("saaf")
                     newDisplayItem.show();
                     newDisplayItem.click({param1: modelFields["title"], param2: modelFields["summary"]},testy_modal);
 
@@ -168,6 +170,7 @@
                 <br><br>
             </div>
 
+			<!-- Personal Overview (Summary)-->
             <div id="section1" class="row central-content top-most img-rounded">
                 <div>
                     <h1>Overview</h1>
@@ -213,23 +216,45 @@
                 </div>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
+			
+			<!-- The Games Div -->
             <div id="section4" class="row central-content img-rounded">
-                <h1>Games</h1>
-                <p>[box cover of games]</p>
-                <p>Try to scroll this page and look at the navigation list while scrolling!</p>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				<div>
+					<h1>Games</h1>
+					<div class="info-element">
+						<h3>Below are some of the games I've been a developer on</h3>
+					</div>
+
+					<div class="row col-sm-12" id="games_div" style="float: none;">
+<div class="col-lg-3 col-md-4 col-sm-10 col-xs-10" style="opacity:1.0; word-wrap: break-word;" id="display_item">
+<div class="row text-center info-element" id="inner_div">
+<img src="{% static 'personal_site/images/testpic.jpg' %}" class="img-thumbnail img-responsive" id="item_thumbnail">
+<h4 id="display_title">Testy</h4>
+</div>
+</div>
+					</div>
+					<p>[box cover of games]</p>
+					<p>Try to scroll this page and look at the navigation list while scrolling!</p>
+					{# <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> #}
+				</div>
             </div>
+			
+			<!-- Hobbies and Personal Interests -->
             <div id="section5" class="row central-content img-rounded">
                 <h1>Hobbies & Interests</h1>
                 {# might need to tailor this one. No easy way of putting all of the pictures here #}
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
+			
+			<!-- Contact Me! -->
             <div id="section6" class="row central-content img-rounded">
                 <h1>Contact Info</h1>
                 {# No electronic addresses #}
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
             </div>
+			
+			<!-- Make some space  -->
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
     </div>
