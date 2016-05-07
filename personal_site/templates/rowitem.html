@@ -1,16 +1,23 @@
 {# Small block element used to display elements that would normally take a whole row #}
 {% load staticfiles %}
-<div class="row img-rounded" id="row_item" style="background-color: rgba(0,0,0,0.3); padding-top: 2%;padding-bottom: 2%">
-    <div class="col-lg-4 col-md-4 col-sm-6" id="inner_div">
+<div class="row img-rounded" id="row_item" style="background-color: rgba(0,0,0,0.15); padding-top: 2%;padding-bottom: 2%; margin-left:1%;">
+    <div class="col-lg-2 col-md-4 col-sm-6" id="inner_div">
         <img src="{% static 'personal_site/images/testpic.jpg' %}" class="img-rounded img-responsive" id="item_thumbnail">
 {#        <h4 id="display_title">Testy</h4>#}
     </div>
-    <div class="col-lg-8 col-md-8 col-sm-6">
+    <div class="col-lg-10 col-md-8 col-sm-6" style="margin-left:-2%;">
         <div class="row">
-            <h2 style="margin-top: -5px">Title</h2>
+			<div class="col-sm-8"><h3 style="margin-top: -5px;">Some Long Title Here</h3></div>
+			<div class="col-sm-4 text-right"><p>Aug 2012-May 2017</p></div>
         </div>
-
-    <h3 style="margin-top: -5px">Location</h3>
+		<div class="row col-sm-12">
+			<h4 style="margin-top: -5px">Company & Location</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
     </div>
-
+	
+	<div class="row" style="padding-left: 5%;padding-right: 5%;">
+		<div class="col-sm-2"><h4>Highlights</h4></div>
+		<div class="col-sm-10"><h4><a>XYZ</a>, <a>XYZ</a>, <a>XYZ</a>, <a>XYZ</a></h4></div>
+	</div>
 </div>
