@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 from django.core.files.storage import FileSystemStorage
 
 # path = os.path.join(ROOT_DIR, 'web-private')
@@ -17,7 +18,8 @@ class ImageModel(models.Model):
 class ExampleItem(models.Model):
     title = models.CharField(max_length=30)
     summary = models.TextField()
-    img = models.ImageField(upload_to='media/')  # TODO: Remove in production server
+    img = models.ImageField(upload_to='media/', blank=True)  # TODO: Remove in production server
+    start_date = models.DateField(default=date.today)
 
     def __str__(self):
         return self.title
@@ -25,34 +27,65 @@ class ExampleItem(models.Model):
 
 
 class DisplayItem(models.Model):
-    """Class representing a generic, displayable element"""
+    """Abstract Class representing a generic, displayable element"""
 
     title = models.CharField(max_length=30)
     subtitle = models.CharField(max_length=50)
-    thumbnail = models.ImageField(upload_to='media/')
+    thumbnail = models.ImageField(upload_to='media/', blank=True)
+
+    class Meta:
+        abstract = True
 # end class DisplayItem
 
 
 class ExperienceItem(DisplayItem):
-    """Class used to hold Experience items"""
+    """Abstract Class used to model/define Experience items"""
 
-    tech_used = models.CharField(max_length=200)
+    tech_used = models.CharField(max_length=200)  # Some day, we can make this come from a "tech" table. Not today...
     description = models.TextField()
     display_pictures = models.ManyToManyField(ImageModel)
+
+    # These are displayed differently on the View depending on which subclass they are
+    start_date = models.DateField(default=date.today)
+    end_date = models.DateField(default=date.today)
+    #
+    # class Meta:
+    #     abstract = True
 # end class
 
 
-class Projects(ExperienceItem):
-    """Proxy Class for Website Section on Projects"""
+class WorkExperience(ExperienceItem):
+    """Proxy Class for Work, part of Section 2 Items"""
 
-    class Meta:
-        proxy = True
+    # class Meta:
+    #     proxy = True
+# end class WorkExperience
+
+
+class Projects(ExperienceItem):
+    """Class for representing Projects, all Section 3 Items. Can be Active or Inactive/Unsupported """
+    # TODO: Decide whether projects should include a bool field to mark their activity
+    # class Meta:
+    #     proxy = True
 
 # end class Projects
 
 
-class WorkExperience(models.Model):
-    pass
+class CommercialGames(ExperienceItem):
+    """Proxy Class for all Commercial Games worked on, Section 4 Items"""
+    #
+    # class Meta:
+    #     proxy = True
 
+# end class CommercialGames
+
+
+class Hobbies(ExperienceItem):
+    """Proxy Class for any Hobbies or general interests, These are Section 5 Items"""
+    #
+    # class Meta:
+    #     proxy = True
+
+# end class Hobbies
 
 

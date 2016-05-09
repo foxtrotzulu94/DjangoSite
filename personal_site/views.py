@@ -34,9 +34,11 @@ def ajaj(request):
 
 
 def list_projects(request):
+    # TODO: All projects should be ordered by Date
     retVal = ExampleItem.objects.all()
     if retVal is not None:
         data = serializers.serialize("json", retVal)
         print(data)
         return HttpResponse(data)
     return HttpResponse('<body><p>ObjectNotFound</p></body>')
+
