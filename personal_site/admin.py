@@ -5,7 +5,7 @@ from personal_site.models import *
 
 # Example Models
 admin.site.register(ExampleItem)
-admin.site.register(ImageModel)
+admin.site.register(ImageListField)
 # admin.site.register(DisplayItem)
 # admin.site.register(ExperienceItem)
 
