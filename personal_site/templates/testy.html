@@ -42,17 +42,17 @@
         height: 250px;
         font-size: 28px;
     }
-    #section1 {color: #fff; background-color: rgba(77,101,141,0.45); opacity: 1;}
-{#    #section2 {color: #fff; background-color:rgba(21,44,85,0.75); opacity:0.6;}#}
-    #section2 {color: #fff; background-color:rgba(77,101,141,0.45);} {# This color seems better... #}
-    #section3 {color: #fff; background-color:rgba(21,44,85,0.45);}
-    #section4 {color: #fff; background-color:rgba(21,44,85,0.45);}
-    #section5 {color: #fff; background-color:rgba(21,44,85,0.45);}
-    #section6 {color: #fff; background-color:rgba(21,44,85,0.45);}
+    #overview {color: #fff; background-color: rgba(77,101,141,0.45); opacity: 1;}
+{#    #experience {color: #fff; background-color:rgba(21,44,85,0.75); opacity:0.6;}#}
+    #experience {color: #fff; background-color:rgba(77,101,141,0.45);} {# This color seems better... #}
+    #projects {color: #fff; background-color:rgba(21,44,85,0.45);}
+    #titles {color: #fff; background-color:rgba(21,44,85,0.45);}
+    #hobbies {color: #fff; background-color:rgba(21,44,85,0.45);}
+    #contact {color: #fff; background-color:rgba(21,44,85,0.45);}
 
-{#    #section3 {color: #fff; background-color: rgba(77,101,141,0.75); opacity: 0.6;}#}
-{#    #section4 {color: #fff; background-color: rgba(5,24,56,0.75); opacity: 0.6;}#}
-{#    #section5 {color: #fff; background-color: #009688; opacity: 0.6;}#}
+{#    #projects {color: #fff; background-color: rgba(77,101,141,0.75); opacity: 0.6;}#}
+{#    #titles {color: #fff; background-color: rgba(5,24,56,0.75); opacity: 0.6;}#}
+{#    #hobbies {color: #fff; background-color: #009688; opacity: 0.6;}#}
 
     .sidebuttons{
         border-radius: 6px;
@@ -62,7 +62,7 @@
 
 
     @media screen and (max-width: 810px) {
-        #section0, #section1, #section2, #section3, #section4, #section5, #section6  { {# List of Sections #}
+        #section0, #overview, #experience, #projects, #titles, #hobbies, #contact  { {# List of Sections #}
             margin-left: 150px;
         }
     }
@@ -150,12 +150,12 @@
                 </li>
 
                 <li><br><br></li>
-                <li class="sidebuttons"><a href="#section1">Overview</a></li>
-                <li class="sidebuttons"><a href="#section2">Experience</a></li>
-                <li class="sidebuttons"><a href="#section3">Projects</a></li>
-                <li class="sidebuttons"><a href="#section4">Games</a></li>
-                <li class="sidebuttons"><a href="#section5">Hobbies</a></li>
-                <li class="sidebuttons"><a href="#section6">Contact</a></li>
+                <li class="sidebuttons"><a href="#overview">Overview</a></li>
+                <li class="sidebuttons"><a href="#experience">Experience</a></li>
+                <li class="sidebuttons"><a href="#projects">Projects</a></li>
+                <li class="sidebuttons"><a href="#titles">Games</a></li>
+                <li class="sidebuttons"><a href="#hobbies">Hobbies</a></li>
+                <li class="sidebuttons"><a href="#contact">Contact</a></li>
             </ul>
         </nav>
 
@@ -172,7 +172,7 @@
             </div>
 
 			<!-- Personal Overview (Summary)-->
-            <div id="section1" class="row central-content top-most img-rounded">
+            <div id="overview" class="row central-content top-most img-rounded">
                 <div>
                     <h1>Overview</h1>
                     <div class="info-element">
@@ -190,7 +190,7 @@
                 <br>
             </div>
 
-            <div id="section2" class="row central-content img-rounded">
+            <div id="experience" class="row central-content img-rounded">
                 <div>
                     <h1>Experience</h1>
                     <div class="info-element">
@@ -224,7 +224,7 @@
                     </div>
                 </div>
             </div>
-            <div id="section3" class="row central-content img-rounded">
+            <div id="projects" class="row central-content img-rounded">
                 <h1>Technical Projects</h1>
                 <div class="info-element">
                     <h3>These are some of the things I've built and worked on.</h3>
@@ -235,16 +235,16 @@
                 </div>
 
                 <div class="info-element">
-                    <h3>There's always room for improvement, so <a href="#section6">let me know</a> what you thought about them!</h3>
+                    <h3>There's always room for improvement, so <a href="#contact">let me know</a> what you thought about them!</h3>
                 </div>
             </div>
 			
 			<!-- The Games Div -->
-            <div id="section4" class="row central-content img-rounded">
+            <div id="titles" class="row central-content img-rounded">
 				<div>
 					<h1>Games</h1>
 					<div class="info-element">
-						<h3>These are published titles I've worked on as a developer.</h3>
+						<h3>Below are the published titles I've worked on as a developer.</h3>
 					</div>
 
 					<div class="row col-sm-12" id="games_div" style="float: none;">
@@ -262,7 +262,7 @@
             </div>
 			
 			<!-- Hobbies and Personal Interests -->
-            <div id="section5" class="row central-content img-rounded">
+            <div id="hobbies" class="row central-content img-rounded">
                 <h1>Hobbies & Interests</h1>
                 {# might need to tailor this one. No easy way of putting all of the pictures here #}
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
@@ -270,7 +270,7 @@
             </div>
 			
 			<!-- Contact Me! -->
-            <div id="section6" class="row central-content img-rounded">
+            <div id="contact" class="row central-content img-rounded">
                 <h1>Contact Info</h1>
                 <div class="">
                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 text-center"><a href="mailto:testy@{{ request.META.HTTP_HOST }}" target="_blank"><img class="img-responsive" src="{% static 'personal_site/images/contact_mail2.png' %}"><h3>Mail</h3></a></div>
