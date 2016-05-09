@@ -6,7 +6,7 @@ from django.core.files.storage import FileSystemStorage
 # fs = FileSystemStorage(location='/static/personal_site/images/')
 
 
-class ImageModel(models.Model):
+class ImageListField(models.Model):
     """Class for linking a Model to a list of Images"""
     img = models.ImageField(upload_to='media/')
 
@@ -43,7 +43,7 @@ class ExperienceItem(DisplayItem):
 
     tech_used = models.CharField(max_length=200)  # Some day, we can make this come from a "tech" table. Not today...
     description = models.TextField()
-    display_pictures = models.ManyToManyField(ImageModel)
+    display_pictures = models.ManyToManyField(ImageListField)
 
     # These are displayed differently on the View depending on which subclass they are
     start_date = models.DateField(default=date.today)
