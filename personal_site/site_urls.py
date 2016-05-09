@@ -8,7 +8,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^$', index),
     url(r'^testy/', testy),
-    url(r'^ajaj', ajaj),
+    url(r'^ajaj/', ajaj),
     # url(r'^/', HttpResponseForbidden)
     url(r'^data/projects', list_projects),
     # url(r'^data/projects/?P<project>[A-z]{4}[0-9]{3}',), # TODO: fill this in

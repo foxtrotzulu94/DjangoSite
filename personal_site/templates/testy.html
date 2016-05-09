@@ -165,7 +165,8 @@
                     <h1>Hey there, I'm Javier!</h1>
                 </div>
                 <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    {# Short description/backstory #}
+                    <p>I'm a Canadian Software Developer originally from Caracas, Venezuela. [Write short story about how you got started]. [Write a bit more on Computer Engineering]. [Wrap up with where you want to go]</p>
                 </div>
                 <br><br>
             </div>
@@ -175,7 +176,7 @@
                 <div>
                     <h1>Overview</h1>
                     <div class="info-element">
-                        {# Talk about languages, education and abilities #}
+                        {# Mainly talk about languages, education and abilities #}
                         <h3>I'm a 4th Computer Engineering student at <a>Concordia University</a> in Montreal, Canada about to graduate on May 2017.</h3>
                             <p>CGPA 3.9/4.0 - Dean's List Student from 2012 to 2015 - Member of the Institute for Co-operative Education.</p>
                         <h3>Student member of the <a>IGDA</a>, <a>IEEE</a> and <a>ACM</a>.</h3>
@@ -193,28 +194,44 @@
                 <div>
                     <h1>Experience</h1>
                     <div class="info-element">
-                        <h3>[Programming languages I've extensively used]</h3>
-                            <p>[APIs]</p>
-                            <p>[Applications]</p>
-                        <p>Try to scroll this page and look at the navigation list while scrolling!</p>
-                        <hr>
                         <h2>Professional</h2>
-                            <div id="experience_div">
+                            <div id="work_div">
                                 {% include 'rowitem.html' %}
                             </div>
                         <hr>
                         <h2>Extracurricular</h2>
+                            <div id="extracurricular_div">
+                                {% include 'rowitem.html' %}
+                                {% include 'rowitem.html' %}
+                            </div>
+                        <hr>
+                        <h2>Volunteer</h2>
+                            <div id="extracurricular_div">
+                                {% include 'rowitem.html' %}
+                            </div>
+{#                        <hr>#}
+
+                        {# For now, we've commented this out at the risk of repeating ourselves in our employment and projects part #}
+                        {# We could (and should) Consider placing this in the overview section so it can be concise and clear #}
+                        {# TODO: Allow this info (languages, applications, APIs) to be loaded from DB info that can be used for fast-update #}
+{#                        <h3>[Programming languages I've extensively used]</h3>#}
+{#                        <p>Programming Languages: C/C++, C#, Python, Java and Bash Script.</p>#}
+{#                            <p>[APIs]</p>#}
+{#                            <p>[Applications]</p>#}
+{#                        <p>Try to scroll this page and look at the navigation list while scrolling!</p>#}
+{#                        <hr>#}
+
                     </div>
                 </div>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
             <div id="section3" class="row central-content img-rounded">
                 <h1>Technical Projects</h1>
-                <p>Try to scroll this page and look at the navigation list while scrolling!</p>
+                <div class="info-element">
+                    <p>Click on them to see more info. </p>
+                </div>
                 <div class="row col-sm-12" id="project_div" style="float: none;">
                     <div id="loading"><p>LOADING</p></div> {# TODO: loading .gif here #}
                 </div>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
 			
 			<!-- The Games Div -->
@@ -222,7 +239,7 @@
 				<div>
 					<h1>Games</h1>
 					<div class="info-element">
-						<h3>Below are some of the games I've been a developer on</h3>
+						<h3>These are some of the published games I've worked on as a developer. Take a look!</h3>
 					</div>
 
 					<div class="row col-sm-12" id="games_div" style="float: none;">
@@ -233,8 +250,8 @@
 </div>
 </div>
 					</div>
-					<p>[box cover of games]</p>
-					<p>Try to scroll this page and look at the navigation list while scrolling!</p>
+{#					<p>[box cover of games]</p>#}
+{#					<p>Try to scroll this page and look at the navigation list while scrolling!</p>#}
 					{# <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> #}
 				</div>
             </div>
@@ -250,8 +267,12 @@
 			<!-- Contact Me! -->
             <div id="section6" class="row central-content img-rounded">
                 <h1>Contact Info</h1>
-                {# No electronic addresses #}
-                <p>Try to scroll this page and look at the navigation list while scrolling!</p>
+                <div class="">
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 text-center"><a href="mailto:testy@{{ request.META.HTTP_HOST }}" target="_blank"><img class="img-responsive" src="{% static 'personal_site/images/contact_mail2.png' %}"><h3>Mail</h3></a></div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 text-center"><a href="https://ca.linkedin.com/in/javierefajardo" target="_blank"><img class="img-responsive" src="{% static 'personal_site/images/contact_linkedin.png' %}"><h3>LinkedIn</h3></a></div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 text-center"><a href="https://github.com/foxtrot94" target="_blank"><img class="img-responsive" src="{% static 'personal_site/images/contact_git.png' %}"><h3>Git</h3></a></div>
+                </div>
+{#                <div class="text-center"><h3>You can reach out to me through any of these! </h3></div>#}
             </div>
 			
 			<!-- Make some space  -->
