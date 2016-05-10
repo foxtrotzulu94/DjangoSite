@@ -85,9 +85,13 @@
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="256">
 
 <script type="application/javascript">
+    {# TODO: Move these to a .js file #}
+
+    //Events passed into modals expect
+
     testy_modal = function (event) {
         $("#test_popup").modal('show');
-        console.log( event.data.param1,event.data.param2 );
+        console.log( event.data.param1 ,event.data.param2 );
     };
 
     $( document ).ready(function() {
@@ -117,7 +121,7 @@
 					var s = $('#display_subtitle',newDisplayItem);
 					s.html("saaf")
                     newDisplayItem.show();
-                    newDisplayItem.click({param1: modelFields["title"], param2: modelFields["summary"]},testy_modal);
+                    newDisplayItem.click({title: modelFields["title"], subtitle: modelFields["summary"]},testy_modal);
 
                     divToAppendTo.append(newDisplayItem);
 
@@ -166,9 +170,17 @@
                 </div>
                 <div>
                     {# Short description/backstory #}
-                    <p>I'm a Canadian Software Developer originally from Caracas, Venezuela. [Write short story about how you got started]. [Write a bit more on Computer Engineering]. [Wrap up with where you want to go]</p>
+                    <p>Welcome! I'm a Canadian Software Developer originally from Caracas, Venezuela.
+                        I started programming back in 2007 when I wanted to make my own videogame.
+                        Back then, I tried building a game with a Doom source port to give it a first try.
+                        Though I didn't get far, I did learn a great deal about videogame development that still holds true to this day.
+                        Later in 2010, I picked up Ubuntu Linux out of curiosity.
+                        After figuring out the terminal and customizing the distro, I wanted to learn more about operating systems and the hardware they run on.
+                        These two events led me down the path of Computer Engineering.</p>
+                    <p>Since 2013, I've been programming non-stop! Working long hours, both with teams and alone, in hackathons, game jams, at school, and at home to make cool stuff.</p>
+                        <p>This site can give you an idea of my experience, skills and interests. So, go ahead and take a look!</p>
                 </div>
-                <br><br>
+                <br>
             </div>
 
 			<!-- Personal Overview (Summary)-->
@@ -206,7 +218,7 @@
                             </div>
                         <hr>
                         <h2>Volunteer</h2>
-                            <div id="extracurricular_div">
+                            <div id="volunteer_div">
                                 {% include 'rowitem.html' %}
                             </div>
 {#                        <hr>#}
@@ -233,10 +245,9 @@
                 <div class="row col-sm-12" id="project_div" style="float: none;">
                     <div id="loading"><p>LOADING</p></div> {# TODO: loading .gif here #}
                 </div>
-
-                <div class="info-element">
-                    <h3>There's always room for improvement, so <a href="#contact">let me know</a> what you thought about them!</h3>
-                </div>
+{#                <div class="info-element">#}
+{#                    <h3>There's always room for improvement, so <a href="#contact">let me know</a> what you thought about them!</h3>#}
+{#                </div>#}
             </div>
 			
 			<!-- The Games Div -->
@@ -245,6 +256,7 @@
 					<h1>Games</h1>
 					<div class="info-element">
 						<h3>Below are the published titles I've worked on as a developer.</h3>
+                        <p>They all had awesome teams behind them working non-stop for their release.</p>
 					</div>
 
 					<div class="row col-sm-12" id="games_div" style="float: none;">
@@ -255,16 +267,20 @@
 </div>
 </div>
 					</div>
-{#					<p>[box cover of games]</p>#}
-{#					<p>Try to scroll this page and look at the navigation list while scrolling!</p>#}
-					{# <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> #}
 				</div>
             </div>
 			
 			<!-- Hobbies and Personal Interests -->
             <div id="hobbies" class="row central-content img-rounded">
                 <h1>Hobbies & Interests</h1>
-                {# might need to tailor this one. No easy way of putting all of the pictures here #}
+                <div class="info-element">
+                    <h3>This is what I do when I'm not coding</h3>
+                </div>
+
+                <div class="row col-sm-12" id="hobbies_div" style="float: none;">
+                    <div id="loading"><p>LOADING</p></div> {# TODO: loading .gif here #}
+                </div>
+
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
@@ -277,7 +293,6 @@
                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 text-center"><a href="https://ca.linkedin.com/in/javierefajardo" target="_blank"><img class="img-responsive" src="{% static 'personal_site/images/contact_linkedin.png' %}"><h3>LinkedIn</h3></a></div>
                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 text-center"><a href="https://github.com/foxtrot94" target="_blank"><img class="img-responsive" src="{% static 'personal_site/images/contact_git.png' %}"><h3>Git</h3></a></div>
                 </div>
-{#                <div class="text-center"><h3>You can reach out to me through any of these! </h3></div>#}
             </div>
 			
 			<!-- Make some space  -->
