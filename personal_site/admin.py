@@ -11,7 +11,9 @@ admin.site.register(ImageListField)
 
 # Actual Models that are displayed throughout the site
 admin.site.register(WorkExperience)
-admin.site.register(Projects)
-admin.site.register(CommercialGames)
-admin.site.register(Hobbies)
+admin.site.register(VolunteerExperience)
+admin.site.register(ExtracurricularExperience)
+admin.site.register(PersonalProject)
+admin.site.register(GameTitle)
+admin.site.register(PersonalInterest)
 

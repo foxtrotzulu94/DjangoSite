@@ -102,7 +102,7 @@
 
         $.ajax({ //Ask if we can save this schedule
             type: 'get',
-            url: "/data/projects",
+            url: "/example/projects",
             success: function (data) {
                 $('#loading').hide();
                 var result = JSON.parse(data);

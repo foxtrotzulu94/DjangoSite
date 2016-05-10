@@ -21,6 +21,8 @@ class ExampleItem(models.Model):
     img = models.ImageField(upload_to='media/', blank=True)  # TODO: Remove in production server
     start_date = models.DateField(default=date.today)
 
+    list_images = models.ManyToManyField(ImageListField, blank=True)
+
     def __str__(self):
         return self.title
 # end class
@@ -62,7 +64,20 @@ class WorkExperience(ExperienceItem):
 # end class WorkExperience
 
 
-class Projects(ExperienceItem):
+class ExtracurricularExperience(WorkExperience):
+    """Class for listing work done in Concordia outside of class"""
+# end class ExtraCurricularExperience
+
+
+class VolunteerExperience(WorkExperience):
+    """Class for displaying Volunteer Experience and external links"""
+
+    # URL to the external site
+    ext_url = models.URLField(blank=True)
+# enc class VolunteerExperience
+
+
+class PersonalProject(ExperienceItem):
     """Class for representing Projects, all Section 3 Items. Can be Active or Inactive/Unsupported """
     # TODO: Decide whether projects should include a bool field to mark their activity
     # class Meta:
@@ -71,7 +86,7 @@ class Projects(ExperienceItem):
 # end class Projects
 
 
-class CommercialGames(ExperienceItem):
+class GameTitle(ExperienceItem):
     """Proxy Class for all Commercial Games worked on, Section 4 Items"""
     #
     # class Meta:
@@ -80,7 +95,7 @@ class CommercialGames(ExperienceItem):
 # end class CommercialGames
 
 
-class Hobbies(ExperienceItem):
+class PersonalInterest(ExperienceItem):
     """Proxy Class for any Hobbies or general interests, These are Section 5 Items"""
     #
     # class Meta:

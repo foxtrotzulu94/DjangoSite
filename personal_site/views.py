@@ -5,8 +5,10 @@ from django.views.decorators.cache import never_cache
 
 from django.views.decorators.http import require_safe
 from django.http.response import HttpResponse
-from .models import ExampleItem
+from personal_site.models import ExampleItem
 
+# This file returns an http response that maps to a template.
+# For responses linked to pure JSON data, check personal_site.rest folder
 
 @require_safe
 def index(request):
@@ -15,6 +17,7 @@ def index(request):
         request,
         'index.html'
     )
+
 
 @never_cache
 def testy(request):
@@ -31,6 +34,10 @@ def ajaj(request):
         print(data)
         return HttpResponse(data)
     return HttpResponse('<body><p>ObjectNotFound</p></body>')
+
+
+def image_field_retrieval(request, img):
+    pass
 
 
 def list_projects(request):
