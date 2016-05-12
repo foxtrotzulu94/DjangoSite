@@ -4,7 +4,16 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.http import require_safe
 from django.http.response import HttpResponse
 from personal_site.models import ExtracurricularExperience
+from .base_interface import IRest
 
+
+class SerializedExtraExp(IRest):
+    @staticmethod
+    def main_model():
+        print("Called SEE main_model")
+        return ExtracurricularExperience
+
+# end class SerializedExtraExp
 
 def list_all(request):
     pass
