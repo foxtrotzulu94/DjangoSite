@@ -9,12 +9,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <title>John-117</title>
-</head>
 
-<style>
+    <style>
     body {
         position: relative;
         background-image: url("{% static 'personal_site/images/altbg.png' %}");
@@ -43,16 +40,16 @@
         font-size: 28px;
     }
     #overview {color: #fff; background-color: rgba(77,101,141,0.45); opacity: 1;}
-{#    #experience {color: #fff; background-color:rgba(21,44,85,0.75); opacity:0.6;}#}
+    {#    #experience {color: #fff; background-color:rgba(21,44,85,0.75); opacity:0.6;}#}
     #experience {color: #fff; background-color:rgba(77,101,141,0.45);} {# This color seems better... #}
     #projects {color: #fff; background-color:rgba(21,44,85,0.45);}
     #titles {color: #fff; background-color:rgba(21,44,85,0.45);}
     #hobbies {color: #fff; background-color:rgba(21,44,85,0.45);}
     #contact {color: #fff; background-color:rgba(21,44,85,0.45);}
 
-{#    #projects {color: #fff; background-color: rgba(77,101,141,0.75); opacity: 0.6;}#}
-{#    #titles {color: #fff; background-color: rgba(5,24,56,0.75); opacity: 0.6;}#}
-{#    #hobbies {color: #fff; background-color: #009688; opacity: 0.6;}#}
+    {#    #projects {color: #fff; background-color: rgba(77,101,141,0.75); opacity: 0.6;}#}
+    {#    #titles {color: #fff; background-color: rgba(5,24,56,0.75); opacity: 0.6;}#}
+    {#    #hobbies {color: #fff; background-color: #009688; opacity: 0.6;}#}
 
     .sidebuttons{
         border-radius: 6px;
@@ -80,65 +77,16 @@
         padding-bottom:10px;
     }
 
-</style>
+    .carousel-inner > .item > img {
+        height: 30%;
+        width: auto;
+         margin-left: auto; margin-right: auto;
+    }
+
+    </style>
+</head>
 
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="256">
-
-<script type="application/javascript">
-    {# TODO: Move these to a .js file #}
-
-    //Events passed into modals expect
-
-    testy_modal = function (event) {
-        $("#test_popup").modal('show');
-        console.log( event.data.param1 ,event.data.param2 );
-    };
-
-    $( document ).ready(function() {
-        console.log( "ready!" );
-        //Load all projects from Database
-        var displayItem = $('#display_item'); //The item to be constantly cloned
-        var divToAppendTo = $('#project_div');
-
-        $.ajax({ //Ask if we can save this schedule
-            type: 'get',
-            url: "/example/projects",
-            success: function (data) {
-                $('#loading').hide();
-                var result = JSON.parse(data);
-
-                console.log(result.length);
-                console.log(result);
-                for(var i=0; i< result.length; ++i){
-                    var modelFields = result[i]["fields"];
-
-                    var newDisplayItem = displayItem.clone(true);
-                    newDisplayItem.selector = displayItem.selector+i;
-                    var testy = $('#item_thumbnail',newDisplayItem);
-                    testy.attr("src",'{{ MEDIA_URL }}'+modelFields["img"]);
-                    var title = $('#display_title',newDisplayItem);
-                    title.html(modelFields["title"]);
-					var s = $('#display_subtitle',newDisplayItem);
-					s.html("saaf")
-                    newDisplayItem.show();
-                    newDisplayItem.click({title: modelFields["title"], subtitle: modelFields["summary"]},testy_modal);
-
-                    divToAppendTo.append(newDisplayItem);
-
-                }
-
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(thrownError);
-                console.log("ERROR!");
-            }
-        });
-
-        console.log( "done!!!" );
-    });
-</script>
-
-
 
 <div class="container">
     <div class="row">
@@ -178,23 +126,23 @@
                         After figuring out the terminal and customizing the distro, I wanted to learn more about operating systems and the hardware they run on.
                         These two events led me down the path of Computer Engineering.</p>
                     <p>Since 2013, I've been programming non-stop! Working long hours, both with teams and alone, in hackathons, game jams, at school, and at home to make cool stuff.</p>
-                        <p>This site can give you an idea of my experience, skills and interests. So, go ahead and take a look!</p>
+                    <p>This site can give you an idea of my experience, skills and interests. So, go ahead and take a look!</p>
                 </div>
                 <br>
             </div>
 
-			<!-- Personal Overview (Summary)-->
+            <!-- Personal Overview (Summary)-->
             <div id="overview" class="row central-content top-most img-rounded">
                 <div>
                     <h1>Overview</h1>
                     <div class="info-element">
                         {# Mainly talk about languages, education and abilities #}
                         <h3>I'm a 4th Computer Engineering student at <a>Concordia University</a> in Montreal, Canada about to graduate on May 2017.</h3>
-                            <p>CGPA 3.9/4.0 - Dean's List Student from 2012 to 2015 - Member of the Institute for Co-operative Education.</p>
+                        <p>CGPA 3.9/4.0 - Dean's List Student from 2012 to 2015 - Member of the Institute for Co-operative Education.</p>
                         <h3>Student member of the <a>IGDA</a>, <a>IEEE</a> and <a>ACM</a>.</h3>
-                            <p>Interested in working with Computer Graphics, Computer Architecture and Operating Systems.</p>
+                        <p>Interested in working with Computer Graphics, Computer Architecture and Operating Systems.</p>
                         <h3>Fluent in Spanish and English. Can understand French.</h3>
-                            <p>Looking to learn Japanese in the near future...</p>
+                        <p>Looking to learn Japanese in the near future...</p>
                         <hr>
                         <h3>Take a look at my <a href="{% static 'personal_site/files/resume.pdf' %}">Resume</a> for a highlight of my work and projects as a software developer.</h3>
                     </div>
@@ -207,31 +155,31 @@
                     <h1>Experience</h1>
                     <div class="info-element">
                         <h2>Professional</h2>
-                            <div id="work_div">
-                                {% include 'rowitem.html' %}
-                            </div>
+                        <div id="work_div">
+                            {% include 'rowitem.html' %}
+                        </div>
                         <hr>
                         <h2>Extracurricular</h2>
-                            <div id="extracurricular_div">
-                                {% include 'rowitem.html' %}
-                                {% include 'rowitem.html' %}
-                            </div>
+                        <div id="extracurricular_div">
+                            {% include 'rowitem.html' %}
+                            {% include 'rowitem.html' %}
+                        </div>
                         <hr>
                         <h2>Volunteer</h2>
-                            <div id="volunteer_div">
-                                {% include 'rowitem.html' %}
-                            </div>
-{#                        <hr>#}
+                        <div id="volunteer_div">
+                            {% include 'rowitem.html' %}
+                        </div>
+                        {#                        <hr>#}
 
                         {# For now, we've commented this out at the risk of repeating ourselves in our employment and projects part #}
                         {# We could (and should) Consider placing this in the overview section so it can be concise and clear #}
                         {# TODO: Allow this info (languages, applications, APIs) to be loaded from DB info that can be used for fast-update #}
-{#                        <h3>[Programming languages I've extensively used]</h3>#}
-{#                        <p>Programming Languages: C/C++, C#, Python, Java and Bash Script.</p>#}
-{#                            <p>[APIs]</p>#}
-{#                            <p>[Applications]</p>#}
-{#                        <p>Try to scroll this page and look at the navigation list while scrolling!</p>#}
-{#                        <hr>#}
+                        {#                        <h3>[Programming languages I've extensively used]</h3>#}
+                        {#                        <p>Programming Languages: C/C++, C#, Python, Java and Bash Script.</p>#}
+                        {#                            <p>[APIs]</p>#}
+                        {#                            <p>[Applications]</p>#}
+                        {#                        <p>Try to scroll this page and look at the navigation list while scrolling!</p>#}
+                        {#                        <hr>#}
 
                     </div>
                 </div>
@@ -245,32 +193,32 @@
                 <div class="row col-sm-12" id="project_div" style="float: none;">
                     <div id="loading"><p>LOADING</p></div> {# TODO: loading .gif here #}
                 </div>
-{#                <div class="info-element">#}
-{#                    <h3>There's always room for improvement, so <a href="#contact">let me know</a> what you thought about them!</h3>#}
-{#                </div>#}
+                {#                <div class="info-element">#}
+                {#                    <h3>There's always room for improvement, so <a href="#contact">let me know</a> what you thought about them!</h3>#}
+                {#                </div>#}
             </div>
-			
-			<!-- The Games Div -->
-            <div id="titles" class="row central-content img-rounded">
-				<div>
-					<h1>Games</h1>
-					<div class="info-element">
-						<h3>Below are the published titles I've worked on as a developer.</h3>
-                        <p>They all had awesome teams behind them working non-stop for their release.</p>
-					</div>
 
-					<div class="row col-sm-12" id="games_div" style="float: none;">
-<div class="col-lg-3 col-md-4 col-sm-10 col-xs-10" style="opacity:1.0; word-wrap: break-word;" id="display_item">
-<div class="row text-center info-element" id="inner_div">
-<img src="{% static 'personal_site/images/testpic.jpg' %}" class="img-thumbnail img-responsive" id="item_thumbnail">
-<h4 id="display_title">Testy</h4>
-</div>
-</div>
-					</div>
-				</div>
+            <!-- The Games Div -->
+            <div id="titles" class="row central-content img-rounded">
+                <div>
+                    <h1>Games</h1>
+                    <div class="info-element">
+                        <h3>Below are the published titles I've worked on as a developer.</h3>
+                        <p>They all had awesome teams behind them working non-stop for their release.</p>
+                    </div>
+
+                    <div class="row col-sm-12" id="games_div" style="float: none;">
+                        <div class="col-lg-3 col-md-4 col-sm-10 col-xs-10" style="opacity:1.0; word-wrap: break-word;" id="display_item">
+                            <div class="row text-center info-element" id="inner_div">
+                                <img src="{% static 'personal_site/images/testpic.jpg' %}" class="img-thumbnail img-responsive" id="item_thumbnail">
+                                <h4 id="display_title">Testy</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-			
-			<!-- Hobbies and Personal Interests -->
+
+            <!-- Hobbies and Personal Interests -->
             <div id="hobbies" class="row central-content img-rounded">
                 <h1>Hobbies & Interests</h1>
                 <div class="info-element">
@@ -284,8 +232,8 @@
                 <p>Try to scroll this page and look at the navigation list while scrolling!</p>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
-			
-			<!-- Contact Me! -->
+
+            <!-- Contact Me! -->
             <div id="contact" class="row central-content img-rounded">
                 <h1>Contact Info</h1>
                 <div class="">
@@ -294,12 +242,70 @@
                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 text-center"><a href="https://github.com/foxtrot94" target="_blank"><img class="img-responsive" src="{% static 'personal_site/images/contact_git.png' %}"><h3>Git</h3></a></div>
                 </div>
             </div>
-			
-			<!-- Make some space  -->
+
+            <!-- Make some space  -->
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
     </div>
 </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script type="application/javascript">
+        {# TODO: Move these to a .js file #}
+
+        //Events passed into modals expect some standard information to be passed to it. Specifically
+        // "title" string, "description" string, "displays" list of urls to pictures. (More to come soon)
+
+        testy_modal = function (event) {
+            $("#test_popup").modal('show');
+            console.log( event.data.param1 ,event.data.param2 );
+        };
+
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            //Load all projects from Database
+            var displayItem = $('#display_item'); //The item to be constantly cloned
+            var divToAppendTo = $('#project_div');
+
+            $.ajax({ //Ask if we can save this schedule
+                type: 'get',
+                url: "/example/projects",
+                success: function (data) {
+                    $('#loading').hide();
+                    var result = JSON.parse(data);
+
+                    console.log(result.length);
+                    console.log(result);
+                    for(var i=0; i< result.length; ++i){
+                        var modelFields = result[i]["fields"];
+
+                        var newDisplayItem = displayItem.clone(true);
+                        newDisplayItem.selector = displayItem.selector+i;
+                        var testy = $('#item_thumbnail',newDisplayItem);
+                        testy.attr("src",'{{ MEDIA_URL }}'+modelFields["img"]);
+                        var title = $('#display_title',newDisplayItem);
+                        title.html(modelFields["title"]);
+                        var s = $('#display_subtitle',newDisplayItem);
+                        s.html("saaf");
+                        newDisplayItem.show();
+                        newDisplayItem.click({title: modelFields["title"], subtitle: modelFields["summary"]},testy_modal);
+
+                        divToAppendTo.append(newDisplayItem);
+
+                    }
+
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(thrownError);
+                    console.log("ERROR!");
+                }
+            });
+
+            console.log( "done!!!" );
+        });
+    </script>
 
 </body>
 
@@ -307,24 +313,7 @@
 {# Things that should be hidden from users #}
 
 {# Modal #}
-<div class="modal fade" id="test_popup" data-backdrop="static">
-    <div class="modal-dialog vertical-align-center">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h2 class="modal-title">Test Modal</h2>
-            </div>
-            <div class="modal-body">
-                <p>Popups!</p>
-            </div>
-            <div class="modal-footer text-center span12">
-                <div class="text-center">
-                    <button type="button" class="btn btn-default" id="dismiss" data-dismiss="modal">Dismiss</button>
-                </div>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+{% include "modular_modal.html" %}
 
 {# DisplayItem #}
 {% include "displayitem.html" %}
