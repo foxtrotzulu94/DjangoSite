@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 from django.conf.urls import include, url
 
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse, HttpResponseBadRequest
 from django.core import serializers
 
 
@@ -29,21 +29,52 @@ class IRest:
     @classmethod
     def specific(cls, request, pk):
         """Class method to retrieve a specific model from the DB and return as a JSON object in an HTTP Response"""
-        # TODO: Implement
-        print(str(request))
-        print(str(pk))
+        generic_model = cls.main_model()
+        if generic_model is not None:
+            specific_instance = generic_model.objects.get(pk=pk)
+            if specific_instance is not None:
+                return HttpResponse(serializers.serialize("json", [specific_instance]))
         return HttpResponse('<body><p>ObjectNotFound</p></body>')
 
     @classmethod
     def specific_image_list(cls, request, pk):
         """Class method to retrieve a list of URLs that represents a models ImageListField property"""
-        # TODO: Implement
+        generic_model = cls.main_model()
+        if generic_model is not None:
+            specific_instance = generic_model.objects.get(pk=pk)
+            if specific_instance is not None:
+                # Try to retrieve the expected ImageListField attribute by name and get an img
+                try:
+                    model_field = getattr(specific_instance, "display_pictures")
+                    field_list = model_field.all()
+                    resolved_image_list = []
+                    for entry in field_list:
+                        resolved_image_list.append(entry.img.url)
+                    return HttpResponse(serializers.serialize("json", [resolved_image_list]))
+
+                except AttributeError:
+                    print("Queried model has no attributes matching name \"display_pictures\". Request is invalid.")
+                    return HttpResponseBadRequest(request)
+                # any other exception will cause a very interesting (and probably fatal) exception
+
         return HttpResponse('<body><p>ObjectNotFound</p></body>')
 
     @classmethod
     def specific_thumbnail(cls, request, pk):
         """Class method to access the representative thumbnail of a DB model"""
-        # TODO: Implement
+        generic_model = cls.main_model()
+        if generic_model is not None:
+            specific_instance = generic_model.objects.get(pk=pk)
+            if specific_instance is not None:
+                # Try to retrieve the expected ImageListField attribute by name and get an img
+                try:
+                    model_field = getattr(specific_instance, "thumbnail")
+                    return HttpResponse(serializers.serialize("json", [model_field.url]))
+
+                except AttributeError:
+                    print("Queried model has no attributes matching name \"thumbnail\". Request is invalid.")
+                    return HttpResponseBadRequest(request)
+                    # any other exception will cause a very interesting (and probably fatal) exception
         return HttpResponse('<body><p>ObjectNotFound</p></body>')
 
     @classmethod
