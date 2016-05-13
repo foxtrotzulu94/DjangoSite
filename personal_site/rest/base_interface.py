@@ -1,5 +1,5 @@
-from abc import ABCMeta, abstractmethod
-from django.conf.urls import include, url
+from abc import abstractmethod
+from django.conf.urls import url
 
 from django.http.response import HttpResponse, HttpResponseBadRequest
 from django.core import serializers
