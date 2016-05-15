@@ -3,7 +3,6 @@
 
 <!-- DISCLAIMER: There's a good reason why I'm not a Web Developer. You can see for yourself below -->
 
-{# This test html built off of http://www.w3schools.com/bootstrap/bootstrap_scrollspy.asp #}
 {% load staticfiles %}
 <head>
     <meta charset="utf-8">
@@ -40,16 +39,11 @@
         font-size: 28px;
     }
     #overview {color: #fff; background-color: rgba(77,101,141,0.45); opacity: 1;}
-    {#    #experience {color: #fff; background-color:rgba(21,44,85,0.75); opacity:0.6;}#}
     #experience {color: #fff; background-color:rgba(77,101,141,0.45);} {# This color seems better... #}
     #projects {color: #fff; background-color:rgba(21,44,85,0.45);}
     #titles {color: #fff; background-color:rgba(21,44,85,0.45);}
     #hobbies {color: #fff; background-color:rgba(21,44,85,0.45);}
     #contact {color: #fff; background-color:rgba(21,44,85,0.45);}
-
-    {#    #projects {color: #fff; background-color: rgba(77,101,141,0.75); opacity: 0.6;}#}
-    {#    #titles {color: #fff; background-color: rgba(5,24,56,0.75); opacity: 0.6;}#}
-    {#    #hobbies {color: #fff; background-color: #009688; opacity: 0.6;}#}
 
     .sidebuttons{
         border-radius: 6px;
@@ -83,6 +77,24 @@
          margin-left: auto; margin-right: auto;
     }
 
+    .modal{
+        color: white;
+    }
+    
+    .modal-content {
+        background-color: rgba(44,117,200,0.9);
+    }
+
+    .modal-body-text{
+        padding: 12px;
+        font-size: larger;
+    }
+
+{#    .modal-carousel{#}
+{#        background-color: rgba(0,0,0,0.3);#}
+{#        border-radius: 6px;#}
+{#    }#}
+
     </style>
 </head>
 
@@ -91,7 +103,7 @@
 <div class="container">
     <div class="row">
         <nav class="col-lg-2 col-md-2 col-sm-2" id="myScrollspy" style="margin-right:3%;">
-            <ul class="nav nav-pills nav-stacked" style="width: inherit; padding-right: 5%">
+            <ul class="nav nav-pills nav-stacked" style="width: inherit; padding-right: 5%;">
                 <li><img src="{% static 'personal_site/images/emotion.jpg' %}" width="140" height="140" class="img-rounded"></li>
 
                 <li style="margin-left:5px">
@@ -137,7 +149,7 @@
                     <h1>Overview</h1>
                     <div class="info-element">
                         {# Mainly talk about languages, education and abilities #}
-                        <h3>I'm a 4th Computer Engineering student at <a>Concordia University</a> in Montreal, Canada about to graduate on May 2017.</h3>
+                        <h3>I'm a 4th year Computer Engineering student at <a>Concordia University</a> in Montreal, Canada about to graduate on May 2017.</h3>
                         <p>CGPA 3.9/4.0 - Dean's List Student from 2012 to 2015 - Member of the Institute for Co-operative Education.</p>
                         <h3>Student member of the <a>IGDA</a>, <a>IEEE</a> and <a>ACM</a>.</h3>
                         <p>Interested in working with Computer Graphics, Computer Architecture and Operating Systems.</p>
@@ -249,65 +261,20 @@
     </div>
 </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
     <script type="application/javascript">
-        {# TODO: Move these to a .js file #}
-
-        //Events passed into modals expect some standard information to be passed to it. Specifically
-        // "title" string, "description" string, "displays" list of urls to pictures. (More to come soon)
-
-        testy_modal = function (event) {
-            $("#test_popup").modal('show');
-            console.log( event.data.param1 ,event.data.param2 );
-        };
-
-        $( document ).ready(function() {
-            console.log( "ready!" );
-            //Load all projects from Database
-            var displayItem = $('#display_item'); //The item to be constantly cloned
-            var divToAppendTo = $('#project_div');
-
-            $.ajax({ //Ask if we can save this schedule
-                type: 'get',
-                url: "/example/projects",
-                success: function (data) {
-                    $('#loading').hide();
-                    var result = JSON.parse(data);
-
-                    console.log(result.length);
-                    console.log(result);
-                    for(var i=0; i< result.length; ++i){
-                        var modelFields = result[i]["fields"];
-
-                        var newDisplayItem = displayItem.clone(true);
-                        newDisplayItem.selector = displayItem.selector+i;
-                        var testy = $('#item_thumbnail',newDisplayItem);
-                        testy.attr("src",'{{ MEDIA_URL }}'+modelFields["img"]);
-                        var title = $('#display_title',newDisplayItem);
-                        title.html(modelFields["title"]);
-                        var s = $('#display_subtitle',newDisplayItem);
-                        s.html("saaf");
-                        newDisplayItem.show();
-                        newDisplayItem.click({title: modelFields["title"], subtitle: modelFields["summary"]},testy_modal);
-
-                        divToAppendTo.append(newDisplayItem);
-
-                    }
-
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(thrownError);
-                    console.log("ERROR!");
-                }
-            });
-
-            console.log( "done!!!" );
-        });
+        {# JS Global Constants being passed to our scripts #}
+        window.MEDIA_URL = '{{ MEDIA_URL }}';
+        window.POPUP_MODAL = {}; //Set in on Document load
     </script>
 
-</body>
+{#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">#}
+
+    <script src="{% static "personal_site/scripts/jquery.min.js" %}"></script>
+    <script src="{% static "personal_site/scripts/bootstrap.min.js" %}"></script>
+    <script src="{% static "personal_site/scripts/psdisplay.js" %}"></script>
+    <script src="{% static "personal_site/scripts/test.js" %}"></script>
+
 
 
 {# Things that should be hidden from users #}
@@ -317,6 +284,11 @@
 
 {# DisplayItem #}
 {% include "displayitem.html" %}
+
+</body>
+
+
+
 
 
 </html>
