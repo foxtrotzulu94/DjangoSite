@@ -5,17 +5,25 @@ from django.views.decorators.cache import never_cache
 
 from django.views.decorators.http import require_safe
 from django.http.response import HttpResponse
-from personal_site.models import ExampleItem
+from personal_site.models import *
 
 # This file returns an http response that maps to a template.
 # For responses linked to pure JSON data, check personal_site.rest folder
 
+
 @require_safe
 def index(request):
     """Display the initial website"""
+    work_items = WorkExperience.objects.all().order_by('-end_date')
+    extracurricular_items = ExtracurricularExperience.objects.all().order_by('-end_date')
+    volunteer_items = VolunteerExperience.objects.all().order_by('-end_date')
     return render(
         request,
-        'index.html'
+        'index.html',
+        {'work': work_items,
+         'extracurricular': extracurricular_items,
+         'volunteer': volunteer_items
+         }
     )
 
 

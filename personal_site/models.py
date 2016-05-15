@@ -45,11 +45,14 @@ class ExperienceItem(DisplayItem):
 
     tech_used = models.CharField(max_length=200)  # Some day, we can make this come from a "tech" table. Not today...
     description = models.TextField()
-    display_pictures = models.ManyToManyField(ImageListField)
+    display_pictures = models.ManyToManyField(ImageListField,  blank=True)
 
     # These are displayed differently on the View depending on which subclass they are
     start_date = models.DateField(default=date.today)
-    end_date = models.DateField(default=date.today)
+    end_date = models.DateField(default=date.today, blank=True)  # This one could be blank if it is still current.
+
+    def __str__(self):
+        return self.title+" ("+self.start_date.strftime("%B %Y")+"-"+self.start_date.strftime("%B %Y")+")"
 
     # class Meta:
     #     abstract = True
@@ -64,46 +67,49 @@ class WorkExperience(ExperienceItem):
     # URL to the external site
     ext_url = models.URLField(blank=True)
 
+    def __str__(self):
+        return self.title + " at " + self.company + " (" + self.location + " | " + self.start_date.strftime("%B %Y") + "-" + self.start_date.strftime("%B %Y") + ")"
+
 # end class WorkExperience
 
 
 class ExtracurricularExperience(WorkExperience):
     """Class for listing work done in Concordia outside of class"""
-    # class Meta:
-    #     proxy = True
+    class Meta:
+        proxy = True
 # end class ExtraCurricularExperience
 
 
 class VolunteerExperience(WorkExperience):
     """Class for displaying Volunteer Experience and external links"""
-    # class Meta:
-    #     proxy = True
+    class Meta:
+        proxy = True
 # enc class VolunteerExperience
 
 
 class PersonalProject(ExperienceItem):
     """Class for representing Projects, all Section 3 Items. Can be Active or Inactive/Unsupported """
     # TODO: Decide whether projects should include a bool field to mark their activity
-    # class Meta:
-    #     proxy = True
+    class Meta:
+        proxy = True
 
 # end class Projects
 
 
 class GameTitle(ExperienceItem):
     """Proxy Class for all Commercial Games worked on, Section 4 Items"""
-    #
-    # class Meta:
-    #     proxy = True
+
+    class Meta:
+        proxy = True
 
 # end class CommercialGames
 
 
 class PersonalInterest(ExperienceItem):
     """Proxy Class for any Hobbies or general interests, These are Section 5 Items"""
-    #
-    # class Meta:
-    #     proxy = True
+
+    class Meta:
+        proxy = True
 
 # end class Hobbies
 
