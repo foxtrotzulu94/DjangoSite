@@ -1,9 +1,5 @@
 from django.db import models
 from datetime import date
-from django.core.files.storage import FileSystemStorage
-
-# path = os.path.join(ROOT_DIR, 'web-private')
-# fs = FileSystemStorage(location='/static/personal_site/images/')
 
 
 class ImageListField(models.Model):
@@ -32,85 +28,89 @@ class DisplayItem(models.Model):
     """Abstract Class representing a generic, displayable element"""
 
     title = models.CharField(max_length=30)
-    subtitle = models.CharField(max_length=30, blank=True)
-    thumbnail = models.ImageField(upload_to='media/', blank=True)
+    thumbnail = models.ImageField(upload_to='media/', blank=True)  # TODO: Remove in production server
 
     class Meta:
         abstract = True
 # end class DisplayItem
 
 
-class ExperienceItem(DisplayItem):
+class DetailedDisplayItem(DisplayItem):
     """Abstract Class used to model/define Experience items"""
 
-    tech_used = models.CharField(max_length=200)  # Some day, we can make this come from a "tech" table. Not today...
-    description = models.TextField()
-    display_pictures = models.ManyToManyField(ImageListField,  blank=True)
+    highlights = models.CharField(max_length=200, help_text="Tech used, skills learnt or lessons learnt")
+    description = models.TextField(help_text="Short and sweet summary of the experience. Use Bullet Point sentences!")
+    display_pictures = models.ManyToManyField(ImageListField,  blank=True, help_text="Relevant images")
 
     # These are displayed differently on the View depending on which subclass they are
     start_date = models.DateField(default=date.today)
-    end_date = models.DateField(default=date.today, blank=True)  # This one could be blank if it is still current.
+    ongoing = models.BooleanField(default=False, help_text="Is this still current and ongoing?")
+    end_date = models.DateField(default=date.today, blank=True,  help_text="Only displayed if Ongoing is false")
 
     def __str__(self):
         return self.title+" ("+self.start_date.strftime("%B %Y")+"-"+self.start_date.strftime("%B %Y")+")"
 
-    # class Meta:
-    #     abstract = True
+    class Meta:
+        abstract = True
 # end class
 
+""" ### Section 2 Models ### """
 
-class WorkExperience(ExperienceItem):
-    """Proxy Class for Work, part of Section 2 Items"""
+
+class ExperienceItem(DetailedDisplayItem):
+    """Generic Class for all Section 2 Items"""
     # title corresponds to Position in this case
-    company = models.CharField(max_length=50)
+    organization = models.CharField(max_length=50, help_text="Company, Society, Group")
     location = models.CharField(max_length=50)
     # URL to the external site
-    ext_url = models.URLField(blank=True)
+    ext_url = models.URLField(blank=True, help_text="Link to more information")
 
     def __str__(self):
-        return self.title + " at " + self.company + " (" + self.location + " | " + self.start_date.strftime("%B %Y") + "-" + self.start_date.strftime("%B %Y") + ")"
-
+        return self.title + " at " + self.organization + " (" + self.location + " | " + self.start_date.strftime("%B %Y") + \
+               "-" + self.start_date.strftime("%B %Y") + ")"
 # end class WorkExperience
 
 
-class ExtracurricularExperience(WorkExperience):
-    """Class for listing work done in Concordia outside of class"""
-    class Meta:
-        proxy = True
+class WorkExperience(ExperienceItem):
+    """Class for Work/Professional experience"""
+# end class WorkExperience
+
+
+class ExtracurricularExperience(ExperienceItem):
+    """Class for listing work done in Concordia, outside of class"""
 # end class ExtraCurricularExperience
 
 
-class VolunteerExperience(WorkExperience):
-    """Class for displaying Volunteer Experience and external links"""
-    class Meta:
-        proxy = True
-# enc class VolunteerExperience
+class VolunteerExperience(ExperienceItem):
+    """Class for displaying Volunteer Experience"""
+# end class VolunteerExperience
+
+""" ### Section 3 Models ### """
 
 
-class PersonalProject(ExperienceItem):
+class PersonalProject(DetailedDisplayItem):
     """Class for representing Projects, all Section 3 Items. Can be Active or Inactive/Unsupported """
-    # TODO: Decide whether projects should include a bool field to mark their activity
-    class Meta:
-        proxy = True
+# end class PersonalProject
 
-# end class Projects
+""" ### Section 4 Models ### """
 
 
-class GameTitle(ExperienceItem):
+class GameTitle(DetailedDisplayItem):
     """Proxy Class for all Commercial Games worked on, Section 4 Items"""
+# end class GameTitle
 
-    class Meta:
-        proxy = True
-
-# end class CommercialGames
+""" ### Section 5 Models ### """
 
 
-class PersonalInterest(ExperienceItem):
+class PersonalInterest(DetailedDisplayItem):
     """Proxy Class for any Hobbies or general interests, These are Section 5 Items"""
+# end class PersonalInterest
 
-    class Meta:
-        proxy = True
+""" ### Section 6 Models ### """
 
-# end class Hobbies
 
+class ContactInfo(DisplayItem):
+    """Class to hold all contact information"""
+    external_link = models.URLField(help_text="Link external site. Inserted as an href")
+# end class ContactInfo
 

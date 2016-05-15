@@ -161,30 +161,37 @@
                 <br>
             </div>
 
+            <!-- Experience (Work, Extracurricular, Volunteer) -->
             <div id="experience" class="row central-content img-rounded">
                 <div>
                     <h1>Experience</h1>
                     <div class="info-element">
+                        {% if work %}
                         <h2>Professional</h2>
                         <div id="work_div">
                             {% for object in work %}
                                 {% include 'static_rowitem.html' with obj=object %}
                             {% endfor %}
                         </div>
-                        <hr>
+                            {% if extracurricular or volunteer %}<hr>{% endif %}
+                        {% endif %}
+                        {% if extracurricular %}
                         <h2>Extracurricular</h2>
                         <div id="extracurricular_div">
                             {% for object in extracurricular %}
                                 {% include 'static_rowitem.html' with obj=object %}
                             {% endfor %}
                         </div>
-                        <hr>
+                            {% if volunteer %}<hr>{% endif %}
+                        {% endif %}
+                        {% if volunteer %}
                         <h2>Volunteer</h2>
                         <div id="volunteer_div">
                             {% for object in volunteer %}
                                 {% include 'static_rowitem.html' with obj=object %}
                             {% endfor %}
                         </div>
+                        {% endif %}
                         {#                        <hr>#}
 
                         {# For now, we've commented this out at the risk of repeating ourselves in our employment and projects part #}
@@ -200,6 +207,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Personal Projects-->
             <div id="projects" class="row central-content img-rounded">
                 <h1>Technical Projects</h1>
                 <div class="info-element">
@@ -207,14 +216,14 @@
                     <p>Click on them and check out the details</p>
                 </div>
                 <div class="row col-sm-12" id="project_div" style="float: none;">
-                    <div id="loading"><p>LOADING</p></div> {# TODO: loading .gif here #}
+{#                    <div id="loading"><p>LOADING</p></div> {# TODO: loading .gif here #}
                 </div>
                 {#                <div class="info-element">#}
                 {#                    <h3>There's always room for improvement, so <a href="#contact">let me know</a> what you thought about them!</h3>#}
                 {#                </div>#}
             </div>
 
-            <!-- The Games Div -->
+            <!-- Game Titles -->
             <div id="titles" class="row central-content img-rounded">
                 <div>
                     <h1>Games</h1>
@@ -226,8 +235,8 @@
                     <div class="row col-sm-12" id="games_div" style="float: none;">
                         <div class="col-lg-3 col-md-4 col-sm-10 col-xs-10" style="opacity:1.0; word-wrap: break-word;" id="display_item">
                             <div class="row text-center info-element" id="inner_div">
-                                <img src="{% static 'personal_site/images/testpic.jpg' %}" class="img-thumbnail img-responsive" id="item_thumbnail">
-                                <h4 id="display_title">Testy</h4>
+{#                                <img src="{% static 'personal_site/images/testpic.jpg' %}" class="img-thumbnail img-responsive" id="item_thumbnail">#}
+{#                                <h4 id="display_title">Testy</h4>#}
                             </div>
                         </div>
                     </div>
@@ -242,11 +251,8 @@
                 </div>
 
                 <div class="row col-sm-12" id="hobbies_div" style="float: none;">
-                    <div id="loading"><p>LOADING</p></div> {# TODO: loading .gif here #}
+{#                    <div id="loading"><p>LOADING</p></div> {# TODO: loading .gif here #}
                 </div>
-
-                <p>Try to scroll this page and look at the navigation list while scrolling!</p>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
 
             <!-- Contact Me! -->
