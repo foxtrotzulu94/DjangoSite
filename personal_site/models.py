@@ -32,7 +32,7 @@ class DisplayItem(models.Model):
     """Abstract Class representing a generic, displayable element"""
 
     title = models.CharField(max_length=30)
-    subtitle = models.CharField(max_length=50)
+    subtitle = models.CharField(max_length=30, blank=True)
     thumbnail = models.ImageField(upload_to='media/', blank=True)
 
     class Meta:
@@ -50,7 +50,7 @@ class ExperienceItem(DisplayItem):
     # These are displayed differently on the View depending on which subclass they are
     start_date = models.DateField(default=date.today)
     end_date = models.DateField(default=date.today)
-    #
+
     # class Meta:
     #     abstract = True
 # end class
@@ -58,22 +58,26 @@ class ExperienceItem(DisplayItem):
 
 class WorkExperience(ExperienceItem):
     """Proxy Class for Work, part of Section 2 Items"""
+    # title corresponds to Position in this case
+    company = models.CharField(max_length=50)
+    location = models.CharField(max_length=50)
+    # URL to the external site
+    ext_url = models.URLField(blank=True)
 
-    # class Meta:
-    #     proxy = True
 # end class WorkExperience
 
 
 class ExtracurricularExperience(WorkExperience):
     """Class for listing work done in Concordia outside of class"""
+    # class Meta:
+    #     proxy = True
 # end class ExtraCurricularExperience
 
 
 class VolunteerExperience(WorkExperience):
     """Class for displaying Volunteer Experience and external links"""
-
-    # URL to the external site
-    ext_url = models.URLField(blank=True)
+    # class Meta:
+    #     proxy = True
 # enc class VolunteerExperience
 
 
