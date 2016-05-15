@@ -23,7 +23,7 @@ def index(request):
 def testy(request):
     return render(
         request,
-        'testy.html'
+        'index.html'
     )
 
 
