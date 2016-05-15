@@ -38,14 +38,14 @@ class SerializedProjects(IRest):
 class SerializedGameTitles(IRest):
     @classmethod
     def main_model(cls):
-        return WorkExperience
+        return GameTitle
 # end class SerialWorkExp
 
 
 class SerializedInterests(IRest):
     @classmethod
     def main_model(cls):
-        return WorkExperience
+        return PersonalInterest
 # end class SerialWorkExp
 
 
