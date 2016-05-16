@@ -3,7 +3,6 @@ from personal_site.models import *
 
 # Register your models here.
 # Example Models
-admin.site.register(ExampleItem)
 admin.site.register(ImageListField)
 
 
