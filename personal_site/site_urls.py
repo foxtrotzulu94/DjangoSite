@@ -15,10 +15,6 @@ class Exmp(IRest):
 urlpatterns = [
     url(r'^$', index),
 
-    # Testing URLs, comment out for release
-    url(r'^testy/', testy),
-    url(r'^ajaj/', ajaj),
-
     url(r'', include('personal_site.rest.urls')),
     url(r'^example/projects/', include(Exmp.generate_url())),
 

@@ -38,14 +38,14 @@ class DisplayItem(models.Model):
 class DetailedDisplayItem(DisplayItem):
     """Abstract Class used to model/define Experience items"""
 
-    highlights = models.CharField(max_length=200, help_text="Tech used, skills learnt or lessons learnt")
+    highlights = models.CharField(max_length=200, blank=True, help_text="Tech used, skills learnt or lessons learnt")
     description = models.TextField(help_text="Short and sweet summary of the experience. Use Bullet Point sentences!")
     display_pictures = models.ManyToManyField(ImageListField,  blank=True, help_text="Relevant images")
 
     # These are displayed differently on the View depending on which subclass they are
     start_date = models.DateField(default=date.today)
     ongoing = models.BooleanField(default=False, help_text="Is this still current and ongoing?")
-    end_date = models.DateField(default=date.today, blank=True,  help_text="Only displayed if Ongoing is false")
+    end_date = models.DateField(default=date.today, help_text="Only displayed if Ongoing is false")
 
     def __str__(self):
         return self.title+" ("+self.start_date.strftime("%B %Y")+"-"+self.start_date.strftime("%B %Y")+")"

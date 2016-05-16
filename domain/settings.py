@@ -132,5 +132,6 @@ MEDIA_URL = '/media/'
 if DEBUG:
     MEDIA_ROOT = 'personal_site/static/personal_site/'
     MEDIA_URL = '/static/personal_site/'
-# if not DEBUG:
-#     MEDIA_ROOT = '/var/www/javierfajardo.com/media'  # Use when in production
+else:
+    MEDIA_ROOT = '/var/www/javierfajardo.com/'  # Use when in production
+    MEDIA_URL = '/'
