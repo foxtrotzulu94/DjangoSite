@@ -111,6 +111,6 @@ class PersonalInterest(DetailedDisplayItem):
 
 class ContactInfo(DisplayItem):
     """Class to hold all contact information"""
-    external_link = models.URLField(help_text="Link external site. Inserted as an href")
+    external_link = models.CharField(max_length=200, help_text="Link external site. Inserted as an href")
 # end class ContactInfo
 

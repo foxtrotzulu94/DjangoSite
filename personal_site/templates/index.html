@@ -259,9 +259,9 @@
             <div id="contact" class="row central-content img-rounded">
                 <h1>Contact Info</h1>
                 <div class="">
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 text-center"><a href="mailto:testy@{{ request.META.HTTP_HOST }}" target="_blank"><img class="img-responsive" src="{% static 'personal_site/images/contact_mail2.png' %}"><h3>Mail</h3></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 text-center"><a href="https://ca.linkedin.com/in/javierefajardo" target="_blank"><img class="img-responsive" src="{% static 'personal_site/images/contact_linkedin.png' %}"><h3>LinkedIn</h3></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 text-center"><a href="https://github.com/foxtrot94" target="_blank"><img class="img-responsive" src="{% static 'personal_site/images/contact_git.png' %}"><h3>Git</h3></a></div>
+                    {% for item in contact_info %}
+                        {% include 'contactinfoitem.html' with info=item %}
+                    {% endfor %}
                 </div>
             </div>
 
