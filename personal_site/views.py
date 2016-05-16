@@ -29,33 +29,6 @@ def index(request):
     )
 
 
-@never_cache
-def testy(request):
-    return render(
-        request,
-        'index.html'
-    )
-
-
-def ajaj(request):
-    retVal = ExampleItem.objects.get(pk=1)
-    if retVal is not None:
-        data = serializers.serialize("json", [retVal])
-        print(data)
-        return HttpResponse(data)
-    return HttpResponse('<body><p>ObjectNotFound</p></body>')
-
-
 def image_field_retrieval(request, img):
     pass
-
-
-def list_projects(request):
-    # TODO: All projects should be ordered by Date
-    retVal = ExampleItem.objects.all()
-    if retVal is not None:
-        data = serializers.serialize("json", retVal)
-        print(data)
-        return HttpResponse(data)
-    return HttpResponse('<body><p>ObjectNotFound</p></body>')
 

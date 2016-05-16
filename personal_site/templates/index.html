@@ -75,6 +75,11 @@
             padding-bottom:10px;
         }
 
+        #row_item_subheader a{
+            color: white;
+{#            font-weight: bold;#}
+        }
+
         .carousel-inner > .item > img {
             height: 30%;
             width: auto;
@@ -279,25 +284,19 @@
 {#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>#}
 {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">#}
 
-<script src="{% static "personal_site/scripts/jquery.min.js" %}"></script>
-<script src="{% static "personal_site/scripts/bootstrap.min.js" %}"></script>
-<script src="{% static "personal_site/scripts/psdisplay.js" %}"></script>
-<script src="{% static "personal_site/scripts/test.js" %}"></script>
-
-
-
 {# Things that should be hidden from users #}
-
 {# Modal #}
 {% include "modular_modal.html" %}
 
 {# DisplayItem #}
 {% include "displayitem.html" %}
 
+{# All the scripts #}
+<script src="{% static "personal_site/scripts/jquery.min.js" %}"></script>
+<script src="{% static "personal_site/scripts/bootstrap.min.js" %}"></script>
+<script src="{% static "personal_site/scripts/psdisplay.js" %}"></script>
+<script src="{% static "personal_site/scripts/test.js" %}"></script>
+
 </body>
-
-
-
-
 
 </html>
