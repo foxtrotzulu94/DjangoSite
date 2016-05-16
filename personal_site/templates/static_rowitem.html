@@ -16,8 +16,10 @@
                     {% if obj.ongoing %}
                         Since {{ obj.start_date|date:"M. Y" }}
                     {% else %}
-                    {{ obj.start_date|date:"M. Y" }} to
-                    {{ obj.end_date|date:"M. Y" }}
+                    {{ obj.start_date|date:"M. Y" }}
+                        {% if obj.start_date|date:"M. Y" != obj.end_date|date:"M. Y" %}
+                            to {{ obj.end_date|date:"M. Y" }}
+                        {% endif %}
                     {% endif %}
                 </p>
             </div>
