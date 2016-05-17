@@ -1,0 +1,12 @@
+{# Small block element used to render DisplayItems on the front page#}
+{% load staticfiles %}
+<div class="col-lg-3 col-md-4 col-sm-8 col-xs-10" style="opacity:1.0; word-wrap: break-word;" id="{{ obj.pk }}">
+
+    <div class="row text-center" id="inner_div" style="padding-left:10px;padding-right:10px;">
+    {% if obj.external_link %}<a href="{{ obj.external_link }}" target="_blank">{% endif %}
+        <img src="{{ MEDIA_URL }}{{ obj.thumbnail }}" class="img-thumbnail img-responsive" id="item_thumbnail" width="300px">
+    {% if obj.external_link %}</a>{% endif %}
+        <h4 id="display_title">{{ obj.title }}</h4>
+{#        <!-- Can statically add some data here-->#}
+    </div>
+</div>
