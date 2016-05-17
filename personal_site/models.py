@@ -95,8 +95,9 @@ class PersonalProject(DetailedDisplayItem):
 """ ### Section 4 Models ### """
 
 
-class GameTitle(DetailedDisplayItem):
+class GameTitle(DisplayItem):
     """Proxy Class for all Commercial Games worked on, Section 4 Items"""
+    external_link = models.URLField(max_length=200, help_text="Link external site. Inserted as an href", blank=True)
 # end class GameTitle
 
 """ ### Section 5 Models ### """

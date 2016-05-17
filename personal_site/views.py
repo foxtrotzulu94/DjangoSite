@@ -18,12 +18,17 @@ def index(request):
     extracurricular_items = ExtracurricularExperience.objects.all().order_by('-end_date')
     volunteer_items = VolunteerExperience.objects.all().order_by('-end_date')
     contact = ContactInfo.objects.all()
+    projects = PersonalProject.objects.all()
+    print(projects)
+    games = GameTitle.objects.all()
     return render(
         request,
         'index.html',
         {'work': work_items,
          'extracurricular': extracurricular_items,
          'volunteer': volunteer_items,
+         'projects': projects,
+         'games': games,
          'contact_info': contact
          }
     )

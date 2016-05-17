@@ -7,8 +7,8 @@ admin.site.register(ImageListField)
 
 
 # Actual Models that are displayed throughout the site
-@admin.register(ContactInfo)
-class ContactInfoAdmin(admin.ModelAdmin):
+@admin.register(ContactInfo, GameTitle)
+class SimpleInfoAdmin(admin.ModelAdmin):
     list_display = ('title', 'external_link')
 # end class
 
@@ -19,7 +19,7 @@ class ExperienceItemAdmin(admin.ModelAdmin):
 # end class
 
 
-@admin.register(PersonalProject, GameTitle, PersonalInterest)
+@admin.register(PersonalProject, PersonalInterest)
 class GeneralDisplayItemAdmin(admin.ModelAdmin):
     list_display = ('title', 'start_date', 'end_date', 'ongoing')
 # end class
