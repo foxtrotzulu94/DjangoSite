@@ -86,12 +86,16 @@
             margin-left: auto; margin-right: auto;
         }
 
+        #inner_div > a{
+            color: white;
+        }
+
         .modal{
             color: white;
         }
 
         .modal-content {
-            background-color: rgba(44,117,200,0.9);
+            background-color: rgba(116,139,179,0.9);
         }
 
         .modal-body-text{
@@ -134,15 +138,21 @@
                 </div>
                 <div>
                     {# Short description/backstory #}
-                    <p>Welcome! I'm a Canadian Software Developer originally from Caracas, Venezuela.
+                    <p>
+                      Welcome! I'm a Canadian Software Developer originally from Caracas, Venezuela.
                         I started programming back in 2007 when I wanted to make my own videogame.
 {#                        Back then, I tried building a game with a Doom source port to give it a first try.#}
-                        Though I didn't get far, I did learn a great deal about videogame development that still holds true to this day.
+{#                        Though I didn't get far, I did learn a great deal about videogame development that still holds true to this day.#}
                         Later in 2010, I picked up Ubuntu Linux out of curiosity.
                         After heavily customizing the distro, I wanted to learn more about operating systems and the hardware they run on.
-                        These two events led me down the path of Computer Engineering.</p>
-                    <p>Since 2013, I've been programming non-stop! Working long hours, both with teams and alone, in hackathons, game jams, at school, and at home to make cool stuff.</p>
-                    <p>This site can give you an idea of my experience, skills and interests. Go on and take a look!</p>
+                        These two events led me down the path of Computer Engineering.
+                      </p>
+                    <p>
+                      Since 2013, I've been programming non-stop! Working long hours, both with teams and alone, in hackathons, game jams, at school, and at home to make cool stuff.
+                    </p>
+                    <p>
+                      This site can give you an idea of my experience, skills and interests. Go on and take a look!
+                    </p>
                 </div>
                 <br>
             </div>
@@ -220,13 +230,16 @@
                     <h3>These are some of the things I've built and worked on.</h3>
                     <p>Click on them and check out the details</p>
                 </div>
-                <div class="row col-sm-12" id="project_div" style="float: none;">
-                    {% for item in projects %}
-                        {% include 'static_displayitem.html' with obj=item %}
-                    {% endfor %}
+                <div class="row">
+                    <div class="grid" id="project_div" data-masonry='{"itemSelector":".grid-item", "columnWidth": 160, "isFitWidth":true, "gutter":5}' style="margin: auto">
+                        <div class="grid-sizer"></div>
+                        {% for item in projects %}
+                            {% include 'grid_displayitem.html' with obj=item %}
+                        {% endfor %}
+                    </div>
                 </div>
                 <div class="info-element">
-                    <p>There's always room for improvement, so <a href="#contact">let me know</a> what you thought about them!</p>
+                    <p>There's always room for improvement, so <a href="#contact" style="color: white; font-weight: bold">let me know</a> what you thought about them!</p>
                 </div>
             </div>
 
@@ -295,6 +308,7 @@
 <script src="{% static "personal_site/scripts/bootstrap.min.js" %}"></script>
 <script src="{% static "personal_site/scripts/psdisplay.js" %}"></script>
 <script src="{% static "personal_site/scripts/test.js" %}"></script>
+<script src="{% static "personal_site/scripts/masonry.pkgd.min.js" %}"></script>
 
 </body>
 

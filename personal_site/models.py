@@ -6,6 +6,9 @@ class ImageListField(models.Model):
     """Class for linking a Model to a list of Images"""
     img = models.ImageField(upload_to='media/')
 
+    def preview(self):
+        return u'<img src=\"%s\" />' % str(self.img.url)
+
     def __str__(self):
         return self.img.name+" - ("+str(self.img.width)+"x"+str(self.img.height)+")"
 # end class ImageModel

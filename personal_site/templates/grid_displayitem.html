@@ -1,0 +1,10 @@
+{# Small block element used to render DisplayItems on the front page#}
+{% load staticfiles %}
+<div class="grid-item" style="word-wrap: break-word; width: 160px;" id="{{ obj.pk }}">
+    <div class="text-center img-rounded" id="inner_div" style="background: black;">
+    <a href="{{ obj.external_link }}" target="_blank">
+        <img src="{{ MEDIA_URL }}{{ obj.thumbnail }}" class="img-rounded img-responsive" id="item_thumbnail" width="160px" style="margin: auto;">
+        <h4 id="display_title" style="padding-bottom: 5px">{{ obj.title }}</h4>
+    </a>
+    </div>
+</div>

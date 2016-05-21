@@ -19,6 +19,6 @@ urlpatterns = [
     url(r'^example/projects/', include(Exmp.generate_url())),
 
     # ImageListField Query
-    url(r'^images/?P<img>[0-9]*$', image_field_retrieval),
+    url(r'^images/(?P<img>[0-9]*)$', image_field_retrieval),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
