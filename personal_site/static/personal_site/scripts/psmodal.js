@@ -4,13 +4,13 @@
 
 // Function that handles populating the modular modal to display more info on a display item.
 // Takes an event that should have the following fields as data (shown as [field name] -> [type of value when accessed])
-//  - title         -> String
-//  - description   -> String
-//  - imgs          -> List of strings (URLs)
-//  - date_active   -> String
-//  - tech          -> string
+// type -> string (e.g. "projects", "games", "hobbies")
+// pk -> int
 modal_popup = function (event) {
     var popupModal = window.POPUP_MODAL;
+    
+    //Retrieve the information on the object
+
 
     //Open modal
     popupModal.modal("show");
@@ -22,5 +22,5 @@ modal_popup = function (event) {
     $("#modal_tech",popupModal).html(event.data.tech);
 
     //Now fill the images
-    $("#modal_")
+    // $("#modal_")
 };

@@ -19,8 +19,8 @@ def index(request):
     volunteer_items = VolunteerExperience.objects.all().order_by('-end_date')
     contact = ContactInfo.objects.all()
     projects = PersonalProject.objects.all().order_by('-end_date')
-    print(projects)
     games = GameTitle.objects.all()
+    hobbies = PersonalInterest.objects.all()
     return render(
         request,
         'index.html',
@@ -29,7 +29,8 @@ def index(request):
          'volunteer': volunteer_items,
          'projects': projects,
          'games': games,
-         'contact_info': contact
+         'contact_info': contact,
+         'hobbies': hobbies
          }
     )
 
