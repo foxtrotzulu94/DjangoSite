@@ -98,6 +98,10 @@
             color: white;
         }
 
+{#        .carousel-indicators .active{#}
+{#            background-color: rgba(21,44,85,0.45);#}
+{#        }#}
+
         .modal{
             color: white;
         }
@@ -120,7 +124,7 @@
     <div class="row">
         <nav class="col-lg-2 col-md-2 col-sm-2" id="myScrollspy" style="margin-right:3%;">
             <ul class="nav nav-pills nav-stacked" style="width: inherit; padding-right: 5%;">
-                <li><img src="{% static 'personal_site/images/emotion.jpg' %}" width="140" height="140" class="img-rounded"></li>
+                <li><img src="{% static 'personal_site/images/jefz.jpg' %}" width="140" height="auto" class="img-rounded"></li>
 
                 <li style="margin-left:5px">
                     <h3>Javier E.<br>Fajardo</h3>
@@ -224,7 +228,7 @@
                 </div>
                 <div class="row">
                     <div class="grid" id="project_div" data-masonry='{"itemSelector":".grid-item", "columnWidth": 160, "isFitWidth":true, "gutter":5}' style="margin: auto">
-                        <div class="grid-sizer"></div>
+{#                        <div class="grid-sizer"></div>#}
                         {% for item in projects %}
                             {% include 'grid_displayitem.html' with obj=item %}
                         {% endfor %}
@@ -245,9 +249,12 @@
                     </div>
 
                     <div class="row col-sm-12" id="games_div" style="float: none;">
-                        {% for item in games %}
-                            {% include 'static_displayitem.html' with obj=item %}
-                        {% endfor %}
+                        <div class="grid" id="project_div" data-masonry='{"itemSelector":".grid-item", "columnWidth": 160, "isFitWidth":true, "gutter":5}' style="margin: auto">
+                            <div class="grid-sizer"></div>
+                            {% for item in games %}
+                                {% include 'grid_displayitem.html' with obj=item %}
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -289,6 +296,7 @@
 <script type="application/javascript"> {# JS Global Constants being passed to our scripts #}
     window.MEDIA_URL = '{{ MEDIA_URL }}';
     window.POPUP_MODAL = {}; //Set in on Document load
+    window.AJAX_MODELS = ["projects"]; //Any models requiring AJAX work
     window.DATAMAP = {}; //set after AJAX calls
 </script>
 
@@ -306,8 +314,11 @@
 <script src="{% static "personal_site/scripts/jquery.min.js" %}"></script>
 <script src="{% static "personal_site/scripts/bootstrap.min.js" %}"></script>
 <script src="{% static "personal_site/scripts/psdisplay.js" %}"></script>
-<script src="{% static "personal_site/scripts/test.js" %}"></script>
+<script src="{% static "personal_site/scripts/psajax.js" %}"></script>
+<script src="{% static "personal_site/scripts/psmodal.js" %}"></script>
+{#<script src="{% static "personal_site/scripts/test.js" %}"></script>#}
 <script src="{% static "personal_site/scripts/masonry.pkgd.min.js" %}"></script>
+<script src="{% static "personal_site/scripts/date.js" %}"></script>
 
 </body>
 
