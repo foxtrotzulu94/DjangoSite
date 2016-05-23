@@ -32,7 +32,6 @@ modal_popup = function (event) {
     $("#modal_description",popupModal).html(popupData.description);
 
     //carousel is also special
-    var imgCount = popupData.display_pictures.length;
     //The one start image is the thumbnail, which is automatically enlarged
     $("#modal_img_indicators",popupModal).html("<li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>");
     $("#modal_img_slides",popupModal).html("<div class='item active text-center'><img src=\""+window.MEDIA_URL+popupData.thumbnail+"\" alt='testy' style='height: 256px;width: auto;' class='img-rounded img-responsive'></div>");
