@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import date
 
+# TODO: Break up this file AND add the following models: "Honors", "Awards", "Publications", "Presentations"
+
 
 class ImageListField(models.Model):
     """Class for linking a Model to a list of Images"""
