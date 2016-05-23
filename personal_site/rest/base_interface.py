@@ -3,6 +3,7 @@ from django.conf.urls import url
 
 from django.http.response import HttpResponse, HttpResponseBadRequest
 from django.core import serializers
+import json
 
 
 class IRest:
@@ -50,7 +51,7 @@ class IRest:
                     resolved_image_list = []
                     for entry in field_list:
                         resolved_image_list.append(entry.img.url)
-                    return HttpResponse(serializers.serialize("json", [resolved_image_list]))
+                    return HttpResponse(json.dumps(resolved_image_list))
 
                 except AttributeError:
                     print("Queried model has no attributes matching name \"display_pictures\". Request is invalid.")
