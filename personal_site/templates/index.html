@@ -46,7 +46,9 @@
         #experience {color: #fff; background-color:rgba(77,101,141,0.45);} {# This color seems better... #}
         #projects {color: #fff; background-color:rgba(21,44,85,0.45);}
         #titles {color: #fff; background-color:rgba(21,44,85,0.45);}
-        #hobbies {color: #fff; background-color:rgba(21,44,85,0.45);}
+
+        #awards {color: #fff; background-color:rgba(21,44,85,0.45);}
+
         #contact {color: #fff; background-color:rgba(21,44,85,0.45);}
 
         .sidebuttons{
@@ -57,7 +59,13 @@
 
 
         @media screen and (max-width: 810px) {
-            #section0, #overview, #experience, #projects, #titles, #hobbies, #contact  { {# List of Sections #}
+            #section0,
+            #overview,
+            #experience,
+            #projects,
+            #titles,
+            #awards,
+            #contact  { {# List of Sections #}
                 margin-left: 150px;
             }
         }
@@ -126,7 +134,7 @@
                 <li class="sidebuttons"><a href="#experience">Experience</a></li>
                 <li class="sidebuttons"><a href="#projects">Projects</a></li>
                 <li class="sidebuttons"><a href="#titles">Games</a></li>
-                <li class="sidebuttons"><a href="#hobbies">Hobbies</a></li>
+                <li class="sidebuttons"><a href="#awards">Awards</a></li>
                 <li class="sidebuttons"><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -141,14 +149,10 @@
                     <p>
                       Welcome! I'm a Canadian Software Developer originally from Caracas, Venezuela.
                         I started programming back in 2007 when I wanted to make my own videogame.
-{#                        Back then, I tried building a game with a Doom source port to give it a first try.#}
-{#                        Though I didn't get far, I did learn a great deal about videogame development that still holds true to this day.#}
-                        Later in 2010, I picked up Ubuntu Linux out of curiosity.
-                        After heavily customizing the distro, I wanted to learn more about operating systems and the hardware they run on.
-                        These two events led me down the path of Computer Engineering.
-                      </p>
-                    <p>
-                      Since 2013, I've been programming non-stop! Working long hours, both with teams and alone, in hackathons, game jams, at school, and at home to make cool stuff.
+                        That first endeavor, along with heavy exposure to Linux since early 2010, eventually led me down the path of studying Computer Engineering in 2012.
+{#                      </p>#}
+{#                    <p>#}
+                      Ever since then, I've been programming non-stop! Working long hours, both with teams and alone, in hackathons, game jams, at school, and at home to make cool stuff.
                     </p>
                     <p>
                       This site can give you an idea of my experience, skills and interests. Go on and take a look!
@@ -207,18 +211,6 @@
                             {% endfor %}
                         </div>
                         {% endif %}
-                        {#                        <hr>#}
-
-                        {# For now, we've commented this out at the risk of repeating ourselves in our employment and projects part #}
-                        {# We could (and should) Consider placing this in the overview section so it can be concise and clear #}
-                        {# TODO: Allow this info (languages, applications, APIs) to be loaded from DB info that can be used for fast-update #}
-                        {#                        <h3>[Programming languages I've extensively used]</h3>#}
-                        {#                        <p>Programming Languages: C/C++, C#, Python, Java and Bash Script.</p>#}
-                        {#                            <p>[APIs]</p>#}
-                        {#                            <p>[Applications]</p>#}
-                        {#                        <p>Try to scroll this page and look at the navigation list while scrolling!</p>#}
-                        {#                        <hr>#}
-
                     </div>
                 </div>
             </div>
@@ -260,17 +252,18 @@
                 </div>
             </div>
 
-            <!-- Hobbies and Personal Interests -->
-            <div id="hobbies" class="row central-content img-rounded">
-                <h1>Hobbies & Interests</h1>
-                <div class="info-element">
-                    <h3>This is what I do when I'm not coding</h3>
-                </div>
+            <!-- Honors and Awards-->
+            <div id="awards" class="row central-content img-rounded">
+                <h1>Honors & Awards</h1>
+{#                <div class="info-element">#}
+{#                    <h3></h3>#}
+{#                </div>#}
 
-                <div class="row col-sm-12" id="hobbies_div" style="float: none;">
+                <div class="row col-sm-12" id="awards_div" style="float: none;">
+                    {# TODO: Change for quick, normal row items #}
                     <div class="grid" id="project_div" data-masonry='{"itemSelector":".grid-item", "columnWidth": 160, "isFitWidth":true, "gutter":5}' style="margin: auto">
                         <div class="grid-sizer"></div>
-                        {% for item in hobbies %}
+                        {% for item in awards %}
                             {% include 'grid_displayitem.html' with obj=item %}
                         {% endfor %}
                     </div>

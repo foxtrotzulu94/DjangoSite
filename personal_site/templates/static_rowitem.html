@@ -10,8 +10,8 @@
     <!-- Central Text -->
     <div class="col-lg-10 col-md-8 col-sm-6" style="margin-left:-2%;">
         <div class="row">
-			<div class="col-sm-8"><h3 style="margin-top: -5px;" id="row_item_title">{{ obj.title }}</h3></div>
-			<div class="col-sm-4 text-right">
+			<div class="col-md-8"><h3 style="margin-top: -5px;" id="row_item_title">{{ obj.title }}</h3></div>
+			<div class="col-md-4 text-right">
                 <p id="row_item_daterange">
                     {% if obj.ongoing %}
                         Since {{ obj.start_date|date:"M. Y" }}
@@ -29,7 +29,6 @@
 			<p id="row_item_description">{{ obj.description }}</p>
 		</div>
     </div>
-
     <!-- Closing footer -->
     {% if obj.highlights %}
     <p style="padding-left: 2%;padding-right: 2%;" id="row_item_tech">Technologies: <b>{{ obj.highlights }}</b></p>

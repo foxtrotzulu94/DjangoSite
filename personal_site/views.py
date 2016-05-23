@@ -30,7 +30,7 @@ def index(request):
          'projects': projects,
          'games': games,
          'contact_info': contact,
-         'hobbies': hobbies
+         # 'hobbies': hobbies
          }
     )
 
