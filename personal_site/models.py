@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import date
 
-# TODO: Break up this file AND add the following models: "Honors", "Awards", "Publications", "Presentations"
+# TODO: Break up this file
 
 
 class ImageListField(models.Model):
@@ -120,3 +120,23 @@ class ContactInfo(DisplayItem):
     external_link = models.CharField(max_length=200, help_text="Link external site. Inserted as an href")
 # end class ContactInfo
 
+
+class Honor(models.Model):
+    name = models.CharField(max_length=35, help_text="Name/Title/Listing of this honor")
+    date = models.DateField(default=date.today)
+# end class Honor
+
+
+class Award(Honor):
+    """Class to describe any Awards received"""
+    location = models.CharField(max_length=40, help_text="Where did you earn it?")
+    entity = models.CharField(max_length=40, help_text="What Person, Society, Conference, etc gave you the award?")
+# end class Award
+
+
+class Publication(Honor):
+    """[Not In Active Use]"""
+    journal = models.CharField(max_length=50)
+    authors = models.CharField(max_length=200)  # This should be a separate model
+    reference = models.CharField(max_length=200, help_text="Link to the publication")
+# end class Publication
