@@ -46,7 +46,7 @@ class ExperienceItemAdmin(admin.ModelAdmin):
 # end class
 
 
-@admin.register(PersonalProject, PersonalInterest)
+@admin.register(PersonalProject)
 class GeneralDisplayItemAdmin(admin.ModelAdmin):
     def preview_thumbnail(self, model):
         type(model.thumbnail)
@@ -57,4 +57,10 @@ class GeneralDisplayItemAdmin(admin.ModelAdmin):
     preview_thumbnail.allow_tags = True
 
     list_display = ('preview_thumbnail', 'title', 'start_date', 'end_date', 'ongoing')
+# end class
+
+
+@admin.register(Award)
+class AwardHonorAdmin(admin.ModelAdmin):
+    list_display = ('name', 'entity', 'location', 'date')
 # end class
