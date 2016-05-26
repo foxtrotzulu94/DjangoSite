@@ -262,19 +262,17 @@
             <!-- Honors and Awards-->
             <div id="awards" class="row central-content img-rounded">
                 <h1>Honors & Awards</h1>
-{#                <div class="info-element">#}
-{#                    <h3></h3>#}
-{#                </div>#}
-
-                <div class="row col-sm-12" id="awards_div" style="float: none;">
-                    {# TODO: Change for quick, normal row items #}
-                    <div class="grid" id="project_div" data-masonry='{"itemSelector":".grid-item", "columnWidth": 160, "isFitWidth":true, "gutter":5}' style="margin: auto">
-                        <div class="grid-sizer"></div>
-                        {% for item in awards %}
-                            {% include 'grid_displayitem.html' with obj=item %}
-                        {% endfor %}
-                    </div>
+                <div class="info-element">
+                    <h3></h3>
                 </div>
+
+                <div id="awards_div" style="margin: auto">
+                    {% for item in awards %}
+                        {% include 'static_thinrowitem.html' with obj=item %}
+                    {% endfor %}
+                </div>
+
+                <br>
             </div>
 
             <!-- Contact Me! -->
