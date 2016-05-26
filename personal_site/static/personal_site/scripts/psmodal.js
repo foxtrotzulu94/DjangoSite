@@ -40,7 +40,6 @@ modal_popup = function (event) {
     var ajaxImgRequest = ajaxImageHandler(event.data.category,event.data.pk,function(data){console.log(data)});
     if(ajaxImgRequest){
         ajaxImgRequest.success(function(data){
-            console.log(data);
             result = JSON.parse(data);
             for(var i=0; i<result.length; ++i){
                 $("#modal_img_slides",popupModal).append("<div class='item text-center img-rounded img-responsive'><img src=\""+result[i]+"\" alt='testy' style='height: 256px;width: auto;' class='img-rounded img-responsive'></div>");

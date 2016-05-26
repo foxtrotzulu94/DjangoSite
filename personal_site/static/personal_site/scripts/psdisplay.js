@@ -4,6 +4,7 @@
 
 $( document ).ready(function() {
     console.log( "ready!" );
+
     window.POPUP_MODAL = $("#test_popup");
 
     var divToAppendTo = $('#project_div');
@@ -25,3 +26,9 @@ $( document ).ready(function() {
 
     console.log( "done!!!" );
 });
+
+$(window).load(function(){
+    console.log("Images Loaded!");
+    $('.grid').masonry(); //Kick masonry to fire up again
+});
+
