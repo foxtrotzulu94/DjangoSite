@@ -20,7 +20,7 @@ def index(request):
     contact = ContactInfo.objects.all()
     projects = PersonalProject.objects.all().order_by('-end_date')
     games = GameTitle.objects.all()
-    hobbies = PersonalInterest.objects.all()
+    awards = Award.objects.all().order_by('-date')
     return render(
         request,
         'index.html',
@@ -30,7 +30,7 @@ def index(request):
          'projects': projects,
          'games': games,
          'contact_info': contact,
-         # 'hobbies': hobbies
+         'awards': awards
          }
     )
 
