@@ -228,7 +228,7 @@
                 </div>
                 <div class="row">
                     <div class="grid" id="project_div" data-masonry='{"itemSelector":".grid-item", "columnWidth": 160, "isFitWidth":true, "gutter":5}' style="margin: auto">
-{#                        <div class="grid-sizer"></div>#}
+                        <div class="grid-sizer"></div>
                         {% for item in projects %}
                             {% include 'grid_displayitem.html' with obj=item %}
                         {% endfor %}
@@ -316,7 +316,6 @@
 <script src="{% static "personal_site/scripts/psdisplay.js" %}"></script>
 <script src="{% static "personal_site/scripts/psajax.js" %}"></script>
 <script src="{% static "personal_site/scripts/psmodal.js" %}"></script>
-{#<script src="{% static "personal_site/scripts/test.js" %}"></script>#}
 <script src="{% static "personal_site/scripts/masonry.pkgd.min.js" %}"></script>
 <script src="{% static "personal_site/scripts/date.js" %}"></script>
 
