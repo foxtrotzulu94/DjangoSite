@@ -6,7 +6,7 @@ from datetime import date
 
 class ImageListField(models.Model):
     """Class for linking a Model to a list of Images"""
-    img = models.ImageField(upload_to='media/')
+    img = models.ImageField()
 
     def preview(self):
         return u'<img src=\"%s\" />' % str(self.img.url)
@@ -19,7 +19,7 @@ class ImageListField(models.Model):
 class ExampleItem(models.Model):
     title = models.CharField(max_length=30)
     summary = models.TextField()
-    img = models.ImageField(upload_to='media/', blank=True)  # TODO: Remove in production server
+    img = models.ImageField(blank=True)
     start_date = models.DateField(default=date.today)
 
     list_images = models.ManyToManyField(ImageListField, blank=True)
@@ -33,7 +33,7 @@ class DisplayItem(models.Model):
     """Abstract Class representing a generic, displayable element"""
 
     title = models.CharField(max_length=30)
-    thumbnail = models.ImageField(upload_to='media/', blank=True)  # TODO: Remove in production server
+    thumbnail = models.ImageField(blank=True)
 
     class Meta:
         abstract = True
