@@ -129,9 +129,11 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
-if DEBUG:
-    MEDIA_ROOT = 'personal_site/static/personal_site/'
-    MEDIA_URL = '/static/personal_site/'
-else:
-    MEDIA_ROOT = '/var/www/javierfajardo.com/'  # Use when in production
-    MEDIA_URL = '/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
+
+# if DEBUG:
+    # MEDIA_ROOT = 'personal_site/static/personal_site/'
+    # MEDIA_URL = '/static/personal_site/'
+# else:
+    # MEDIA_ROOT = '/var/www/javierfajardo.com/'  # Use when in production
+    # MEDIA_URL = '/'
