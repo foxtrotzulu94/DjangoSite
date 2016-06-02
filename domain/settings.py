@@ -19,12 +19,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-# Security Key on prod is a secret. if you need to debug, uncomment the line below
-os.environ['SECRET_KEY'] = 'This1s4$tr0ngD38ugK3y'
-SECRET_KEY = os.environ['SECRET_KEY']
+DEBUG = 'DEBUG' in os.environ and (os.environ['DEBUG'] == '1' or os.environ['DEBUG'] == "True")
+print("Debug Mode: %s" % DEBUG)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Security Key on prod is a secret. if you need to debug, uncomment the line below
+if 'SECRET_KEY' not in os.environ:
+    if not DEBUG:
+        raise KeyError("No Secret Key Provided for a non-Debug Server!")
+    os.environ['SECRET_KEY'] = 'This1s4$tr0ngD38ugK3y'  # Close Enough :)
+
+SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = []
 
@@ -130,10 +134,3 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-# if DEBUG:
-    # MEDIA_ROOT = 'personal_site/static/personal_site/'
-    # MEDIA_URL = '/static/personal_site/'
-# else:
-    # MEDIA_ROOT = '/var/www/javierfajardo.com/'  # Use when in production
-    # MEDIA_URL = '/'
