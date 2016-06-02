@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'domain.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # TODO: Change the location of the database to an env_var
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Consider changing this into an OS env var
     }
 }
 
@@ -129,7 +129,7 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # if DEBUG:
     # MEDIA_ROOT = 'personal_site/static/personal_site/'
