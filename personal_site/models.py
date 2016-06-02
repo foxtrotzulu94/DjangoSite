@@ -1,7 +1,6 @@
 from django.db import models
 from datetime import date
 
-# TODO: Break up this file
 
 
 class ImageListField(models.Model):
