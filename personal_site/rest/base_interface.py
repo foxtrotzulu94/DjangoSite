@@ -23,7 +23,6 @@ class IRest:
             model_list = generic_model.objects.all()
             if model_list is not None:
                 data = serializers.serialize("json", model_list)
-                print(data)
                 return HttpResponse(data)
         return HttpResponse('<body><p>ObjectNotFound</p></body>')
 

@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <title>Javier E. Fajardo - Software Developer</title>
 
     <style>
@@ -258,10 +258,6 @@
             <!-- Honors and Awards-->
             <div id="awards" class="row central-content img-rounded">
                 <h1>Honors & Awards</h1>
-                <div class="info-element">
-                    <h3></h3>
-                </div>
-
                 <div id="awards_div" style="margin: auto">
                     {% for item in awards %}
                         {% include 'static_thinrowitem.html' with obj=item %}
@@ -299,24 +295,21 @@
     window.DATAMAP = {}; //set after AJAX calls
 </script>
 
-{#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>#}
-{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">#}
-
 {# Things that should be hidden from users #}
 {# Modal #}
 {% include "modular_modal.html" %}
-
 {# DisplayItem #}
 {% include "displayitem.html" %}
 
 {# All the scripts #}
 <script src="{% static "personal_site/scripts/jquery.min.js" %}"></script>
-<script src="{% static "personal_site/scripts/bootstrap.min.js" %}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="{% static "personal_site/scripts/masonry.pkgd.min.js" %}"></script>
+<script src="{% static "personal_site/scripts/date.js" %}"></script>
+
 <script src="{% static "personal_site/scripts/psdisplay.js" %}"></script>
 <script src="{% static "personal_site/scripts/psajax.js" %}"></script>
 <script src="{% static "personal_site/scripts/psmodal.js" %}"></script>
-<script src="{% static "personal_site/scripts/masonry.pkgd.min.js" %}"></script>
-<script src="{% static "personal_site/scripts/date.js" %}"></script>
 
 </body>
 
