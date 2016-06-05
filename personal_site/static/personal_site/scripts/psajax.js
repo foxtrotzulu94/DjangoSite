@@ -8,7 +8,7 @@ ajaxImageHandler = function (category,pk,successFunction) {
     }
     return $.ajax({
         type: 'get',
-        url: "/data/"+category+"/"+pk+"/images",
+        url: "/data/"+category+"/"+pk+"/images/",
 
         // success: successFunction(data),
 
