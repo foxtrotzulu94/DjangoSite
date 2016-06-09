@@ -108,6 +108,10 @@
 	header {
 		height:270px;
 	}
+	
+	.sidebar{
+		z-index: 10;
+	}
 
 	@media (max-width: 767px) {
 		.sidebar.affix-top {
@@ -137,6 +141,7 @@
        @media screen and (min-width: 767px) {
             .central-column  { {# List of Sections #}
                padding-left: 23%;
+               z-index: 0;
             }
         }
 
