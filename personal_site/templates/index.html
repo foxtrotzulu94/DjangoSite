@@ -30,13 +30,9 @@
             overflow-x: hidden;
         }
 
-        .background{
-            filter:blur(5px);
-        }
-
         ul.nav-pills {
             top: 20px;
-            position: fixed;
+{#            position: fixed;#}
         }
         div.col-sm-9 div {
             height: 250px;
@@ -55,18 +51,10 @@
             border-radius: 6px;
             margin: 10px;
             background-color: rgba(77,101,141,0.15);
-        }
-
-
-        @media screen and (max-width: 810px) {
-            #section0,
-            #overview,
-            #experience,
-            #projects,
-            #titles,
-            #awards,
-            #contact  { {# List of Sections #}
-                margin-left: 150px;
+            width: 100%;
+            .a{
+                        width: 100%;
+                        color: #000	
             }
         }
 
@@ -110,6 +98,55 @@
             padding: 12px;
 {#            font-size: larger;#}
         }
+        
+        /* bootstrap 3 helpers */
+
+	.navbar-form input, .form-inline input {
+		width:auto;
+	}
+
+	header {
+		height:270px;
+	}
+	
+	.sidebar{
+		z-index: 10;
+	}
+
+	@media (max-width: 767px) {
+		.sidebar.affix-top {
+			position: static;
+			width:228px;
+		}
+
+		.sidebar.affix {
+			{#position: fixed;#}
+			top:25px;
+			width:228px;
+			width: 100%;
+			text-align: center;
+			margin-bottom:10%;
+		}
+
+		.affix,.affix-top {
+			position:static;
+		}
+		
+		.sidebar{
+			width: 100%;
+			text-align: center;
+		}
+	}
+	
+       @media screen and (min-width: 767px) {
+            .central-column  { {# List of Sections #}
+               padding-left: 23%;
+               z-index: 0;
+            }
+        }
+
+
+/**/
 
     </style>
 </head>
@@ -118,8 +155,8 @@
 
 <div class="container">
     <div class="row">
-        <nav class="col-lg-2 col-md-2 col-sm-2" id="myScrollspy" style="margin-right:3%;">
-            <ul class="nav nav-pills nav-stacked" style="width: inherit; padding-right: 5%;">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 sidebar" style="margin-right:3%; margin-top: 2%;" id="myScrollspy">
+            <ul class="nav nav-pills nav-stacked navbar-light" style="width: auto; padding-right: 0%;">
                 <li><img src="{% static 'personal_site/images/jefz.jpg' %}" width="140" height="auto" class="img-rounded"></li>
 
                 <li style="margin-left:5px">
@@ -129,7 +166,7 @@
                     <h4>Software Developer</h4>
                 </li>
 
-                <li><br><br></li>
+{#                <li><br><br></li>#}
                 <li class="sidebuttons"><a href="#overview">Overview</a></li>
                 <li class="sidebuttons"><a href="#experience">Experience</a></li>
                 <li class="sidebuttons"><a href="#projects">Projects</a></li>
@@ -137,9 +174,9 @@
                 <li class="sidebuttons"><a href="#awards">Awards</a></li>
                 <li class="sidebuttons"><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
+        </div>
 
-        <div class="col-lg-8 col-md-8 col-sm-8" style="margin-left:3%;">
+        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 central-column" style="">
             <div id="section0" class="row central-content top-most img-rounded" style="margin-top:-20px;background-color: rgba(0,0,0,0.5);color:#ffffff">
                 <div>
                     <h1>Hey there, I'm Javier!</h1>
@@ -279,7 +316,7 @@
 
             <!-- Make some space  -->
             <br><br><br>
-            <div class="text-center">
+            <div class="text-center row">
                 <h3>Made using <a href="https://www.djangoproject.com/"><img src="{% static "personal_site/images/django.png" %}" height="48" width="auto"></a></h3>
             </div>
 
@@ -310,6 +347,14 @@
 <script src="{% static "personal_site/scripts/psdisplay.js" %}"></script>
 <script src="{% static "personal_site/scripts/psajax.js" %}"></script>
 <script src="{% static "personal_site/scripts/psmodal.js" %}"></script>
+
+<script>
+$('.sidebar').affix({
+      offset: {
+        top: $('header').height()
+      }
+});	
+</script>
 
 </body>
 
