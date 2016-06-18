@@ -10,7 +10,6 @@ from personal_site.models import *
 @admin.register(ImageListField)
 class ImagePoolAdmin(admin.ModelAdmin):
     def show_image(self, model):
-        print(str(model))
         return u'<img src=\"%s\" width=\"auto\" height=\"100\"/>' % str(model.img.url)
     show_image.allow_tags = True
 
@@ -21,7 +20,6 @@ class ImagePoolAdmin(admin.ModelAdmin):
 @admin.register(ContactInfo, GameTitle)
 class SimpleInfoAdmin(admin.ModelAdmin):
     def preview_thumbnail(self, model):
-        print(str(model))
         if model.thumbnail.name is not "":
             return u'<img src=\"%s\" width=\"auto\" height=\"64\"/>' % str(model.thumbnail.url)
         else:
@@ -35,7 +33,6 @@ class SimpleInfoAdmin(admin.ModelAdmin):
 @admin.register(WorkExperience, ExtracurricularExperience, VolunteerExperience)
 class ExperienceItemAdmin(admin.ModelAdmin):
     def preview_thumbnail(self, model):
-        print(str(model))
         if model.thumbnail.name is not "":
             return u'<img src=\"%s\" width=\"auto\" height=\"64\"/>' % str(model.thumbnail.url)
         else:
