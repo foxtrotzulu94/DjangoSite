@@ -32,19 +32,18 @@
 
         ul.nav-pills {
             top: 20px;
-{#            position: fixed;#}
         }
+        
         div.col-sm-9 div {
             height: 250px;
             font-size: 28px;
         }
+        
         #overview {color: #fff; background-color: rgba(77,101,141,0.45); opacity: 1;}
-        #experience {color: #fff; background-color:rgba(77,101,141,0.45);} {# This color seems better... #}
+        #experience {color: #fff; background-color:rgba(77,101,141,0.45);}
         #projects {color: #fff; background-color:rgba(21,44,85,0.45);}
         #titles {color: #fff; background-color:rgba(21,44,85,0.45);}
-
         #awards {color: #fff; background-color:rgba(21,44,85,0.45);}
-
         #contact {color: #fff; background-color:rgba(21,44,85,0.45);}
 
         .sidebuttons{
@@ -73,7 +72,6 @@
 
         #row_item_subheader a{
             color: white;
-{#            font-weight: bold;#}
         }
 
         .carousel-inner > .item > img {
@@ -96,7 +94,6 @@
 
         .modal-body-text{
             padding: 12px;
-{#            font-size: larger;#}
         }
         
         /* bootstrap 3 helpers */
@@ -139,14 +136,11 @@
 	}
 	
        @media screen and (min-width: 767px) {
-            .central-column  { {# List of Sections #}
-               padding-left: 23%;
-               z-index: 0;
-            }
+		.central-column  { {# List of Sections #}
+			padding-left: 23%;
+			z-index: 0;
+		}
         }
-
-
-/**/
 
     </style>
 </head>
@@ -165,8 +159,6 @@
                 <li>
                     <h4>Software Developer</h4>
                 </li>
-
-{#                <li><br><br></li>#}
                 <li class="sidebuttons"><a href="#overview">Overview</a></li>
                 <li class="sidebuttons"><a href="#experience">Experience</a></li>
                 <li class="sidebuttons"><a href="#projects">Projects</a></li>
@@ -210,8 +202,8 @@
                         <p>Interested in working with Computer Graphics, Computer Architecture and Operating Systems.</p>
                         <h3>Fluent in Spanish and English. Can understand French.</h3>
                         <p>Looking to learn Japanese in the near future...</p>
-{#                        <hr>#} {# TODO: Uncomment once Resume has been revamped #}
-{#                        <h3>Take a look at my <a href="{% static 'personal_site/files/resume.pdf' %}">Resume</a> for a highlight of my work and projects as a software developer.</h3>#}
+                        <hr>
+                        <h3>Take a look at my <a href="{% static 'personal_site/files/resume.pdf' %}">R&#233sum&#233</a> for a summary of my work.</h3>
                     </div>
                 </div>
                 <br>
