@@ -16,9 +16,23 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic.base import RedirectView
+from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),               # Map to admin console
     url(r'^favicon.ico$', RedirectView.as_view(url='/static/favicon.ico')),
     url(r'', include('personal_site.site_urls')),    # Map to main site
+    url(r'', include('puput.urls')),                # Secondary, but map to blog
 ]
+
+if settings.DEBUG:
+    import os
+    from django.conf.urls.static import static
+    from django.views.generic.base import RedirectView
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+    urlpatterns += staticfiles_urlpatterns() # tell gunicorn where static files are in dev mode
+    urlpatterns += static(settings.MEDIA_URL + 'images/', document_root=os.path.join(settings.MEDIA_ROOT, 'images'))
+    # urlpatterns += [
+        # (r'^favicon\.ico$', RedirectView.as_view(url=settings.STATIC_URL + 'myapp/images/favicon.ico')),
+    # ]
