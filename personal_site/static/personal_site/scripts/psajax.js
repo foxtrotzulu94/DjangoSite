@@ -14,7 +14,10 @@ ajaxImageHandler = function (category,pk,successFunction) {
 
         error: function(xhr, ajaxOptions, thrownError) {
             alert(thrownError);
-            console.log("ERROR!");
+            console.log("Error in AJAX Image Handler!");
+			console.log(thrownError);
+			console.log(xhr);
+			console.log(ajaxOptions);
         }
     });
 };
@@ -25,15 +28,15 @@ ajaxDataHandler = function (modelIdentifier) {
         return;
     }
 
-    $.ajax({
+    return $.ajax({
         type: 'get',
-        url: "/data/"+modelIdentifier,
+        url: "/data/"+modelIdentifier+"/",
         
         success: function (data) {
             var result = JSON.parse(data);
             var ajaxKey = modelIdentifier;
 
-            // console.log(data);
+            //console.log(data);
 
             //Initiate and Access the DATAMAP
             window.DATAMAP[ajaxKey] = {};
@@ -46,6 +49,9 @@ ajaxDataHandler = function (modelIdentifier) {
         error: function(xhr, ajaxOptions, thrownError) {
             alert(thrownError);
             console.log("ERROR!");
+			console.log(thrownError);
+			console.log(xhr);
+			console.log(ajaxOptions);
         }
     });
 };

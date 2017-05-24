@@ -3,14 +3,14 @@
  */
 
 $( document ).ready(function() {
-    console.log( "ready!" );
+    //console.log( "ready!" );
 
     window.POPUP_MODAL = $("#test_popup");
 
     var divToAppendTo = $('#project_div');
     var projects = $(".grid-item",divToAppendTo);
 
-    console.log("BEGIN"+projects.length);
+    //console.log("BEGIN"+projects.length);
 
     for(var i=0; i < projects.length; i++){
         var element = projects.eq(i);
@@ -24,7 +24,7 @@ $( document ).ready(function() {
 
     ajaxDataHandler("projects");
 
-    console.log( "done!!!" );
+    console.log( "Done loading" );
 });
 
 $(window).load(function(){
