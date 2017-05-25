@@ -1,0 +1,137 @@
+/* We're just overriding small details here to make it match the rest of the site */
+
+ul.links {
+    margin: 0px 0 25px 0;
+    border-bottom: 0;
+    border-top: 1px dotted #337ab7;
+    padding: 5px 0;
+}
+
+ul.links li i {
+    color: #337ab7;
+}
+
+ul.sidebar {
+    border-top: 2px solid #337ab7;
+    background-color: #ededed;
+    padding: 20px;
+    margin-bottom: 50px;
+    list-style: none;
+}
+
+ul.sidebar li.tag {
+    display: inline-block;
+    background-color: #337ab7;
+    padding: 3px 10px;
+}
+
+ul.sidebar ul li i {
+    color: #337ab7;
+}
+
+a:hover {
+    color: #337ab7;
+}
+
+.blog_btn.continue {
+    display: block;
+    margin-bottom: 50px;
+    text-align: right;
+    background-color: transparent;
+    color: #337ab7;
+    padding: 10px 0;
+}
+
+h2 a:hover {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.about {
+	position: relative;
+	background-image: url("/static/personal_site/images/altbg.jpg");
+	background-repeat: no-repeat;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-attachment: fixed;
+	background-color: #DDDDDD;
+	font-family: Roboto;
+	max-width: 100%;
+	overflow-x: hidden;
+    margin-bottom: 4em;
+}
+
+.blog_sidebar .input-group-btn {
+    background: #337ab7;
+    -webkit-border-radius: 0 5px 5px 0;
+    -moz-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.blog_sidebar .rss-sitemap i {
+    color: #337ab7;
+}
+
+.lateralPosts li {
+    font-size: 0.7em;
+    display: inline-block;
+    color: #337ab7;
+}
+
+.itemPosts {
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 1px dotted #337ab7;
+}
+
+.itemPosts .box.feature a {
+    color: #337ab7;
+}
+
+.pagination .endless_separator {
+    background: transparent;
+    color: #337ab7;
+    font-size: 18px;
+}
+
+.pagination span.endless_page_current,
+.pagination .endless_page_link {
+    padding: 7px 11px;
+    color: #337ab7;
+}
+
+.pagination .endless_page_current:active,
+.pagination .endless_page_link:active {
+    background: #337ab7;
+}
+
+.pagination span {
+    background: #337ab7;
+}
+
+.footer_bottom {
+    background-color: #337ab7;
+    padding: 20px 40px;
+}
+
+.menu li.active > a {
+    background-color: #337ab7;
+    color: #fff;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+.menu li.parent > a .open-sub:before,
+.menu li.parent > a .open-sub:after {
+    background: #337ab7;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 0;
+    margin: 19px 0 0 15px;
+    position: absolute;
+    top: 0;
+    width: 16px;
+}
