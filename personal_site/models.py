@@ -1,19 +1,7 @@
 from django.db import models
 from datetime import date
 
-
-
-class ImageListField(models.Model):
-    """Class for linking a Model to a list of Images"""
-    img = models.ImageField()
-
-    def preview(self):
-        return u'<img src=\"%s\" />' % str(self.img.url)
-
-    def __str__(self):
-        return self.img.name+" - ("+str(self.img.width)+"x"+str(self.img.height)+")"
-# end class ImageModel
-
+from wagtail.wagtailimages.models import Image as WagtailImage
 
 class ExampleItem(models.Model):
     title = models.CharField(max_length=30)
@@ -21,7 +9,7 @@ class ExampleItem(models.Model):
     img = models.ImageField(blank=True)
     start_date = models.DateField(default=date.today)
 
-    list_images = models.ManyToManyField(ImageListField, blank=True)
+    list_images_new = models.ManyToManyField('wagtailimages.Image', blank=True)
 
     def __str__(self):
         return self.title
@@ -44,7 +32,7 @@ class DetailedDisplayItem(DisplayItem):
 
     highlights = models.CharField(max_length=200, blank=True, help_text="Tech used, skills learnt or lessons learnt")
     description = models.TextField(help_text="Short and sweet summary of the experience. Use Bullet Point sentences!")
-    display_pictures = models.ManyToManyField(ImageListField,  blank=True, help_text="Relevant images")
+    improved_display_pictures = models.ManyToManyField(WagtailImage,  blank=True, help_text="Relevant images")
 
     # These are displayed differently on the View depending on which subclass they are
     start_date = models.DateField(default=date.today)

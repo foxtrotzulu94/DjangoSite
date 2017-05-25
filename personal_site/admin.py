@@ -3,20 +3,10 @@ from personal_site.models import *
 
 # Register your models here.
 # Example Models
-# admin.site.register(ImageListField)
+admin.site.register(ExampleItem)
 
 
 # Actual Models that are displayed throughout the site
-@admin.register(ImageListField)
-class ImagePoolAdmin(admin.ModelAdmin):
-    def show_image(self, model):
-        return u'<img src=\"%s\" width=\"auto\" height=\"100\"/>' % str(model.img.url)
-    show_image.allow_tags = True
-
-    list_display = ('show_image', '__str__')
-# end class
-
-
 @admin.register(ContactInfo, GameTitle)
 class SimpleInfoAdmin(admin.ModelAdmin):
     def preview_thumbnail(self, model):
