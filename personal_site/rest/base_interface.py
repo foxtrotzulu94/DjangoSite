@@ -4,6 +4,7 @@ from django.conf.urls import url
 from django.http.response import HttpResponse, HttpResponseBadRequest
 from django.core import serializers
 import json
+import logging
 
 
 class IRest:
@@ -45,18 +46,16 @@ class IRest:
             if specific_instance is not None:
                 # Try to retrieve the expected ImageListField attribute by name and get an img
                 try:
-                    model_field =  getattr(specific_instance, "improved_display_pictures")
+                    model_field = getattr(specific_instance, "improved_display_pictures")
                     field_list = model_field.all()
+
                     resolved_image_list = []
                     for entry in field_list:
-                        resolved_image_list.append(entry.img.url)
+                        resolved_image_list.append(entry.file.url)
                     return HttpResponse(json.dumps(resolved_image_list))
-
-                except AttributeError:
-                    print("Queried model has no attributes matching name \"improved_display_pictures\". Request is invalid.")
-                    print(list(specific_instance.__dict__.keys()))
+                except Exception as e:
+                    logging.exception(e)
                     return HttpResponseBadRequest(request)
-                # any other exception will cause a very interesting (and probably fatal) exception
 
         return HttpResponse('<body><p>ObjectNotFound</p></body>')
 
@@ -72,10 +71,9 @@ class IRest:
                     model_field = getattr(specific_instance, "thumbnail")
                     return HttpResponse(serializers.serialize("json", [model_field.url]))
 
-                except AttributeError:
-                    print("Queried model has no attributes matching name \"thumbnail\". Request is invalid.")
+                except Exception as e:
+                    logging.exception(e)
                     return HttpResponseBadRequest(request)
-                    # any other exception will cause a very interesting (and probably fatal) exception
         return HttpResponse('<body><p>ObjectNotFound</p></body>')
 
     @classmethod
