@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import sys
 from puput import PUPUT_APPS
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -85,14 +86,24 @@ TEMPLATES = [
 
 LOGGING = {
     'version': 1,
+    'disable_existing_loggers': False,
     'handlers': {
         'console': {
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
+            'stream': sys.stdout
         }
     },
-    'root': {
-        'handlers': ['console'],
-        'level': 'INFO'
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+        '': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        }
     }
 }
 
@@ -150,5 +161,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
+)
 
 WAGTAIL_SITE_NAME = 'Javier E. Fajardo\'s Blog'
