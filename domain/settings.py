@@ -83,6 +83,19 @@ TEMPLATES = [
     },
 ]
 
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        }
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO'
+    }
+}
+
 WSGI_APPLICATION = 'domain.wsgi.application'
 
 
