@@ -135,3 +135,9 @@ h2 a:hover {
     top: 0;
     width: 16px;
 }
+
+.rich-text > p {
+    font-weight: 300;
+    font-size: 120%;
+    color: #333333;
+}
