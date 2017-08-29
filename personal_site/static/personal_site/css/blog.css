@@ -136,7 +136,7 @@ h2 a:hover {
     width: 16px;
 }
 
-.rich-text {
+.rich-text > * {
     font-weight: 300;
     font-size: 120%;
     color: #333333;
