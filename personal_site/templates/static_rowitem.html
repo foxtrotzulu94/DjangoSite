@@ -13,6 +13,7 @@
 			<div class="col-md-8"><h3 style="margin-top: -5px;" id="row_item_title">{{ obj.title }}</h3></div>
 			<div class="col-md-4 text-right">
                 <p id="row_item_daterange">
+				<small>
                     {% if obj.ongoing %}
                         Since {{ obj.start_date|date:"M. Y" }}
                     {% else %}
@@ -21,6 +22,7 @@
                             to {{ obj.end_date|date:"M. Y" }}
                         {% endif %}
                     {% endif %}
+				</small>
                 </p>
             </div>
         </div>
