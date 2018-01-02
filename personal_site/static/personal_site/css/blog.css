@@ -136,8 +136,13 @@ h2 a:hover {
     width: 16px;
 }
 
+/* Overriding fonts in blog post text*/
 .rich-text > * {
     font-weight: 300;
     font-size: 120%;
     color: #333333;
+}
+
+.rich-text > h2 {
+    font-size: 36px;
 }
