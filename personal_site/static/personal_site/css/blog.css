@@ -147,7 +147,7 @@ h2 a:hover {
     font-size: 36px;
 }
 
-.richtext > img{
+.richtext > p > img {
     width: 100%;
     object-fit: contain;
 }
