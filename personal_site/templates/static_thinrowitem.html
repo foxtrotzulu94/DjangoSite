@@ -4,7 +4,11 @@
 <div class="row img-rounded" id="row_item" style="background-color: rgba(0,0,0,0.15); padding-top: 2%;padding-bottom: 2%; margin:1%;">
     <!-- Date -->
     <div class="col-md-1">
-        <p><b>{{ obj.date|date:"Y" }}</b></p>
+        <p><b>
+	{% if obj.recurring %}{{ obj.date|date:"Y" }}-{{ obj.last_awarded|date:"Y" }}
+	{% else %} {{ obj.date|date:"Y" }}
+	{% endif %}
+	</b></p>
     </div>
 
     <div class="col-lg-1 col-md-1"></div>{# Spacer #}
