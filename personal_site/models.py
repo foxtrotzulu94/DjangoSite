@@ -118,6 +118,8 @@ class Award(Honor):
     """Class to describe any Awards received"""
     location = models.CharField(max_length=40, help_text="Where did you earn it?")
     entity = models.CharField(max_length=40, help_text="What Person, Society, Conference, etc gave you the award?")
+    recurring = models.BooleanField(default=False, help_text="Was/is this a recurring award?")
+    last_awarded = models.DateField(default=date.today)
 # end class Award
 
 
