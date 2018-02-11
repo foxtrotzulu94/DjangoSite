@@ -1,3 +1,6 @@
 /.idea
 *.pyc
 /__pycache__
+
+# Keep the database out of source control
+db.sqlite3
