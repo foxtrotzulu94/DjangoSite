@@ -1,5 +1,5 @@
 Pillow
-Django==1.8.18
+Django>=1.10.18,<2
 wagtail>=1.5
 puput
 wagtailtinymce
