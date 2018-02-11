@@ -52,6 +52,7 @@ class TinyMCEWrapper(TinyMCERichTextArea):
          {'text': 'C', 'value': 'c'},
          {'text': 'C#', 'value': 'csharp'},
          {'text': 'C++', 'value': 'cpp'}]
+        kwargs['extended_valid_elements']='span[class]'
 
         return "makeTinyMCEEditable({0}, {1});".format(json.dumps(id_), json.dumps(kwargs))
 
@@ -88,7 +89,7 @@ def whitelister_element_rules():
 
         'blockquote': allow_with_inline_style,
         'code': allow_with_inline_style,
-        'pre': attribute_rule({'style': True, 'class': True, 'contenteditable': True}),
+        'pre': attribute_rule({'style': True, 'class': True, 'contenteditable': False}),
         'span': attribute_rule({'style': True, 'class': True})
     }
 
