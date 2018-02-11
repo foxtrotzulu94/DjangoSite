@@ -102,6 +102,6 @@ def tinymce_codesample():
             registerMCEPlugin("codesample", {});
         </script>
         """,
-        mark_safe(json.dumps(static('personal_site/tinymce/codesample/plugin.min.js'))),
+        mark_safe(json.dumps(static('wagtailtinymce/js/vendor/tinymce/plugins/codesample/plugin.min.js'))),
         to_js_primitive(translation.to_locale(translation.get_language())),
     )
