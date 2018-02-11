@@ -45,7 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'personal_site',
-) + PUPUT_APPS
+) + PUPUT_APPS + ('wagtailtinymce',)
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -169,3 +169,9 @@ STATICFILES_FINDERS = (
 )
 
 WAGTAIL_SITE_NAME = 'Javier E. Fajardo\'s Blog'
+
+WAGTAILADMIN_RICH_TEXT_EDITORS = {
+    'default': {
+        'WIDGET': 'domain.tiny_mce_wrapper.TinyMCEWrapper'
+    },
+}
