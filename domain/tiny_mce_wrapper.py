@@ -87,6 +87,13 @@ def whitelister_element_rules():
         'sup': allow_with_inline_style,
         'ul': allow_with_inline_style,
 
+        'table': attribute_rule({'style': True, 'class': True}),
+        'thead': allow_with_inline_style,
+        'tbody': allow_with_inline_style,
+        'th': allow_with_inline_style,
+        'td': allow_with_inline_style,
+        'tr': allow_with_inline_style,
+
         'blockquote': allow_with_inline_style,
         'code': allow_with_inline_style,
         'pre': attribute_rule({'style': True, 'class': True, 'contenteditable': False}),
