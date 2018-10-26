@@ -1,5 +1,4 @@
 Pillow
 Django>=1.10.18,<2
-wagtail>=1.5
-puput
+puput==0.9
 wagtailtinymce
