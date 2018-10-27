@@ -55,6 +55,7 @@
             margin: 10px;
             background-color: rgba(77,101,141,0.15);
             width: 100%;
+			text-align: center;
             .a{
                         width: 100%;
                         color: #000	
@@ -156,13 +157,15 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 sidebar" style="margin-right:3%; margin-top: 2%;" id="myScrollspy">
-            <ul class="nav nav-pills nav-stacked navbar-light" style="width: auto; padding-right: 0%;">
-                <li><img src="{% static 'personal_site/images/jefz.jpg' %}" width="140" height="auto" class="img-rounded"></li>
+            <ul class="nav nav-pills nav-stacked navbar-light" style="width: auto; padding-right: 10%; padding-left: 10%">
+                <li style="text-align: center">
+					<img src="{% static 'personal_site/images/jefz.jpg' %}" width="140" height="auto" class="img-rounded">
+				</li>
 
-                <li style="margin-left:5px">
-                    <h3>Javier E.<br>Fajardo</h3>
+                <li style="margin-left:5px; text-align: center">
+                    <h3>Javier E. Fajardo</h3>
                 </li>
-                <li>
+                <li style="text-align: center">
                     <h4>Software Developer</h4>
                 </li>
                 <li class="sidebuttons"><a href="#overview">Overview</a></li>
