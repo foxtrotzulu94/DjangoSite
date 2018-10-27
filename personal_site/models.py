@@ -82,6 +82,9 @@ class VolunteerExperience(ExperienceItem):
 
 class PersonalProject(DetailedDisplayItem):
     """Class for representing Projects, all Section 3 Items. Can be Active or Inactive/Unsupported """
+    sourcecode_url = models.URLField(blank=True, help_text="Link to the source code")
+    live_url = models.URLField(blank=True, help_text="Link to a running version of the app")
+    app_install_link = models.URLField(blank=True, help_text="Link to a 3rd party from where the app can be installed")
 # end class PersonalProject
 
 """ ### Section 4 Models ### """
