@@ -34,7 +34,7 @@ modal_popup = function (event) {
     //carousel is also special
     //The one start image is the thumbnail, which is automatically enlarged
     $("#modal_img_indicators",popupModal).html("<li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>");
-    $("#modal_img_slides",popupModal).html("<div class='item active text-center'><img src=\""+window.MEDIA_URL+popupData.thumbnail+"\" alt='testy' style='height: 256px;width: auto;' class='img-rounded img-responsive'></div>");
+    $("#modal_img_slides",popupModal).html("<div class='item active text-center'><img src=\""+window.MEDIA_URL+popupData.thumbnail+"\" alt='testy' style='height: 256px;width: auto; object-fit: contain' class='img-rounded img-responsive'></div>");
 
     //Trigger another AJAX to load the rest of the images
     var ajaxImgRequest = ajaxImageHandler(event.data.category,event.data.pk,function(data){console.log(data)});
@@ -42,7 +42,7 @@ modal_popup = function (event) {
         ajaxImgRequest.success(function(data){
             result = JSON.parse(data);
             for(var i=0; i<result.length; ++i){
-                $("#modal_img_slides",popupModal).append("<div class='item text-center img-rounded img-responsive'><img src=\""+result[i]+"\" alt='testy' style='height: 256px;width: auto;' class='img-rounded img-responsive'></div>");
+                $("#modal_img_slides",popupModal).append("<div class='item text-center img-rounded img-responsive'><img src=\""+result[i]+"\" alt='testy' style='height: 256px;width: auto; object-fit: contain' class='img-rounded img-responsive'></div>");
                 $("#modal_img_indicators",popupModal).append("<li data-target='#myCarousel' data-slide-to='"+(i+1)+"' class=''></li>");
             }
             //We know the data is actually a list of strings
