@@ -14,4 +14,4 @@ If you don't want to use the virtualenv, install Python 3, Django and Pillow to 
 The app requires either Debug to be true or a Secret Key to be provided
 For development/debugging, run with
 * Linux: `env DEBUG=1 python3 manage.py runserver`
-* Windows: `set DEBUG=1 && python manage.py runserver`
+* Windows: `set DEBUG=True && python manage.py runserver`
