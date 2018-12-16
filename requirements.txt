@@ -1,4 +1,4 @@
 Pillow
-Django==1.10.8
-puput==0.9
+Django
+puput
 wagtailtinymce

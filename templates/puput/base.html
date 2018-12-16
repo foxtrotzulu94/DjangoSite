@@ -1,4 +1,4 @@
-{% load static i18n wagtailcore_tags wagtailroutablepage_tags wagtailuserbar compress puput_tags %}
+{% load static i18n wagtailcore_tags wagtailroutablepage_tags wagtailuserbar puput_tags %}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -10,16 +10,13 @@
     {% block social_share %}{% endblock social_share %}
     <link rel="canonical" href="{% block canonical %}{% canonical_url %}{% endblock canonical %}"/>
 
-    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,100italic,100,400italic,500,500italic,700,900,700italic,900italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {% compress css %}
-        <!-- <link rel='stylesheet' href="{% static 'puput/css/bootstrap.min.css' %}" type='text/css'/> -->
+    
         <link rel="stylesheet" href="{% static 'puput/css/font-awesome.min.css' %}">
         <link rel="stylesheet" href="{% static 'puput/css/puput.css' %}"/>
 		<link rel="stylesheet" href="{% static 'personal_site/css/blog.css' %}"/>
-    {% endcompress %}
+    
 	
 	<style>
 		<!-- .about { -->
@@ -111,11 +108,11 @@
         </div>
     </div>
 </div>
-{% compress js %}
+
     {% block extra_js %}
       <script src="{% static 'puput/js/jquery.min.js' %}"></script>
       <script src="{% static 'puput/js/puput.js' %}"></script>
     {% endblock extra_js %}
-{% endcompress js %}
+
 </body>
 </html>

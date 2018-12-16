@@ -4,3 +4,4 @@
 /DEV-ENV*
 # Keep the database out of source control
 db.sqlite3
+*.vscode/
