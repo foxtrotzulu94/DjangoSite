@@ -9,10 +9,10 @@ from django.templatetags.static import static
 from django.utils import translation
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
-from wagtail.wagtailcore import hooks
+from wagtail.core import hooks
 from wagtailtinymce.wagtail_hooks import to_js_primitive
 
-from wagtail.wagtailcore.whitelist import attribute_rule, check_url, allow_without_attributes
+from wagtail.core.whitelist import attribute_rule, check_url, allow_without_attributes
 
 class TinyMCEWrapper(TinyMCERichTextArea):
     def __init__(self, *args, **kwargs):

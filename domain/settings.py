@@ -45,19 +45,33 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'personal_site',
-) + PUPUT_APPS + ('wagtailtinymce',)
+) + PUPUT_APPS #+ ('wagtailtinymce',)
 
-MIDDLEWARE_CLASSES = [
-    'django.middleware.security.SecurityMiddleware',
+# MIDDLEWARE_CLASSES = [
+#     'django.middleware.security.SecurityMiddleware',
+#     'django.contrib.sessions.middleware.SessionMiddleware',
+#     'django.middleware.common.CommonMiddleware',
+#     'django.middleware.csrf.CsrfViewMiddleware',
+#     'django.contrib.auth.middleware.AuthenticationMiddleware',
+#     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+#     'django.contrib.messages.middleware.MessageMiddleware',
+#     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+#     'wagtail.wagtailcore.middleware.SiteMiddleware',
+#     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+# ]
+
+MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'wagtail.wagtailcore.middleware.SiteMiddleware',
-    'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+
+    'wagtail.core.middleware.SiteMiddleware',
+
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'domain.urls'
@@ -164,13 +178,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-    "compressor.finders.CompressorFinder",
+#    "compressor.finders.CompressorFinder",
 )
 
 WAGTAIL_SITE_NAME = 'Javier E. Fajardo\'s Blog'
 
-WAGTAILADMIN_RICH_TEXT_EDITORS = {
-    'default': {
-        'WIDGET': 'domain.tiny_mce_wrapper.TinyMCEWrapper'
-    },
-}
+#WAGTAILADMIN_RICH_TEXT_EDITORS = {
+#    'default': {
+#        'WIDGET': 'domain.tiny_mce_wrapper.TinyMCEWrapper'
+#    },
+#}

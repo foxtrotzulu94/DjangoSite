@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import date
 
-from wagtail.wagtailimages.models import Image as WagtailImage
+from wagtail.images.models import Image as WagtailImage
 
 class ExampleItem(models.Model):
     title = models.CharField(max_length=30)
