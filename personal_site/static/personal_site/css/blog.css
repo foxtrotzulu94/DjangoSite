@@ -207,7 +207,7 @@ pre[class*="language-"] {
   padding: 1em;
   margin: .5em 0;
   overflow: auto;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 :not(pre) > code[class*="language-"],
@@ -260,8 +260,10 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: #a67f59;
-  background: hsla(0, 0%, 100%, .5);
+  /* color: #a67f59;
+  background: hsla(0, 0%, 100%, .5); */
+  color: #3137FD;
+  font-weight:bold;
 }
 
 .token.atrule,
