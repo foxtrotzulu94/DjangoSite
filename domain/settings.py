@@ -45,20 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'personal_site',
-) + PUPUT_APPS #+ ('wagtailtinymce',)
-
-# MIDDLEWARE_CLASSES = [
-#     'django.middleware.security.SecurityMiddleware',
-#     'django.contrib.sessions.middleware.SessionMiddleware',
-#     'django.middleware.common.CommonMiddleware',
-#     'django.middleware.csrf.CsrfViewMiddleware',
-#     'django.contrib.auth.middleware.AuthenticationMiddleware',
-#     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-#     'django.contrib.messages.middleware.MessageMiddleware',
-#     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-#     'wagtail.wagtailcore.middleware.SiteMiddleware',
-#     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
-# ]
+) + PUPUT_APPS + ('wagtailtinymce',)
 
 MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -183,8 +170,9 @@ STATICFILES_FINDERS = (
 
 WAGTAIL_SITE_NAME = 'Javier E. Fajardo\'s Blog'
 
-#WAGTAILADMIN_RICH_TEXT_EDITORS = {
-#    'default': {
-#        'WIDGET': 'domain.tiny_mce_wrapper.TinyMCEWrapper'
-#    },
-#}
+WAGTAILADMIN_RICH_TEXT_EDITORS = {
+   'default': {
+    #   'WIDGET': 'wagtailtinymce.rich_text.TinyMCERichTextArea'
+       'WIDGET': 'domain.tiny_mce_wrapper.TinyMCEWrapper'
+   },
+}

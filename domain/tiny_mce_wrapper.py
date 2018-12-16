@@ -4,6 +4,9 @@ from django.utils import translation
 from wagtailtinymce.rich_text import TinyMCERichTextArea
 from django.conf import settings
 
+from wagtail.admin.rich_text.converters.editor_html import WhitelistRule
+from wagtail.core import hooks
+from wagtail.core.whitelist import allow_without_attributes
 
 from django.templatetags.static import static
 from django.utils import translation
@@ -57,12 +60,12 @@ class TinyMCEWrapper(TinyMCERichTextArea):
         return "makeTinyMCEEditable({0}, {1});".format(json.dumps(id_), json.dumps(kwargs))
 
 
-@hooks.register('construct_whitelister_element_rules')
-def whitelister_element_rules():
-    # Values taken from wagtail/wagtailcore/whitelist.py:69
+@hooks.register('register_rich_text_features')
+def whitelister_element_rules(features):
+    # Values taken from wagtail/core/whitelist.py:67
     allow_with_inline_style = attribute_rule({'style': True})
 
-    return {
+    rules = {
         'a': attribute_rule({'href': check_url, 'style': True}),
         'img': attribute_rule({'src': check_url, 'width': True, 'height': True,
                                'alt': True}),
@@ -99,6 +102,12 @@ def whitelister_element_rules():
         'pre': attribute_rule({'style': True, 'class': True, 'contenteditable': False}),
         'span': attribute_rule({'style': True, 'class': True})
     }
+
+    for key, val in rules.items():
+        features.register_converter_rule('editorhtml', key, [ WhitelistRule(key, val), ] )
+        
+        # add 'blockquote' to the default feature set
+        features.default_features.append(key)
 
 
 @hooks.register('insert_tinymce_js')
