@@ -1,4 +1,4 @@
 Pillow
-Django
+Django==2.1.5
 puput
 git+http://github.com/TwilioDevEd/wagtailtinymce
