@@ -165,14 +165,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-#    "compressor.finders.CompressorFinder",
 )
 
 WAGTAIL_SITE_NAME = 'Javier E. Fajardo\'s Blog'
 
 WAGTAILADMIN_RICH_TEXT_EDITORS = {
    'default': {
-    #   'WIDGET': 'wagtailtinymce.rich_text.TinyMCERichTextArea'
        'WIDGET': 'domain.tiny_mce_wrapper.TinyMCEWrapper'
    },
 }
