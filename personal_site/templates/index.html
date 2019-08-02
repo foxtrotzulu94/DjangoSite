@@ -143,7 +143,6 @@
 	
        @media screen and (min-width: 767px) {
 		.central-column  { {# List of Sections #}
-			padding-left: 23%;
 			z-index: 0;
 		}
         }
@@ -156,10 +155,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 sidebar" style="margin-right:3%; margin-top: 2%;" id="myScrollspy">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 sidebar" id="myScrollspy" style="position: relative">
             <ul class="nav nav-pills nav-stacked navbar-light" style="width: auto; padding-right: 10%; padding-left: 10%">
                 <li style="text-align: center">
-					<img src="{% static 'personal_site/images/jefz.jpg' %}" width="140" height="auto" class="img-rounded">
+					<img src="{% static 'personal_site/images/jefz.jpg' %}" width="100%" height="auto" class="img-rounded hidden-xs">
 				</li>
 
                 <li style="margin-left:5px; text-align: center">
@@ -177,7 +176,7 @@
             </ul>
         </div>
 
-        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 central-column" style="">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 central-column" style="">
             <div id="section0" class="row central-content top-most img-rounded" style="margin-top:-20px;background-color: rgba(0,0,0,0.5);color:#ffffff">
                 <div>
                     <h1>Hey there, I'm Javier!</h1>
