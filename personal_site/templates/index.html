@@ -123,7 +123,7 @@
 		}
 
 		.sidebar.affix {
-			{#position: fixed;#}
+			position: relative;
 			top:25px;
 			width:228px;
 			width: 100%;
@@ -139,13 +139,24 @@
 			width: 100%;
 			text-align: center;
 		}
+
+        .img-responsive{
+            max-width: 120px;
+        }
 	}
 	
-       @media screen and (min-width: 767px) {
+    @media screen and (min-width: 767px) {
 		.central-column  { {# List of Sections #}
 			z-index: 0;
 		}
-        }
+
+
+		.sidebar.affix {
+			position: sticky;
+			top:0;
+			left:0;
+		}
+    }
 
     </style>
 </head>
@@ -154,8 +165,7 @@
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 sidebar" id="myScrollspy" style="position: relative">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 sidebar" id="myScrollspy">
             <ul class="nav nav-pills nav-stacked navbar-light" style="width: auto; padding-right: 10%; padding-left: 10%">
                 <li style="text-align: center">
 					<img src="{% static 'personal_site/images/jefz.jpg' %}" width="100%" height="auto" class="img-rounded hidden-xs">
@@ -176,151 +186,150 @@
             </ul>
         </div>
 
-        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 central-column" style="">
-            <div id="section0" class="row central-content top-most img-rounded" style="margin-top:-20px;background-color: rgba(0,0,0,0.5);color:#ffffff">
-                <div>
-                    <h1>Hey there, I'm Javier!</h1>
-                </div>
-                <div>
-                    {# Short description/backstory #}
-                    <p>
-                      Welcome! I'm a Canadian Software Developer originally from Caracas, Venezuela.
-                        I started programming back in 2007 when I wanted to make my own videogame.
-                        That first endeavor, along with heavy exposure to Linux since early 2010, eventually led me down the path of studying Computer Engineering in 2012.
-
-                      Ever since then, I've been programming non-stop! Working long hours, both with teams and alone, in hackathons, game jams, at school, at work and at home to make cool stuff.
-                    </p>
-                    <p>
-                      This site can give you an idea of my experience, skills and interests. And, nowadays <a href="/blog" target="_blank" style="color: #3f43db;">I also have a blog</a>!
-                    </p>
-                </div>
-                <br>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 central-column" style="">
+        <div id="section0" class="row central-content top-most img-rounded" style="margin-top:-20px;background-color: rgba(0,0,0,0.5);color:#ffffff">
+            <div>
+                <h1>Hey there, I'm Javier!</h1>
             </div>
+            <div>
+                {# Short description/backstory #}
+                <p>
+                    Welcome! I'm a Canadian Software Developer originally from Caracas, Venezuela.
+                    I started programming back in 2007 when I wanted to make my own videogame.
+                    That first endeavor, along with heavy exposure to Linux since early 2010, eventually led me down the path of studying Computer Engineering in 2012.
 
-            <!-- Personal Overview (Summary)-->
-            <div id="overview" class="row central-content top-most img-rounded">
-                <div>
-                    <h1>Overview</h1>
-                    <div class="info-element">
-                        {# Mainly talk about languages, education and abilities #}
-                        <h3>I studied Computer Engineering at <a href="https://www.concordia.ca/encs.html" target="_blank">Concordia University</a> in Montreal, Canada.</h3>
-                        <p>CGPA 3.87/4.0 - Dean's List Student (2012-2015) - Member of the Institute for Co-operative Education.</p>
-                        <h3>Professional member of the <a href="http://www.acm.org/about-acm/about-the-acm-organization" target="_blank">ACM</a>.</h3>
-                        <p>Interested in working with Computer Graphics, Computer Architecture and Operating Systems.</p>
-                        <h3>Fluent in Spanish and English. Can understand French.</h3>
-                        <p>Looking to learn Japanese in the near future...</p>
-                        <hr>
-                        <h3>Take a look at my <a href="{% static 'personal_site/files/resume.pdf' %}">R&#233sum&#233</a> for a summary of my work.</h3>
-                    </div>
-                </div>
-                <br>
+                    Ever since then, I've been programming non-stop! Working long hours, both with teams and alone, in hackathons, game jams, at school, at work and at home to make cool stuff.
+                </p>
+                <p>
+                    This site can give you an idea of my experience, skills and interests. And, nowadays <a href="/blog" target="_blank" style="color: #3f43db;">I also have a blog</a>!
+                </p>
             </div>
+            <br>
+        </div>
 
-            <!-- Experience (Work, Extracurricular, Volunteer) -->
-            <div id="experience" class="row central-content img-rounded">
-                <div>
-                    <h1>Experience</h1>
-                    <div class="info-element">
-                        {% if work %}
-                        <h2>Professional</h2>
-                        <div id="work_div">
-                            {% for object in work %}
-                                {% include 'static_rowitem.html' with obj=object %}
-                            {% endfor %}
-                        </div>
-                            {% if extracurricular or volunteer %}<hr>{% endif %}
-                        {% endif %}
-                        {% if extracurricular %}
-                        <h2>Extracurricular</h2>
-                        <div id="extracurricular_div">
-                            {% for object in extracurricular %}
-                                {% include 'static_rowitem.html' with obj=object %}
-                            {% endfor %}
-                        </div>
-                            {% if volunteer %}<hr>{% endif %}
-                        {% endif %}
-                        {% if volunteer %}
-                        <h2>Volunteer</h2>
-                        <div id="volunteer_div">
-                            {% for object in volunteer %}
-                                {% include 'static_rowitem.html' with obj=object %}
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-
-            <!-- Personal Projects-->
-            <div id="projects" class="row central-content img-rounded">
-                <h1>Technical Projects</h1>
+        <!-- Personal Overview (Summary)-->
+        <div id="overview" class="row central-content top-most img-rounded">
+            <div>
+                <h1>Overview</h1>
                 <div class="info-element">
-                    <h3>These are some of the things I've built and worked on.</h3>
-                    <p>Click on them and check out the details</p>
+                    {# Mainly talk about languages, education and abilities #}
+                    <h3>I studied Computer Engineering at <a href="https://www.concordia.ca/encs.html" target="_blank">Concordia University</a> in Montreal, Canada.</h3>
+                    <p>CGPA 3.87/4.0 - Dean's List Student (2012-2015) - Member of the Institute for Co-operative Education.</p>
+                    <h3>Professional member of the <a href="http://www.acm.org/about-acm/about-the-acm-organization" target="_blank">ACM</a>.</h3>
+                    <p>Interested in working with Computer Graphics, Computer Architecture and Operating Systems.</p>
+                    <h3>Fluent in Spanish and English. Can understand French.</h3>
+                    <p>Looking to learn Japanese in the near future...</p>
+                    <hr>
+                    <h3>Take a look at my <a href="{% static 'personal_site/files/resume.pdf' %}">R&#233sum&#233</a> for a summary of my work.</h3>
                 </div>
-                <div class="row">
+            </div>
+            <br>
+        </div>
+
+        <!-- Experience (Work, Extracurricular, Volunteer) -->
+        <div id="experience" class="row central-content img-rounded">
+            <div>
+                <h1>Experience</h1>
+                <div class="info-element">
+                    {% if work %}
+                    <h2>Professional</h2>
+                    <div id="work_div">
+                        {% for object in work %}
+                            {% include 'static_rowitem.html' with obj=object %}
+                        {% endfor %}
+                    </div>
+                        {% if extracurricular or volunteer %}<hr>{% endif %}
+                    {% endif %}
+                    {% if extracurricular %}
+                    <h2>Extracurricular</h2>
+                    <div id="extracurricular_div">
+                        {% for object in extracurricular %}
+                            {% include 'static_rowitem.html' with obj=object %}
+                        {% endfor %}
+                    </div>
+                        {% if volunteer %}<hr>{% endif %}
+                    {% endif %}
+                    {% if volunteer %}
+                    <h2>Volunteer</h2>
+                    <div id="volunteer_div">
+                        {% for object in volunteer %}
+                            {% include 'static_rowitem.html' with obj=object %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal Projects-->
+        <div id="projects" class="row central-content img-rounded">
+            <h1>Technical Projects</h1>
+            <div class="info-element">
+                <h3>These are some of the things I've built and worked on.</h3>
+                <p>Click on them and check out the details</p>
+            </div>
+            <div class="row">
+                <div class="grid" id="project_div" data-masonry='{"itemSelector":".grid-item", "columnWidth": 160, "isFitWidth":true, "gutter":5}' style="margin: auto">
+                    <div class="grid-sizer"></div>
+                    {% for item in projects %}
+                        {% include 'grid_displayitem.html' with obj=item %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="info-element">
+                <p>There's always room for improvement, so <a href="#contact" style="color: white; font-weight: bold">let me know</a> what you thought about them!</p>
+            </div>
+        </div>
+
+        <!-- Game Titles -->
+        <div id="titles" class="row central-content img-rounded">
+            <div>
+                <h1>Games</h1>
+                <div class="info-element">
+                    <h3>Below are the published titles I've worked on as a developer.</h3>
+                    <p>They all had awesome teams behind them working non-stop for their release.</p>
+                </div>
+
+                <div class="row col-sm-12" id="games_div" style="float: none;">
                     <div class="grid" id="project_div" data-masonry='{"itemSelector":".grid-item", "columnWidth": 160, "isFitWidth":true, "gutter":5}' style="margin: auto">
                         <div class="grid-sizer"></div>
-                        {% for item in projects %}
+                        {% for item in games %}
                             {% include 'grid_displayitem.html' with obj=item %}
                         {% endfor %}
                     </div>
                 </div>
-                <div class="info-element">
-                    <p>There's always room for improvement, so <a href="#contact" style="color: white; font-weight: bold">let me know</a> what you thought about them!</p>
-                </div>
             </div>
-
-            <!-- Game Titles -->
-            <div id="titles" class="row central-content img-rounded">
-                <div>
-                    <h1>Games</h1>
-                    <div class="info-element">
-                        <h3>Below are the published titles I've worked on as a developer.</h3>
-                        <p>They all had awesome teams behind them working non-stop for their release.</p>
-                    </div>
-
-                    <div class="row col-sm-12" id="games_div" style="float: none;">
-                        <div class="grid" id="project_div" data-masonry='{"itemSelector":".grid-item", "columnWidth": 160, "isFitWidth":true, "gutter":5}' style="margin: auto">
-                            <div class="grid-sizer"></div>
-                            {% for item in games %}
-                                {% include 'grid_displayitem.html' with obj=item %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Honors and Awards-->
-            <div id="awards" class="row central-content img-rounded">
-                <h1>Honors & Awards</h1>
-                <div id="awards_div" style="margin: auto">
-                    {% for item in awards %}
-                        {% include 'static_thinrowitem.html' with obj=item %}
-                    {% endfor %}
-                </div>
-
-                <br>
-            </div>
-
-            <!-- Contact Me! -->
-            <div id="contact" class="row central-content img-rounded">
-                <h1>Contact Info</h1>
-                <div class="">
-                    {% for item in contact_info %}
-                        {% include 'contactinfoitem.html' with info=item %}
-                    {% endfor %}
-                </div>
-            </div>
-
-            <!-- Make some space  -->
-            <br><br><br>
-            <div class="text-center row">
-                <h3>Made using <a href="https://www.djangoproject.com/"><img src="{% static "personal_site/images/django.png" %}" height="48" width="auto"></a></h3>
-            </div>
-
-            <br><br><br><br>
         </div>
+
+        <!-- Honors and Awards-->
+        <div id="awards" class="row central-content img-rounded">
+            <h1>Honors & Awards</h1>
+            <div id="awards_div" style="margin: auto">
+                {% for item in awards %}
+                    {% include 'static_thinrowitem.html' with obj=item %}
+                {% endfor %}
+            </div>
+
+            <br>
+        </div>
+
+        <!-- Contact Me! -->
+        <div id="contact" class="row central-content img-rounded">
+            <h1>Contact Info</h1>
+            <div class="">
+                {% for item in contact_info %}
+                    {% include 'contactinfoitem.html' with info=item %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Make some space  -->
+        <br><br><br>
+        <div class="text-center row">
+            <h3>Made using <a href="https://www.djangoproject.com/"><img src="{% static "personal_site/images/django.png" %}" height="48" width="auto"></a></h3>
+        </div>
+
+        <br><br><br><br>
     </div>
 </div>
 
