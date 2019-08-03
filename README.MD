@@ -1,6 +1,6 @@
 # My Personal Website
 
-Small Django app that powers [my personal site and blog](javierfajardo.com).
+Small Django app that powers [my personal site and blog](https://javierfajardo.com).
 
 It's made to be extremely basic while allowing some extended functionality.
 
