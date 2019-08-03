@@ -2,4 +2,4 @@ Pillow==5.3.0
 Django==2.1.5
 puput==1.0.3
 wagtail==2.3
-git+http://github.com/TwilioDevEd/wagtailtinymce
+git+http://github.com/foxtrotzulu94/wagtailtinymce
