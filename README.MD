@@ -1,17 +1,17 @@
-# Django Project for Personal Website
+# My Personal Website
 
-Small Django app that powers my personal site. Made to be extremely basic and extensible while providing some extended functionality
+Small Django app that powers [my personal site and blog](javierfajardo.com).
 
+It's made to be extremely basic while allowing some extended functionality.
 
 ## Installation
 
-This app comes packed with a virtualenv that contains everything needed to run.
+Run the `setupVirtualEnv.{sh,bat}` script in order to get a local environment up and running for quick iterations.
 
-If you don't want to use the virtualenv, install Python 3, Django and Pillow to run successfully
+You need to have Python 3 installed on your machine. Docker is optional for Production like deployments.
 
 ## Running the App
 
-The app requires either Debug to be true or a Secret Key to be provided
-For development/debugging, run with
-* Linux: `env DEBUG=1 python3 manage.py runserver`
-* Windows: `set DEBUG=True && python manage.py runserver`
+For quick development, use `source startVirtualEnv.bat` and then run `python manage.py runserver`.
+
+The Dockerfile is used to mimic a production deployment to the server and can be quickly run by using `runDocker.ps1`. Don't mind the extension, it'll work on *nix environments too.
