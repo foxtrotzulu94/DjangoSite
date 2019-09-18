@@ -22,6 +22,7 @@ class TinyMCEWrapper(TinyMCERichTextArea):
         translation.trans_real.activate(settings.LANGUAGE_CODE)
         super(TinyMCEWrapper, self).__init__(*args, **kwargs)
         self.kwargs['buttons'][0].append(['codesample code'])
+        print("TinyMCE: Successfully Initialized")
 
     def render_js_init(self, id_, name, value):
         """Overriden from base class to get complete control over editor init"""
@@ -104,10 +105,11 @@ def whitelister_element_rules(features):
     }
 
     for key, val in rules.items():
-        features.register_converter_rule('editorhtml', key, [ WhitelistRule(key, val), ] )
-        
-        # add 'blockquote' to the default feature set
+        features.register_converter_rule('editorhtml', key, [ WhitelistRule(key, val) ] )
+
+        # add key (e.g. blockquote) to the default feature set
         features.default_features.append(key)
+    print("TinyMCE: Completed adding whitelist features")
 
 
 @hooks.register('insert_tinymce_js')
