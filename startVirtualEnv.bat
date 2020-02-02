@@ -1,3 +1,3 @@
 @ECHO OFF
-call DEV-ENV\Scripts\activate.bat
+call DEV-ENV-WIN\Scripts\activate.bat
 set DEBUG=True
