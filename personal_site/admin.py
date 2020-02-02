@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from personal_site.models import *
 
 # Register your models here.
@@ -11,7 +12,7 @@ admin.site.register(ExampleItem)
 class SimpleInfoAdmin(admin.ModelAdmin):
     def preview_thumbnail(self, model):
         if model.thumbnail.name is not "":
-            return u'<img src=\"%s\" width=\"auto\" height=\"64\"/>' % str(model.thumbnail.url)
+            return mark_safe('<img src="%s" width="auto" height="64"/>' % model.thumbnail.url)
         else:
             return u'No Thumbnail available'
     preview_thumbnail.allow_tags = True
@@ -24,7 +25,7 @@ class SimpleInfoAdmin(admin.ModelAdmin):
 class ExperienceItemAdmin(admin.ModelAdmin):
     def preview_thumbnail(self, model):
         if model.thumbnail.name is not "":
-            return u'<img src=\"%s\" width=\"auto\" height=\"64\"/>' % str(model.thumbnail.url)
+            return mark_safe('<img src="%s" width="auto" height="64"/>' % model.thumbnail.url)
         else:
             return u'No Thumbnail available'
     preview_thumbnail.allow_tags = True
@@ -38,7 +39,7 @@ class GeneralDisplayItemAdmin(admin.ModelAdmin):
     def preview_thumbnail(self, model):
         type(model.thumbnail)
         if model.thumbnail.name is not "":
-            return u'<img src=\"%s\" width=\"auto\" height=\"64\"/>' % str(model.thumbnail.url)
+            return mark_safe('<img src="%s" width="auto" height="64"/>' % model.thumbnail.url)
         else:
             return u'No Thumbnail available'
     preview_thumbnail.allow_tags = True
