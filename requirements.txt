@@ -1,5 +1,5 @@
 Pillow==6.2.0
 Django==2.2.10
 puput==1.0.6
-wagtail==2.8
+wagtail==2.9.3
 git+http://github.com/foxtrotzulu94/wagtailtinymce
