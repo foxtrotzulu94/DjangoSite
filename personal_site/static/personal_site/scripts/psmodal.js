@@ -70,7 +70,7 @@
  function UpdateCarousel(modal, data, category, pk){
     //The one start image is the thumbnail, which is automatically enlarged
     $("#modal_img_indicators",modal).html("<li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>");
-    $("#modal_img_slides",modal).html("<div class='item active text-center'><img src=\""+window.MEDIA_URL+data.thumbnail+"\" alt='Project Main Image' style='height: 256px;width: auto; object-fit: contain' class='img-rounded img-responsive'></div>");
+    $("#modal_img_slides",modal).html("<div class='item active text-center'><img src=\""+window.MEDIA_URL+data.thumbnail+"\" alt='Project Main Image' style='height: 256px;width: auto; object-fit: contain' class=' img-responsive'></div>");
 
     //Trigger another AJAX to load the rest of the images
     var ajaxImgRequest = ajaxImageHandler(category, pk, function(call_data){console.log(call_data)});
@@ -81,7 +81,7 @@
             // The result should be a list of image URLs
             // We can plug them in directly to the HTML
             for(var i=0; i<result.length; ++i){
-                $("#modal_img_slides",modal).append("<div class='item text-center img-rounded img-responsive'><img src=\""+result[i]+"\" alt='ProjectImages' style='height: 256px;width: auto; object-fit: contain' class='img-rounded img-responsive'></div>");
+                $("#modal_img_slides",modal).append("<div class='item text-center  img-responsive'><img src=\""+result[i]+"\" alt='ProjectImages' style='height: 256px;width: auto; object-fit: contain' class=' img-responsive'></div>");
                 $("#modal_img_indicators",modal).append("<li data-target='#myCarousel' data-slide-to='"+(i+1)+"' class=''></li>");
             }
 

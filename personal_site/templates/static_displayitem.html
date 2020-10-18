@@ -1,6 +1,6 @@
 {# Small block element used to render DisplayItems on the front page#}
 {% load staticfiles %}
-<div class="col-lg-3 img-rounded" style="word-wrap: break-word;" id="{{ obj.pk }}">
+<div class="col-lg-3 " style="word-wrap: break-word;" id="{{ obj.pk }}">
     <div class="text-center" id="inner_div" >
     {% if obj.external_link %}<a href="{{ obj.external_link }}" target="_blank">{% endif %}
         <img src="{{ MEDIA_URL }}{{ obj.thumbnail }}" class="img-thumbnail img-responsive" id="item_thumbnail" width="300px">

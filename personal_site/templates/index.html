@@ -159,6 +159,10 @@
 		}
     }
 
+    /* .container{
+        width: auto;
+    } */
+
     </style>
 </head>
 
@@ -169,7 +173,7 @@
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 sidebar" id="myScrollspy">
             <ul class="nav nav-pills nav-stacked navbar-light" style="width: auto; padding-right: 10%; padding-left: 10%">
                 <li style="text-align: center">
-					<img src="{% static 'personal_site/images/jefz-2020.jpg' %}" width="100%" height="auto" class="img-rounded hidden-xs">
+					<img src="{% static 'personal_site/images/jefz-2020.jpg' %}" width="100%" height="auto" class=" hidden-xs">
 				</li>
 
                 <li style="margin-left:5px; text-align: center">
@@ -191,7 +195,7 @@
         </div>
 
     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 central-column" style="">
-        <div id="section0" class="row central-content top-most img-rounded" style="margin-top:-20px;background-color: rgba(0,0,0,0.5);color:#ffffff">
+        <div id="section0" class="row central-content top-most " style="margin-top:-20px;background-color: rgba(0,0,0,0.5);color:#ffffff">
             <div>
                 <h1>Hey there, I'm Javier!</h1>
             </div>
@@ -212,7 +216,7 @@
         </div>
 
         <!-- Personal Overview (Summary)-->
-        <div id="overview" class="row central-content top-most img-rounded">
+        <div id="overview" class="row central-content top-most ">
             <div>
                 <h1>Overview</h1>
                 <div class="info-element">
@@ -231,7 +235,7 @@
         </div>
 
         <!-- Experience (Work, Extracurricular, Volunteer) -->
-        <div id="experience" class="row central-content img-rounded">
+        <div id="experience" class="row central-content ">
             <div>
                 <h1>Experience</h1>
                 <div class="info-element">
@@ -266,7 +270,7 @@
         </div>
 
         <!-- Personal Projects-->
-        <div id="projects" class="row central-content img-rounded">
+        <div id="projects" class="row central-content ">
             <h1>Technical Projects</h1>
             <div class="info-element">
                 <h3>These are some of the things I've built and worked on.</h3>
@@ -288,7 +292,7 @@
         {% comment %}
         <!-- Unfortunately, we're no longer in games :( -->
         <!-- Game Titles -->
-        <div id="titles" class="row central-content img-rounded">
+        <div id="titles" class="row central-content ">
             <div>
                 <h1>Games</h1>
                 <div class="info-element">
@@ -309,7 +313,7 @@
         {% endcomment %}
 
         <!-- Honors and Awards-->
-        <div id="awards" class="row central-content img-rounded">
+        <div id="awards" class="row central-content ">
             <h1>Honors & Awards</h1>
             <div id="awards_div" style="margin: auto">
                 {% for item in awards %}
@@ -321,7 +325,7 @@
         </div>
 
         <!-- Contact Me! -->
-        <div id="contact" class="row central-content img-rounded">
+        <div id="contact" class="row central-content ">
             <h1>Contact Info</h1>
             <div class="">
                 {% for item in contact_info %}
