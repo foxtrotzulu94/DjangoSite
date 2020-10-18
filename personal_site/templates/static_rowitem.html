@@ -3,12 +3,12 @@
 {% load staticfiles %}
 <div class="row " id="row_item" style="background-color: rgba(0,0,0,0.15); padding-top: 2%;padding-bottom: 2%; margin:1%;">
     <!-- Side Image/Thumbnail -->
-    <div class="col-lg-2 col-md-4 col-sm-6" id="inner_div">
+    <div class="col-lg-2 col-md-4 col-sm-4" id="inner_div">
         <a href="{{ obj.ext_url }}"><img src="{{ MEDIA_URL }}{{ obj.thumbnail }}" class=" img-responsive" id="row_item_thumbnail" style="margin-left: auto; margin-right: auto; width: 80%; margin-bottom: 15px;"></a>
     </div>
 
     <!-- Central Text -->
-    <div class="col-lg-10 col-md-8 col-sm-6" style="margin-left:-2%;">
+    <div class="col-lg-10 col-md-8 col-sm-8" style="margin-left:-2%;">
         <div class="row">
 			<div class="col-md-8"><h3 style="margin-top: -5px;" id="row_item_title">{{ obj.title }}</h3></div>
 			<div class="col-md-4 text-right">
@@ -28,11 +28,11 @@
         </div>
 		<div class="row col-sm-12">
 			<h4 style="margin-top: -5px" id="row_item_subheader"><a href="{{ obj.ext_url }}">{{ obj.organization }}</a> in {{ obj.location }}</h4>
-			<p id="row_item_description">{{ obj.description }}</p>
+            <p id="row_item_description">{{ obj.description }}</p>
+            <!-- Closing footer -->
+            {% if obj.highlights %}
+            <p id="row_item_tech">Technologies: <b>{{ obj.highlights }}</b></p>
+            {% endif %}
 		</div>
     </div>
-    <!-- Closing footer -->
-    {% if obj.highlights %}
-    <p style="padding-left: 2%;padding-right: 2%;" id="row_item_tech">Technologies: <b>{{ obj.highlights }}</b></p>
-    {% endif %}
 </div>
