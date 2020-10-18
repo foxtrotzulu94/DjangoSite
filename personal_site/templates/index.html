@@ -169,7 +169,7 @@
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 sidebar" id="myScrollspy">
             <ul class="nav nav-pills nav-stacked navbar-light" style="width: auto; padding-right: 10%; padding-left: 10%">
                 <li style="text-align: center">
-					<img src="{% static 'personal_site/images/jefz.jpg' %}" width="100%" height="auto" class="img-rounded hidden-xs">
+					<img src="{% static 'personal_site/images/jefz-2020.jpg' %}" width="100%" height="auto" class="img-rounded hidden-xs">
 				</li>
 
                 <li style="margin-left:5px; text-align: center">
@@ -343,8 +343,10 @@
 <script type="application/javascript"> {# JS Global Constants being passed to our scripts #}
     window.MEDIA_URL = '{{ MEDIA_URL }}';
     window.POPUP_MODAL = {}; //Set in on Document load
-    window.AJAX_MODELS = ["projects"]; //Any models requiring AJAX work
     window.DATAMAP = {}; //set after AJAX calls
+    {% autoescape off %}
+        window.DATAMAP["projects"] = {{serialized_projects}}
+    {% endautoescape %}
 </script>
 
 {# Things that should be hidden from users #}

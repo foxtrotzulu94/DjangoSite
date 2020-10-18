@@ -100,7 +100,7 @@
 // pk -> int
 modal_popup = function (event) {
     var popupModal = window.POPUP_MODAL;
-    var data = window.DATAMAP[event.data.category][event.data.pk];
+    var data = window.DATAMAP[event.data.category][event.data.idx]["fields"];
 
     PopulateSimpleTextFields(popupModal, data);
     PopulateLinks(popupModal, data);

@@ -21,6 +21,8 @@ def index(request):
     projects = PersonalProject.objects.all().order_by('-end_date')
     games = GameTitle.objects.all()
     awards = Award.objects.all().order_by('-date')
+    
+    serialized_projects = serializers.serialize("json", projects)
     return render(
         request,
         'index.html',
@@ -30,7 +32,8 @@ def index(request):
          'projects': projects,
          'games': games,
          'contact_info': contact,
-         'awards': awards
+         'awards': awards,
+         'serialized_projects': serialized_projects
          }
     )
 
