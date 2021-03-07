@@ -106,6 +106,7 @@ def whitelister_element_rules(features):
 
     for key, val in rules.items():
         features.register_converter_rule('editorhtml', key, [ WhitelistRule(key, val) ] )
+        features.register_converter_rule('contentstate', key, [ WhitelistRule(key, val) ] )
 
         # add key (e.g. blockquote) to the default feature set
         features.default_features.append(key)
