@@ -64,7 +64,7 @@ class TinyMCEWrapper(TinyMCERichTextArea):
 @hooks.register('register_rich_text_features')
 def whitelister_element_rules(features):
     # Values taken from wagtail/core/whitelist.py:67
-    allow_with_inline_style = attribute_rule({'style': True})
+    allow_with_inline_style = attribute_rule({'style': True, 'id': True})
 
     rules = {
         'a': attribute_rule({'href': check_url, 'style': True}),
