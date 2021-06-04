@@ -15,8 +15,8 @@ class YoutubeOEmbedFinder(OEmbedFinder):
         result = super().find_embed(url, max_width)
 
         # HACK: do some magic to make our embed bigger!
-        width_string = f"width=\"{result['width']}\""
-        height_string = f"height=\"{result['height']}\""
+        width_string = "width=\"{}\"".format(result['width'])
+        height_string = "height=\"{}\"".format(result['height'])
 
         html_content = result['html']
         result['html'] = html_content.replace(width_string, 'width="100%"').replace(height_string, 'height="512px"')
