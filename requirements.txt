@@ -1,5 +1,5 @@
 Pillow==7.1.0
-Django==2.2.13
+Django==2.2.21
 puput==1.0.6
 wagtail==2.9.3
 # Make sure this works on latest branch
