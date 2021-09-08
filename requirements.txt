@@ -1,4 +1,4 @@
-Pillow==7.1.0
+Pillow==8.3.2
 Django==2.2.13
 puput==1.0.6
 wagtail==2.9.3
