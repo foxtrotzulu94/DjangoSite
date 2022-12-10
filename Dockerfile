@@ -6,6 +6,7 @@ ENV DEBUG 1
 ADD requirements.txt /
 RUN python -m pip install -r /requirements.txt
 
+# TODO: Fix the "copy everything you find" step
 COPY . /
 EXPOSE 8000
 
