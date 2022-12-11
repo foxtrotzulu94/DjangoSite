@@ -31,6 +31,7 @@ if 'SECRET_KEY' not in os.environ:
     os.environ['SECRET_KEY'] = 'This1s4$tr0ngD38ugK3y'  # Close Enough :)
 
 SECRET_KEY = os.environ['SECRET_KEY']
+DB_PASS = os.environ['DB_PASS'] if 'DB_PASS' in os.environ else ""
 
 ALLOWED_HOSTS = ['*']
 
@@ -113,11 +114,22 @@ WSGI_APPLICATION = 'domain.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
+MYSQL = {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'personal_site',
+        'USER': 'personal_site',
+        'PASSWORD': DB_PASS,
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+
+SQLITE = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Consider changing this into an OS env var
     }
+
+DATABASES = {
+    'default': MYSQL if DB_PASS != "" else SQLITE
 }
 
 

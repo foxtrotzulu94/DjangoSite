@@ -1,7 +1,7 @@
 FROM python:3.6-slim
 
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends git
+RUN apt-get install -y --no-install-recommends git default-libmysqlclient-dev
 RUN apt-get purge -y --auto-remove
 
 ENV PYTHONUNBUFFERED 1
