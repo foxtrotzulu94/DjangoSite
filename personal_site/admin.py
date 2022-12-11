@@ -11,7 +11,7 @@ admin.site.register(ExampleItem)
 @admin.register(ContactInfo, GameTitle)
 class SimpleInfoAdmin(admin.ModelAdmin):
     def preview_thumbnail(self, model):
-        if model.thumbnail.name is not "":
+        if model.thumbnail.name != "":
             return mark_safe('<img src="%s" width="auto" height="64"/>' % model.thumbnail.url)
         else:
             return u'No Thumbnail available'
@@ -24,7 +24,7 @@ class SimpleInfoAdmin(admin.ModelAdmin):
 @admin.register(WorkExperience, ExtracurricularExperience, VolunteerExperience)
 class ExperienceItemAdmin(admin.ModelAdmin):
     def preview_thumbnail(self, model):
-        if model.thumbnail.name is not "":
+        if model.thumbnail.name != "":
             return mark_safe('<img src="%s" width="auto" height="64"/>' % model.thumbnail.url)
         else:
             return u'No Thumbnail available'
@@ -38,7 +38,7 @@ class ExperienceItemAdmin(admin.ModelAdmin):
 class GeneralDisplayItemAdmin(admin.ModelAdmin):
     def preview_thumbnail(self, model):
         type(model.thumbnail)
-        if model.thumbnail.name is not "":
+        if model.thumbnail.name != "":
             return mark_safe('<img src="%s" width="auto" height="64"/>' % model.thumbnail.url)
         else:
             return u'No Thumbnail available'

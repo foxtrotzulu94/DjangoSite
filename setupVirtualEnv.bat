@@ -1,7 +1,7 @@
 @ECHO OFF
 set EnvName=DEV-ENV-WIN
 
-virtualenv %EnvName%
+python -m virtualenv %EnvName%
 call %EnvName%\Scripts\activate.bat
 pip install -r requirements.txt
 set DEBUG=True

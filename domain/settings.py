@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 
-    'wagtail.core.middleware.SiteMiddleware',
+    'wagtail.contrib.legacy.sitemiddleware.SiteMiddleware',
 
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
@@ -112,6 +112,8 @@ WSGI_APPLICATION = 'domain.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 
 DATABASES = {
     'default': {
