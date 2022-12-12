@@ -20,7 +20,7 @@ COPY domain/ $APP_DIR/domain/
 COPY personal_site/ $APP_DIR/personal_site/
 
 # TODO: Remove this at some point
-COPY db.sqlite3 $APP_DIR
+COPY *.sqlite3 $APP_DIR
 
 COPY requirements.txt $APP_DIR
 # Check the requirements file first to avoid redownloading everything
@@ -31,5 +31,3 @@ WORKDIR $APP_DIR
 RUN python manage.py collectstatic --noinput
 RUN python manage.py makemigrations --noinput
 RUN python manage.py migrate --noinput
-
-CMD ["python", "manage.py", "runserver", "0.0.0.0:7654"]
