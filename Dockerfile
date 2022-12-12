@@ -1,7 +1,9 @@
 FROM python:3.6-slim
 
+RUN pip install gunicorn
+
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends git default-libmysqlclient-dev
+RUN apt-get install -y --no-install-recommends git default-libmysqlclient-dev gcc
 RUN apt-get purge -y --auto-remove
 
 ENV PYTHONUNBUFFERED 1
@@ -30,4 +32,4 @@ RUN python manage.py collectstatic --noinput
 RUN python manage.py makemigrations --noinput
 RUN python manage.py migrate --noinput
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:7654"]
