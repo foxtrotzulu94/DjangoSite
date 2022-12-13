@@ -7,7 +7,16 @@ RUN apt-get install -y --no-install-recommends git default-libmysqlclient-dev gc
 RUN apt-get purge -y --auto-remove
 
 ENV PYTHONUNBUFFERED 1
-ENV DEBUG 1
+
+ARG ENV_DEBUG=1
+ENV DEBUG ENV_DEBUG
+
+ARG ENV_DB_PASS=""
+ENV DB_PASS ENV_DB_PASS
+
+ARG ENV_SECRET_KEY=""
+ENV SECRET_KEY ENV_SECRET_KEY
+
 ENV APP_DIR=/app
 
 RUN mkdir $APP_DIR
