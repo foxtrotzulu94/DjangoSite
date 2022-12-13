@@ -32,6 +32,10 @@ if 'SECRET_KEY' not in os.environ:
 
 SECRET_KEY = os.environ['SECRET_KEY']
 DB_PASS = os.environ['DB_PASS'] if 'DB_PASS' in os.environ else ""
+if DB_PASS != "":
+    print("Using MySQL backend")
+else:
+    print("Using SQLite3")
 
 ALLOWED_HOSTS = ['*']
 
@@ -120,7 +124,7 @@ MYSQL = {
         'USER': 'personal_site',
         'PASSWORD': DB_PASS,
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '3306',
     }
 
 SQLITE = {
