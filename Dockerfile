@@ -24,18 +24,19 @@ ENV APP_DIR=/app
 
 RUN mkdir $APP_DIR
 
+COPY requirements.txt $APP_DIR
+# Check the requirements file first to avoid redownloading everything
+RUN python -m pip install -r $APP_DIR/requirements.txt
+
 COPY LICENSE $APP_DIR
 COPY templates $APP_DIR
 COPY manage.py $APP_DIR
+
 COPY runner.sh $APP_DIR
 RUN chmod +x $APP_DIR/runner.sh
 
 COPY domain/ $APP_DIR/domain/
 COPY personal_site/ $APP_DIR/personal_site/
-
-COPY requirements.txt $APP_DIR
-# Check the requirements file first to avoid redownloading everything
-RUN python -m pip install -r $APP_DIR/requirements.txt
 
 EXPOSE 8000
 WORKDIR $APP_DIR
