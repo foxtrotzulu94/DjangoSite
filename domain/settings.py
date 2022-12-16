@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = 'DEBUG' in os.environ and (os.environ['DEBUG'] == '1' or os.environ['DEBUG'] == "True")
 print("Debug Mode: %s" % DEBUG)
 
-# Security Key on prod is a secret. if you need to debug, uncomment the line below
+# Security Key on prod is a secret.
 if 'SECRET_KEY' not in os.environ:
     if not DEBUG:
         raise KeyError("No Secret Key Provided for a non-Debug Server!")
@@ -36,7 +36,7 @@ DB_ADDR = os.environ['DB_ADDR'] if 'DB_ADDR' in os.environ else ""
 
 if DB_PASS != "":
     print("Using MySQL backend")
-    print("Database addres: ", DB_ADDR )
+    print("Database address: ", DB_ADDR )
 else:
     print("Using SQLite3")
 
@@ -136,7 +136,7 @@ SQLITE = {
     }
 
 DATABASES = {
-    'default': MYSQL if DB_PASS != "" else SQLITE
+    'default': SQLITE if DB_ADDR == "" else MYSQL
 }
 
 
