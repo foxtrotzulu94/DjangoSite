@@ -16,7 +16,7 @@ from puput import PUPUT_APPS
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+print("Using base dir: ", BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -75,7 +75,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            # os.path.join(BASE_DIR, 'personal_site/templates')
             os.path.join(BASE_DIR, "templates"),  # This is used to override templates from any installed app (e.g. Puput)
         ],
         'APP_DIRS': True,

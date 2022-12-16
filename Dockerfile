@@ -29,7 +29,6 @@ COPY requirements.txt $APP_DIR
 RUN python -m pip install -r $APP_DIR/requirements.txt
 
 COPY LICENSE $APP_DIR
-COPY templates $APP_DIR
 COPY manage.py $APP_DIR
 
 COPY runner.sh $APP_DIR
