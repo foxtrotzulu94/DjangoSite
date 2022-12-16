@@ -40,5 +40,4 @@ COPY personal_site/ $APP_DIR/personal_site/
 
 EXPOSE 8000
 WORKDIR $APP_DIR
-RUN python manage.py collectstatic --noinput
 CMD ./runner.sh 

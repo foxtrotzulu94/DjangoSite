@@ -1,4 +1,7 @@
 #!/bin/bash
+echo Making migrations
+python manage.py collectstatic --noinput
+
 echo Making Migrations...
 python manage.py makemigrations --noinput
 
