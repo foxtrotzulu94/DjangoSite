@@ -32,11 +32,13 @@ COPY LICENSE $APP_DIR
 COPY manage.py $APP_DIR
 
 COPY runner.sh $APP_DIR
-RUN chmod +x $APP_DIR/runner.sh
-
 COPY domain/ $APP_DIR/domain/
 COPY personal_site/ $APP_DIR/personal_site/
 
+RUN chown -R www-data:www-data $APP_DIR
+RUN chmod +x $APP_DIR/runner.sh
+
 EXPOSE 8000
+USER www-data:www-data
 WORKDIR $APP_DIR
 CMD ./runner.sh 
