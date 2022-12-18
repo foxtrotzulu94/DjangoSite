@@ -189,7 +189,10 @@ WAGTAIL_SITE_NAME = 'Javier E. Fajardo\'s Blog'
 
 WAGTAILADMIN_RICH_TEXT_EDITORS = {
    'default': {
-       'WIDGET': 'domain.tiny_mce_wrapper.TinyMCEWrapper'
+       'WIDGET': 'domain.tiny_mce_wrapper.TinyMCEWrapper',
+        'OPTIONS': {
+            'features': ['a', 'img', 'document-link', 'b', 'br', 'div', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hr', 'i', 'li', 'ol', 'p', 'strong', 'sub', 'sup', 'ul', 'table', 'thead', 'tbody', 'th', 'td', 'tr', 'blockquote', 'code', 'pre', 'span']
+        }
    },
 }
 
